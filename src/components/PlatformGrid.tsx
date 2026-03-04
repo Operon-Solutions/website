@@ -139,7 +139,7 @@ export default function PlatformGrid() {
               What&apos;s inside Operon?
             </span>
           </div>
-          <h2 className="font-serif italic text-[clamp(1.7rem,4vw,2.8rem)] leading-[1.15] max-w-2xl tracking-tight">
+          <h2 className="font-serif text-[clamp(1.7rem,4vw,2.8rem)] leading-[1.15] max-w-2xl tracking-tight">
             The complete AI platform built for
             <br />
             chemical engineering

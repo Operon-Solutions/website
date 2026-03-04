@@ -33,15 +33,15 @@ export default function Hero() {
 
       {/* ── Content ── */}
       <div className="relative z-10 max-w-[1200px] mx-auto px-6 lg:px-10 pt-32 md:pt-40 pb-32 w-full">
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="max-w-4xl mx-auto text-center">
           {/* Headline */}
           <h1
-            className={`font-serif italic font-medium text-[clamp(2.4rem,5.5vw,4.2rem)] leading-[1.12] tracking-tight mb-7 ${anim("0.1s")}`}
+            className={`font-serif font-light text-[clamp(2.4rem,5.5vw,4.2rem)] leading-[1.12] tracking-tight mb-7 ${anim("0.1s")}`}
             style={{ transitionDelay: "0.1s" }}
           >
-            When plant data sits in silos,{" "}
-            <br className="hidden sm:inline" />
-            <span className="font-bold italic">we connect every signal</span>
+            We help Manufacturing Industries{" "}
+            <br className="hidden md:inline" />
+            <span className="font-serif font-light">build domain-specific software solutions</span>
           </h1>
 
           {/* Subtitle */}
@@ -49,9 +49,7 @@ export default function Hero() {
             className={`text-[clamp(0.9rem,1.4vw,1.05rem)] leading-[1.75] text-white/50 max-w-xl mx-auto mb-10 ${anim("0.25s")}`}
             style={{ transitionDelay: "0.25s" }}
           >
-            Our AI understands your chemical engineering processes&mdash;from
-            P&IDs to simulations&mdash;then deploys intelligent systems that
-            transform how you operate.
+            
           </p>
 
           {/* CTAs */}

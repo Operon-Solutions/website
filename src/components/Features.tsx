@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef, useEffect, useCallback } from "react";
 import { useReveal } from "./useReveal";
 
 /* ── Glass Card Mockups ── */
@@ -307,10 +308,95 @@ const features = [
 /* ── Main Component ── */
 
 export default function Features() {
-  const ref = useReveal() as React.RefObject<HTMLElement>;
+  const sectionRef = useReveal() as React.RefObject<HTMLElement>;
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const fillRef = useRef<HTMLDivElement>(null);
+  const dotRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const currentH = useRef(0);   // smoothed height (lerped)
+  const targetH = useRef(0);    // raw target height from scroll
+  const rafId = useRef(0);
+
+  useEffect(() => {
+    const LERP_SPEED = 0.06; // lower = smoother & more delayed
+
+    function measure() {
+      const wrap = wrapRef.current;
+      const track = trackRef.current;
+      const fill = fillRef.current;
+      const dots = dotRefs.current.filter(Boolean) as HTMLDivElement[];
+      if (!wrap || !track || !fill || dots.length < 2) return;
+
+      const wrapRect = wrap.getBoundingClientRect();
+
+      const dotYs = dots.map((d) => {
+        const r = d.getBoundingClientRect();
+        return r.top + r.height / 2 - wrapRect.top;
+      });
+      const lineX =
+        dots[0].getBoundingClientRect().left +
+        dots[0].offsetWidth / 2 -
+        wrapRect.left;
+
+      const startY = dotYs[0];
+      const endY = dotYs[dotYs.length - 1];
+      const totalH = endY - startY;
+
+      // Position background track
+      track.style.left = `${lineX - 0.5}px`;
+      track.style.top = `${startY}px`;
+      track.style.height = `${totalH}px`;
+
+      // Raw scroll progress
+      const trigger = window.innerHeight * 0.55;
+      const firstDotScreenY =
+        dots[0].getBoundingClientRect().top + dots[0].offsetHeight / 2;
+      const progress = (trigger - firstDotScreenY) / totalH;
+      const clamped = Math.max(0, Math.min(1, progress));
+
+      targetH.current = clamped * totalH;
+
+      // Position fill (X & top stay in sync, height is lerped in tick)
+      fill.style.left = `${lineX - 0.5}px`;
+      fill.style.top = `${startY}px`;
+
+      // Activate / deactivate dots based on smoothed height
+      dots.forEach((dot, i) => {
+        const dotLocalY = dotYs[i] - startY;
+        if (currentH.current >= dotLocalY - 2) {
+          if (!dot.classList.contains("dot-active")) {
+            dot.classList.add("dot-active");
+          }
+        } else {
+          dot.classList.remove("dot-active");
+        }
+      });
+    }
+
+    function tick() {
+      // Lerp toward target
+      const diff = targetH.current - currentH.current;
+      if (Math.abs(diff) > 0.5) {
+        currentH.current += diff * LERP_SPEED;
+      } else {
+        currentH.current = targetH.current;
+      }
+
+      if (fillRef.current) {
+        fillRef.current.style.height = `${currentH.current}px`;
+      }
+
+      measure();
+      rafId.current = requestAnimationFrame(tick);
+    }
+
+    rafId.current = requestAnimationFrame(tick);
+
+    return () => cancelAnimationFrame(rafId.current);
+  }, []);
 
   return (
-    <section id="features" ref={ref} className="py-24 md:py-32">
+    <section id="features" ref={sectionRef} className="py-24 md:py-32">
       <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
         {/* ── Stats bar ── */}
         <div className="reveal flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-24">
@@ -347,13 +433,30 @@ export default function Features() {
               How it works
             </span>
           </div>
-          <h3 className="font-serif italic text-[clamp(1.7rem,4vw,2.8rem)] leading-[1.15] max-w-2xl tracking-tight">
+          <h3 className="font-serif text-[clamp(1.7rem,4vw,2.8rem)] leading-[1.15] max-w-2xl tracking-tight">
             Intelligent systems that understand every layer of your operations
           </h3>
         </div>
 
         {/* ── Timeline features ── */}
-        <div className="space-y-20 md:space-y-28">
+        <div ref={wrapRef} className="relative space-y-20 md:space-y-28">
+          {/* Background track (gray, first dot → last dot) */}
+          <div
+            ref={trackRef}
+            className="absolute w-px bg-white/[0.06] pointer-events-none"
+          />
+          {/* Scroll-driven fill (lime, grows with scroll) */}
+          <div
+            ref={fillRef}
+            className="absolute w-px pointer-events-none"
+            style={{
+              height: 0,
+              background: "#d8fe91",
+              boxShadow:
+                "0 0 6px rgba(216,254,145,0.4), 0 0 2px rgba(216,254,145,0.7)",
+            }}
+          />
+
           {features.map((feature, i) => (
             <div
               key={feature.label}
@@ -361,13 +464,13 @@ export default function Features() {
             >
               {/* Text with timeline */}
               <div className="relative pl-8 md:pl-10">
-                {/* Timeline dot + line */}
-                <div className="absolute left-0 top-0 flex flex-col items-center h-full">
-                  <div className="w-3 h-3 rounded-sm bg-[#d8fe91] flex-shrink-0 mt-1" />
-                  {i < features.length - 1 && (
-                    <div className="w-px flex-1 bg-white/[0.06] mt-3" />
-                  )}
-                </div>
+                {/* Timeline dot */}
+                <div
+                  ref={(el) => {
+                    dotRefs.current[i] = el;
+                  }}
+                  className="absolute left-0 top-1 w-3 h-3 rounded-sm bg-[#d8fe91] z-10 transition-shadow duration-500"
+                />
 
                 <div className="text-[13px] text-[#d8fe91] font-medium mb-3">
                   {feature.label}

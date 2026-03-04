@@ -17,7 +17,7 @@ export default function CTA() {
           </div>
         </div>
 
-        <h2 className="reveal delay-1 font-serif italic text-[clamp(1.7rem,4vw,2.8rem)] leading-[1.15] tracking-tight max-w-2xl mb-6">
+        <h2 className="reveal delay-1 font-serif text-[clamp(1.7rem,4vw,2.8rem)] leading-[1.15] tracking-tight max-w-2xl mb-6">
           Transform your plant operations, automatically
         </h2>
 

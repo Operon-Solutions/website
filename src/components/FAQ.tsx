@@ -6,7 +6,7 @@ import { useReveal } from "./useReveal";
 const faqs = [
   {
     q: "What's the actual ROI I can expect?",
-    a: "Most clients see 40-60% reduction in document processing time within the first month. Our P&ID recognition alone saves hundreds of engineering hours per project. We provide detailed ROI projections during our initial consultation.",
+    a: "Most clients see 60-80% reduction in document processing time within the first month. Our P&ID recognition alone saves hundreds of engineering hours per project. We provide detailed ROI projections during our initial consultation.",
   },
   {
     q: "How is this different from generic AI tools?",
@@ -75,8 +75,8 @@ export default function FAQ() {
             <span className="w-2.5 h-2.5 rounded-sm bg-white/40" />
             <span className="text-[13px] text-white/40 font-medium">FAQ</span>
           </div>
-          <h2 className="font-serif italic text-[clamp(1.7rem,4vw,2.8rem)] leading-[1.15] tracking-tight">
-            Questions? We&apos;ve got answers
+          <h2 className="font-serif text-[clamp(1.7rem,4vw,2.8rem)] leading-[1.15] tracking-tight">
+            Commonly Asked Questions
           </h2>
         </div>
 
