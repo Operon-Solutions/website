@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import MolecularMosaic from "./MolecularMosaic";
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
@@ -17,31 +16,33 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen overflow-hidden flex items-center">
-      {/* ── Halftone molecular mosaic background ── */}
+      {/* ── Background image ── */}
+      <div
+        className="absolute bottom-30 left-0 right-0 pointer-events-none"
+        style={{
+          backgroundImage: "url('/hero-bg-chemicalplant.png')",
+          backgroundSize: "contain",
+          backgroundPosition: "bottom center",
+          backgroundRepeat: "no-repeat",
+          height: "60%",
+        }}
+      />
+      {/* ── Overlays ── */}
       <div className="absolute inset-0 pointer-events-none">
-        <MolecularMosaic className="opacity-50" />
-        {/* Gradient overlays for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/70" />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(ellipse 60% 50% at 50% 45%, rgba(0,0,0,0.3) 0%, transparent 70%)",
-          }}
-        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/90" />
       </div>
 
       {/* ── Content ── */}
-      <div className="relative z-10 max-w-[1200px] mx-auto px-6 lg:px-10 pt-32 md:pt-40 pb-32 w-full">
+      <div className="relative z-10 max-w-[1200px] mx-auto px-6 lg:px-10 pb-32 -mt-24 w-full">
         <div className="max-w-4xl mx-auto text-center">
           {/* Headline */}
           <h1
             className={`font-serif font-light text-[clamp(2.4rem,5.5vw,4.2rem)] leading-[1.12] tracking-tight mb-7 ${anim("0.1s")}`}
             style={{ transitionDelay: "0.1s" }}
           >
-            We help Manufacturing Industries{" "}
+            Domain specific AI systems{" "}
             <br className="hidden md:inline" />
-            <span className="font-serif font-light">build domain-specific software solutions</span>
+            <span className="font-serif font-light">for Manufacturing Industries.</span>
           </h1>
 
           {/* Subtitle */}
@@ -57,16 +58,10 @@ export default function Hero() {
             className={`flex items-center justify-center gap-3 ${anim("0.4s")}`}
             style={{ transitionDelay: "0.4s" }}
           >
-            <a
-              href="#contact"
-              className="px-7 py-3 bg-[#d8fe91] text-black text-[14px] font-semibold rounded-lg hover:bg-[#cdf085] transition-all duration-300 hover:shadow-[0_0_30px_rgba(216,254,145,0.15)]"
-            >
-              Talk to us
+            <a href="#contact" className="btn-primary">
+              <span>Talk to us</span>
             </a>
-            <a
-              href="#features"
-              className="px-7 py-3 border border-white/15 text-white/70 text-[14px] font-medium rounded-lg hover:bg-white/[0.04] hover:border-white/25 transition-all duration-300"
-            >
+            <a href="#features" className="btn-secondary">
               See how it works
             </a>
           </div>

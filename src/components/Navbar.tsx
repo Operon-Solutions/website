@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -48,9 +49,12 @@ export default function Navbar() {
 
         {/* Center logo */}
         <Link href="/" className="flex items-center gap-2">
-          <img
+          <Image
             src="/operonlogo.svg"
             alt="Operon"
+            width={112}
+            height={28}
+            priority
             className="h-7 w-auto"
           />
           <span className="text-[17px] font-semibold tracking-tight">

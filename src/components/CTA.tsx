@@ -27,16 +27,10 @@ export default function CTA() {
         </p>
 
         <div className="reveal delay-3 flex items-center gap-3">
-          <a
-            href="#"
-            className="px-7 py-3 bg-[#d8fe91] text-black text-[14px] font-semibold rounded-lg hover:bg-[#cdf085] transition-all duration-300 hover:shadow-[0_0_30px_rgba(216,254,145,0.15)]"
-          >
-            Talk to us
+          <a href="#" className="btn-primary">
+            <span>Talk to us</span>
           </a>
-          <a
-            href="#features"
-            className="px-7 py-3 border border-white/15 text-white/70 text-[14px] font-medium rounded-lg hover:bg-white/[0.04] hover:border-white/25 transition-all duration-300"
-          >
+          <a href="#features" className="btn-secondary">
             See how it works
           </a>
         </div>

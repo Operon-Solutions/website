@@ -319,6 +319,20 @@ export default function Features() {
 
   useEffect(() => {
     const LERP_SPEED = 0.06; // lower = smoother & more delayed
+    let isVisible = true;
+    let running = false;
+
+    function startLoop() {
+      if (!running && isVisible) {
+        running = true;
+        rafId.current = requestAnimationFrame(tick);
+      }
+    }
+
+    function stopLoop() {
+      running = false;
+      cancelAnimationFrame(rafId.current);
+    }
 
     function measure() {
       const wrap = wrapRef.current;
@@ -387,12 +401,25 @@ export default function Features() {
       }
 
       measure();
-      rafId.current = requestAnimationFrame(tick);
+      if (running) rafId.current = requestAnimationFrame(tick);
     }
 
-    rafId.current = requestAnimationFrame(tick);
+    startLoop();
 
-    return () => cancelAnimationFrame(rafId.current);
+    // Pause when section is off-screen
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+        isVisible ? startLoop() : stopLoop();
+      },
+      { threshold: 0, rootMargin: "100px" }
+    );
+    if (wrapRef.current) observer.observe(wrapRef.current);
+
+    return () => {
+      stopLoop();
+      observer.disconnect();
+    };
   }, []);
 
   return (
@@ -469,7 +496,7 @@ export default function Features() {
                   ref={(el) => {
                     dotRefs.current[i] = el;
                   }}
-                  className="absolute left-0 top-1 w-3 h-3 rounded-sm bg-[#d8fe91] z-10 transition-shadow duration-500"
+                  className="absolute left-0 top-1 w-3 h-3 rounded-sm bg-white/20 z-10 transition-colors duration-300"
                 />
 
                 <div className="text-[13px] text-[#d8fe91] font-medium mb-3">
