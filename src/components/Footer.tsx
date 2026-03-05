@@ -1,50 +1,16 @@
 "use client";
 
 import Link from "next/link";
-
-const cols = [
-  {
-    title: "Solutions",
-    links: [
-      { label: "P&ID Recognition", href: "#features" },
-      { label: "Knowledge Graphs", href: "#features" },
-      { label: "Agentic Workflows", href: "#features" },
-      { label: "UniSim Integration", href: "#platform" },
-      { label: "Process Optimization", href: "#platform" },
-    ],
-  },
-  {
-    title: "Resources",
-    links: [
-      { label: "Documentation", href: "#" },
-      { label: "Case Studies", href: "#" },
-      { label: "Blog", href: "#" },
-    ],
-  },
-  {
-    title: "Persona",
-    links: [
-      { label: "Process Engineers", href: "#" },
-      { label: "Plant Managers", href: "#" },
-      { label: "Operations Teams", href: "#" },
-    ],
-  },
-  {
-    title: "Company",
-    links: [
-      { label: "About us", href: "#" },
-      { label: "Careers", href: "#" },
-      { label: "Contact", href: "#contact" },
-      { label: "Legal", href: "#" },
-    ],
-  },
-];
+import { useI18n } from "@/i18n/context";
 
 export default function Footer() {
+  const { dict } = useI18n();
+  const cols = dict.footer.cols;
+
   return (
     <footer className="relative overflow-hidden">
-      {/* Background landscape */}
-      <div className="absolute inset-0 pointer-events-none">
+      {/* Background landscape — dark mode */}
+      <div className="absolute inset-0 pointer-events-none hidden dark:block">
         <svg
           className="absolute inset-0 w-full h-full"
           viewBox="0 0 1920 600"
@@ -75,13 +41,21 @@ export default function Footer() {
             opacity="0.7"
           />
         </svg>
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-bg via-bg/80 to-transparent" />
       </div>
+
+      {/* Background — light mode: smooth CSS gradient */}
+      <div
+        className="absolute inset-0 pointer-events-none dark:hidden"
+        style={{
+          background: 'linear-gradient(180deg, transparent 0%, rgba(238,242,255,0.3) 40%, rgba(224,231,255,0.4) 70%, rgba(199,210,254,0.25) 100%)',
+        }}
+      />
 
       {/* Large watermark text */}
       <div className="absolute bottom-0 left-0 right-0 flex items-end justify-center overflow-hidden pointer-events-none">
         <span
-          className="text-[clamp(6rem,20vw,16rem)] font-bold tracking-tighter text-white/[0.02] leading-none translate-y-[15%] select-none"
+          className="text-[clamp(6rem,20vw,16rem)] font-bold tracking-tighter text-fg/[0.02] leading-none translate-y-[15%] select-none"
           aria-hidden="true"
         >
           operon
@@ -90,11 +64,10 @@ export default function Footer() {
 
       {/* Content */}
       <div className="relative z-10 max-w-[1200px] mx-auto px-6 lg:px-10 pt-20 pb-10">
-        {/* Link columns */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 md:gap-12 mb-16">
           {cols.map((col) => (
             <div key={col.title}>
-              <h4 className="text-[13px] font-medium text-[#d8fe91]/60 mb-4">
+              <h4 className="text-[13px] font-medium text-accent/60 mb-4">
                 {col.title}
               </h4>
               <ul className="space-y-2.5">
@@ -102,7 +75,7 @@ export default function Footer() {
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="text-[13px] text-white/30 hover:text-white/60 transition-colors duration-300"
+                      className="text-[13px] text-fg/30 hover:text-fg/60 transition-colors duration-300"
                     >
                       {link.label}
                     </a>
@@ -113,14 +86,11 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* Bottom bar */}
-        <div className="pt-6 border-t border-white/[0.05] flex flex-col sm:flex-row items-center justify-between gap-3">
-          <span className="text-[11px] text-white/15">
-            &copy; {new Date().getFullYear()} Operon Solutions. All Rights
-            Reserved.
+        <div className="pt-6 border-t border-fg/[0.05] flex flex-col sm:flex-row items-center justify-between gap-3">
+          <span className="text-[11px] text-fg/15">
+            &copy; {new Date().getFullYear()} {dict.footer.copyright}
           </span>
           <div className="flex items-center gap-4">
-            {/* Social icons */}
             {[
               {
                 label: "Twitter",
@@ -135,7 +105,7 @@ export default function Footer() {
                 key={s.label}
                 href="#"
                 aria-label={s.label}
-                className="text-white/20 hover:text-white/40 transition-colors"
+                className="text-fg/20 hover:text-fg/40 transition-colors"
               >
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d={s.path} />
