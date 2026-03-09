@@ -94,32 +94,40 @@ const en = {
     transformHeading2: "automatically.",
     totalPids: "Total P&IDs processed",
     avgTime: "Avg time reduction",
-    howItWorks: "How it works",
-    sectionHeading:
-      "Intelligent systems that understand every layer of your operations",
+    howItWorks: "Core Mission",
+    sectionHeading: [
+      { text: "We build " },
+      { text: "intelligent systems" },
+      { text: " for " },
+      { text: "complex"},
+      { text: " industrial workflows." },
+    ],
+    sectionSubheading: "Popular services:",
     learnMore: "Learn more",
     items: [
       {
-        label: "P&ID Recognition",
+        label: "PFD, P&ID Extraction",
+        tag: "Chemical & Process Industry",
         slug: "pid-recognition",
-        title: "Identify up to 97% of equipment automatically",
+        title: "Extract data automatically from your P&ID diagrams.",
         description:
-          "We identify and track engineering components from their first scan, giving you behavioral insights before they ever cause issues.",
+          "We identify and track engineering components in your P&ID diagrams from first scan with 97% accuracy, allowing engineers to work with structured data immediately.",
       },
       {
-        label: "Knowledge Graphs",
+        label: "PFD, P&ID Agent",
+        tag: "Chemical & Process Industry",
         slug: "knowledge-graphs",
-        title: "Connect every document, automatically",
+        title: "An agent that builds for you.",
         description:
-          "We analyze 384+ document signals\u2014from revision patterns to cross-references\u2014creating unique knowledge profiles for each asset. No more generic searches or one-size-fits-all lookups.",
+          "Our domain-specific agent will build engineering diagrams such as PFD, P&ID for chemical engineers, accelerating the design cycles in your team.",
       },
       {
-        label: "Agentic Workflows",
+        label: "AI Native Plugin",
+        tag: "Chemical & Process Industry",
         slug: "agentic-workflows",
-        title: "Reach your team when and how they prefer",
+        title: "Native plugin directly embedded to your process simulation software",
         description:
-          "AI-powered agents send personalized reports via email, alerts, or dashboards. Each touchpoint builds on previous analysis to maximize operational efficiency.",
-      },
+          "We deploy local services such as AI native plugin to your process simulation software such as Aspen, UNISM, AVEVA systems...etc"}
     ],
     // Mockup strings
     eligible: "Eligible",

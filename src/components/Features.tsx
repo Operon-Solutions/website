@@ -3,109 +3,58 @@
 import { useRef, useEffect } from "react";
 import { useReveal } from "./useReveal";
 import Link from "next/link";
+import Image from "next/image";
 import { useI18n } from "@/i18n/context";
 
 /* ── Glass Card Mockups ── */
 
 function PidMockup() {
-  const { dict } = useI18n();
   return (
-    <div className="relative rounded-2xl overflow-hidden mockup-surface">
-      <div className="absolute inset-0 opacity-40 mockup-glow" />
-      <div className="relative p-5 md:p-6">
-        <div className="flex items-center justify-between mb-5">
-          <div className="flex -space-x-2">
-            {[
-              { bg: "bg-indigo-700 dark:bg-emerald-800", letter: "A" },
-              { bg: "bg-violet-700 dark:bg-teal-800", letter: "B" },
-              { bg: "bg-indigo-800 dark:bg-green-800", letter: "C" },
-            ].map((a) => (
-              <div
-                key={a.letter}
-                className={`w-8 h-8 rounded-full ${a.bg} border-2 border-bg flex items-center justify-center text-[10px] font-bold text-fg/70`}
-              >
-                {a.letter}
-              </div>
-            ))}
-          </div>
-          <span className="px-2.5 py-1 rounded-full bg-accent/10 text-accent text-[11px] font-medium">
-            {dict.features.eligible}
-          </span>
-        </div>
-
-        <div className="glass rounded-xl p-4 mb-3">
-          <div className="flex items-center gap-3 mb-3">
-            <div className="w-10 h-10 rounded-full bg-accent/15 flex items-center justify-center text-accent text-[13px] font-bold">
-              V
-            </div>
-            <div>
-              <div className="text-[14px] font-medium">valve-101</div>
-              <div className="text-[11px] text-fg/30">{dict.features.detected}</div>
-            </div>
-          </div>
-          <div className="text-[11px] text-fg/35 mb-2">{dict.features.componentsDetected}</div>
-          <div className="flex flex-wrap gap-1.5">
-            {[dict.features.heatExchanger, dict.features.controlValve, dict.features.pressureRelief].map(
-              (tag) => (
-                <span key={tag} className="px-2.5 py-1 rounded-md bg-fg/[0.05] text-[10px] text-fg/50">
-                  {tag}
-                </span>
-              )
-            )}
-          </div>
-        </div>
-
-        <div className="glass rounded-xl p-4">
-          <div className="text-[11px] text-fg/35 mb-1.5">{dict.features.accuracy}</div>
-          <div className="text-[13px] text-fg/70 mb-3">{dict.features.confidenceScore}</div>
-          <div className="text-[11px] text-fg/35 mb-1.5">{dict.features.source}</div>
-          <div className="text-[13px] text-fg/70">PID-2847-RevC.pdf</div>
-        </div>
+    <div className="relative overflow-hidden aspect-square">
+      <Image
+        src="/bgs/bg1.png"
+        alt=""
+        fill
+        className="object-cover object-[50%_10%]"
+      />
+      <div className="absolute inset-0 flex items-center justify-center p-6">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          className="w-full h-auto shadow-2xl"
+        >
+          <source src="/features/pidrec.webm" type="video/webm" />
+          <source src="/features/pidrec.mp4" type="video/mp4" />
+        </video>
       </div>
     </div>
   );
 }
 
 function KnowledgeMockup() {
-  const { dict } = useI18n();
   return (
-    <div className="relative rounded-2xl overflow-hidden mockup-surface">
-      <div className="absolute inset-0 opacity-30 mockup-glow-center" />
-      <div className="relative p-5 md:p-6">
-        <div className="space-y-2.5 mb-5">
-          <div className="glass rounded-xl px-4 py-3 flex items-center justify-between gap-3">
-            <span className="text-[12px] text-fg/60">{dict.features.viewedSafety}</span>
-            <span className="text-[10px] text-fg/25 flex-shrink-0">{dict.features.scrolledSpecs}</span>
-          </div>
-          <div className="glass rounded-xl px-4 py-3">
-            <span className="text-[12px] text-fg/60">{dict.features.modifiedPid}</span>
-          </div>
-        </div>
-
-        <div className="glass rounded-xl p-4 mb-4">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-fg/[0.06] flex items-center justify-center flex-shrink-0">
-              <svg className="w-4 h-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.611L5 14.5" />
-              </svg>
-            </div>
-            <div className="flex-1 min-w-0">
-              <div className="text-[12px] font-medium">{dict.features.knowledgePattern}</div>
-              <div className="text-[10px] text-fg/25">2:04 PM</div>
-            </div>
-            <div className="flex items-center gap-2 flex-shrink-0">
-              <div className="w-7 h-7 rounded-full bg-accent/15 flex items-center justify-center text-[10px] font-bold text-accent">
-                M
-              </div>
-              <span className="text-[11px] text-fg/40 hidden sm:inline">Michelle</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="space-y-2">
-          <div className="glass rounded-lg px-4 py-2.5 text-[12px] text-fg/45">{dict.features.startedCrossRef}</div>
-          <div className="glass rounded-lg px-4 py-2.5 text-[12px] text-fg/35">{dict.features.autoLinked}</div>
-        </div>
+    <div className="relative overflow-hidden aspect-square">
+      <Image
+        src="/bgs/bg2.png"
+        alt=""
+        fill
+        className="object-cover object-[50%_10%]"
+      />
+      <div className="absolute inset-0 flex items-center justify-center p-6">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          className="w-full h-auto shadow-2xl"
+        >
+          <source src="/features/feature2v4.webm" type="video/webm" />
+          <source src="/features/feature2v4.mp4" type="video/mp4" />
+        </video>
       </div>
     </div>
   );
@@ -272,36 +221,24 @@ export default function Features() {
   return (
     <section id="features" ref={sectionRef} className="py-24 md:py-32">
       <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
-        <div className="reveal flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-24">
-          <h2 className="text-[clamp(1.4rem,2.8vw,1.9rem)] font-medium text-fg/80 max-w-sm leading-snug">
-            {dict.features.transformHeading}
-            <br />
-            {dict.features.transformHeading2}
-          </h2>
-          <div className="flex gap-3">
-            <div className="px-6 py-5 border border-fg/[0.08] rounded-xl min-w-[140px]">
-              <div className="text-[10px] text-fg/30 uppercase tracking-wider font-medium mb-1.5">
-                {dict.features.totalPids}
-              </div>
-              <div className="text-[clamp(1.8rem,3vw,2.5rem)] font-bold tracking-tight">10,000+</div>
-            </div>
-            <div className="px-6 py-5 border border-fg/[0.08] rounded-xl min-w-[140px]">
-              <div className="text-[10px] text-fg/30 uppercase tracking-wider font-medium mb-1.5">
-                {dict.features.avgTime}
-              </div>
-              <div className="text-[clamp(1.8rem,3vw,2.5rem)] font-bold tracking-tight">85%</div>
-            </div>
-          </div>
+        <div className="reveal flex flex-col md:flex-row md:items-end md:justify-between gap-0 mb-0">
         </div>
 
         <div className="reveal delay-1 mb-20">
           <div className="flex items-center gap-2.5 mb-4">
             <span className="w-2.5 h-2.5 rounded-sm bg-accent" />
-            <span className="text-[13px] text-fg/40 font-medium">{dict.features.howItWorks}</span>
+            <span className="text-[15px] text-fg/40 font-medium">{dict.features.howItWorks}</span>
           </div>
           <h3 className="font-serif text-[clamp(1.7rem,4vw,2.8rem)] leading-[1.15] max-w-2xl tracking-tight">
-            {dict.features.sectionHeading}
+            {dict.features.sectionHeading.map((seg: { text: string; accent?: boolean }, i: number) => (
+              seg.accent ? <span key={i} className="text-accent">{seg.text}</span> : seg.text
+            ))}
           </h3>
+        </div>
+
+        <div className="reveal delay-1 flex items-center gap-2.5 mb-12">
+          <span className="w-2.5 h-2.5 rounded-sm bg-accent" />
+          <span className="text-[15px] text-fg/50 font-medium">{dict.features.sectionSubheading}</span>
         </div>
 
         <div ref={wrapRef} className="relative space-y-20 md:space-y-28">
@@ -329,7 +266,12 @@ export default function Features() {
                     ref={(el) => { dotRefs.current[i] = el; }}
                     className="absolute left-0 top-1 w-3 h-3 rounded-sm bg-fg/20 z-10 transition-colors duration-300"
                   />
-                  <div className="text-[13px] text-accent font-medium mb-3">{feature.label}</div>
+                  <div className="flex items-center gap-2.5 mb-3">
+                    <span className="text-[13px] text-accent font-medium">{feature.label}</span>
+                    {feature.tag && (
+                      <span className="text-[11px] font-medium bg-accent text-bg px-2 py-0.5">{feature.tag}</span>
+                    )}
+                  </div>
                   <h4 className="text-[clamp(1.2rem,2.2vw,1.6rem)] font-medium leading-snug mb-4">{feature.title}</h4>
                   <p className="text-[14px] text-fg/35 leading-[1.7] max-w-md">{feature.description}</p>
                   <Link

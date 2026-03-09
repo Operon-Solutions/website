@@ -279,16 +279,13 @@ export default function Navbar() {
         {/* Center logo */}
         <Link href={`/${locale}`} className="flex items-center gap-2">
           <Image
-            src="/operonlogo.svg"
-            alt="Operon"
-            width={112}
+            src="/logos/OperonSolutions2.svg"
+            alt="Operon Solutions"
+            width={200}
             height={28}
             priority
-            className="h-7 w-auto"
+            className="h-10 w-auto"
           />
-          <span className="text-[17px] font-semibold tracking-tight">
-            operon
-          </span>
         </Link>
 
         {/* Right */}
