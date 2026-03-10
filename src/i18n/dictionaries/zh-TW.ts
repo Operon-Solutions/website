@@ -52,14 +52,14 @@ const zhTW: Dictionary = {
         ],
       },
       {
-        name: "食品與飲料",
-        href: "/industries/food-beverage",
+        name: "水泥製造",
+        href: "/industries/cement-manufacturing",
         solutions: [
-          { label: "配方管理", href: "/docs/recipe-management" },
-          { label: "食品安全合規", href: "/docs/food-safety-compliance" },
-          { label: "生產分析", href: "/docs/production-analytics" },
+          { label: "窯爐優化", href: "/docs/kiln-optimization" },
+          { label: "品質預測", href: "/docs/quality-prediction" },
+          { label: "能源管理", href: "/docs/energy-management" },
           { label: "自主工作流", href: "/docs/agentic-workflows" },
-          { label: "冷鏈優化", href: "/docs/cold-chain-optimization" },
+          { label: "預測性維護", href: "/docs/predictive-maintenance" },
           { label: "前線駐場工程師", href: "/docs/forward-deployed-engineers" },
         ],
       },
@@ -68,17 +68,17 @@ const zhTW: Dictionary = {
       {
         title: "公司",
         items: [
-          { label: "關於我們", href: "#" },
-          { label: "加入我們", href: "#" },
+          { label: "關於我們", href: "/about" },
+          { label: "加入我們", href: "/careers" },
           { label: "聯絡我們", href: "#contact" },
         ],
       },
       {
         title: "資源",
         items: [
-          { label: "文件", href: "#" },
-          { label: "案例研究", href: "#" },
-          { label: "部落格", href: "#" },
+          { label: "文件", href: "/documentation" },
+          { label: "案例研究", href: "/case-studies" },
+          { label: "部落格", href: "/blog" },
         ],
       },
     ],
@@ -160,7 +160,7 @@ const zhTW: Dictionary = {
 
   platform: {
     popularServices: "熱門服務",
-    heading: "我們為以下產業提供領域專屬 AI 解決方案",
+    heading: "產業專屬的 AI 解決方案",
     readMore: "了解更多",
     industries: [
       {
@@ -305,49 +305,49 @@ const zhTW: Dictionary = {
         ],
       },
       {
-        label: "食品與飲料製造",
+        label: "水泥製造",
         capabilities: [
           {
-            icon: "beaker",
-            title: "配方管理",
-            slug: "recipe-management",
+            icon: "monitor",
+            title: "窯爐優化",
+            slug: "kiln-optimization",
             description:
-              "數位化並版本控制配方，具備完整的成分可追溯性",
+              "以 AI 驅動旋窯溫度與進料速率優化，穩定熟料品質",
           },
           {
-            icon: "shield",
-            title: "食品安全合規",
-            slug: "food-safety-compliance",
+            icon: "chart",
+            title: "品質預測",
+            slug: "quality-prediction",
             description:
-              "自動化 HACCP 監控、過敏原追蹤和 FDA/FSMA 審計準備",
+              "透過原料配比和製程數據即時預測水泥強度與成分",
           },
           {
             icon: "person",
             title: "前線駐場工程師",
-            slug: "forward-deployed-engineers-food",
+            slug: "forward-deployed-engineers-cement",
             description:
-              "了解您生產線和衛生協定的駐場專家",
+              "熟悉您工廠配置、原料特性與磨機迴路的駐場專家",
           },
           {
-            icon: "chart",
-            title: "生產分析",
-            slug: "production-analytics",
+            icon: "bolt",
+            title: "能源管理",
+            slug: "energy-management",
             description:
-              "即時 OEE 儀表板和跨生產線的批次變異分析",
+              "全面優化燒成與研磨製程的熱能與電力消耗",
           },
           {
             icon: "arrows",
             title: "自主工作流",
-            slug: "agentic-workflows-food",
+            slug: "agentic-workflows-cement",
             description:
-              "用於標籤合規、保質期測試和召回管理的自主代理",
+              "自動化環保合規申報、維護排程與交接班管理",
           },
           {
-            icon: "truck",
-            title: "冷鏈優化",
-            slug: "cold-chain-optimization",
+            icon: "cog",
+            title: "預測性維護",
+            slug: "predictive-maintenance",
             description:
-              "易腐貨品的端到端溫度監控和物流優化",
+              "透過振動、溫度與製程數據，提前預測破碎機、磨機和窯爐的設備故障",
           },
         ],
       },
@@ -449,9 +449,9 @@ const zhTW: Dictionary = {
       {
         title: "資源",
         links: [
-          { label: "文件", href: "#" },
-          { label: "案例研究", href: "#" },
-          { label: "部落格", href: "#" },
+          { label: "文件", href: "/documentation" },
+          { label: "案例研究", href: "/case-studies" },
+          { label: "部落格", href: "/blog" },
         ],
       },
       {
@@ -465,8 +465,8 @@ const zhTW: Dictionary = {
       {
         title: "公司",
         links: [
-          { label: "關於我們", href: "#" },
-          { label: "加入我們", href: "#" },
+          { label: "關於我們", href: "/about" },
+          { label: "加入我們", href: "/careers" },
           { label: "聯絡我們", href: "#contact" },
           { label: "法律聲明", href: "#" },
         ],
@@ -483,10 +483,18 @@ const zhTW: Dictionary = {
       "我們的前線駐場工程師可以在第一週內讓您上線運行。",
     bookDemo: "預約展示",
     exploreCaps: "探索功能",
-    comingSoon: "即將推出",
-    pageBeingWritten: "此頁面正在撰寫中",
+    comingSoon: "開發中",
+    pageBeingWritten: "需要這項解決方案嗎？",
     pageBeingWrittenDesc:
-      "此功能的詳細文件即將推出。請稍後再來查看。",
+      "我們正在評估這項功能，很想聽聽您的想法。如果這項方案能解決您團隊的實際問題，請告訴我們——您的回饋會直接影響我們的開發方向。",
+    interestQuestion: "這對您的營運有幫助嗎？",
+    voteYes: "是的，我需要這個",
+    voteMaybe: "有興趣，想了解更多",
+    thankYou: "感謝您的回饋！",
+    thankYouDesc: "我們已記下您的需求。想和團隊聊聊您的使用情境嗎？",
+    scheduleCall: "預約通話",
+    orReachOut: "或留下您的信箱，我們會主動聯繫",
+    emailSubmit: "送出",
     backToPlatform: "返回平台",
     notFound: "找不到頁面",
     minRead: "分鐘閱讀",
@@ -651,24 +659,16 @@ P&ID 識別直接饋入：
 
   contact: {
     title: "與我們聯繫",
-    subtitle: "告訴我們您的挑戰——打字或錄製語音訊息。",
+    subtitle: "寄送訊息或直接預約與我們團隊通話。",
     name: "姓名",
     email: "電子信箱",
     company: "公司",
     yourMessage: "您的訊息",
-    orRecordVoice: "或錄製語音",
-    orTypeInstead: "或改用打字",
     sendMessage: "發送訊息",
+    scheduleCall: "預約通話",
     successTitle: "我們會與您聯繫",
     successDesc: "感謝您的來信。我們的團隊將在 24 小時內回覆。",
     close: "關閉",
-    voiceMessage: "語音訊息",
-    recording: "錄音中",
-    recorded: "已錄製",
-    record: "錄音",
-    stop: "停止",
-    reRecord: "重新錄製",
-    voiceAttached: "語音訊息已附加",
     namePlaceholder: "王小明",
     emailPlaceholder: "xiaoming@company.com",
     companyPlaceholder: "台灣化工股份有限公司",
@@ -683,6 +683,135 @@ P&ID 識別直接饋入：
   langSwitcher: {
     en: "EN",
     "zh-TW": "繁中",
+  },
+
+  about: {
+    label: "關於我們",
+    title: "打造真正懂產業的 AI。",
+    subtitle: "我們是一群工程師與科學家，專為製造業打造領域專屬的 AI 系統。",
+    sections: [
+      {
+        heading: "我們的使命",
+        body: "製造業仰賴數十年累積的實務知識——被鎖在 P&ID、安全報告和製程模擬裡。資深工程師退休時，這些知識也跟著消失。我們打造的 AI 系統能擷取、結構化並活用這些專業經驗，讓它永遠留在組織內。",
+      },
+      {
+        heading: "我們的工作方式",
+        body: "我們派遣駐場工程師深入了解您的製程、設備命名慣例和安全標準，部署真正理解您工廠運作的 AI——不是教科書式的通用方案，而是貼合您實際營運的系統。多數團隊在 6 週內即可上線。",
+      },
+      {
+        heading: "我們的團隊",
+        body: "Operon 由在化工廠和煉油廠工作多年的工程師創立。我們清楚知道通用 AI 的承諾與製造業真實需求之間的落差。團隊結合化工領域的深厚經驗與最前沿的機器學習研究。",
+      },
+    ],
+    cta: "想進一步了解我們的服務嗎？",
+  },
+
+  careers: {
+    label: "加入我們",
+    title: "一起打造工業 AI 的未來。",
+    subtitle: "加入我們，為全球最複雜的產業解決真正的問題。",
+    intro: "我們正在尋找對 AI 應用於真實世界難題充滿熱情的夥伴。我們的團隊直接與化工廠、煉油廠和製造設施的工程師合作——開發能切實改善他們日常工作的軟體。",
+    openRolesHeading: "開放職缺",
+    roles: [
+      { title: "駐場工程師", location: "台北 / 駐點", type: "全職" },
+      { title: "機器學習工程師 — 電腦視覺", location: "遠端", type: "全職" },
+      { title: "全端工程師", location: "台北", type: "全職" },
+      { title: "化學工程實習生", location: "台北", type: "實習" },
+    ],
+    cta: "沒有看到合適的職缺？",
+    ctaDesc: "我們隨時歡迎優秀人才。寄送你的履歷，告訴我們工業 AI 的哪個面向最讓你興奮。",
+    applyNow: "與我們聯繫",
+  },
+
+  blog: {
+    label: "部落格",
+    title: "觀點與動態",
+    subtitle: "關於工業 AI、製造技術，以及打造領域專屬系統的思考。",
+    posts: [
+      {
+        title: "為什麼通用 AI 在製造業行不通",
+        date: "2026 年 3 月",
+        tag: "產業觀點",
+        summary: "通用 LLM 能寫程式、摘要文件——但面對 P&ID 解讀或 HAZOP 報告驗證就束手無策。領域專屬性為何至關重要。",
+      },
+      {
+        title: "一個週末將 2,400 張老舊 P&ID 轉為結構化資料",
+        date: "2026 年 2 月",
+        tag: "案例分享",
+        summary: "一家大型石化煉油廠如何用 Operon 的辨識引擎數位化整個 P&ID 圖庫——原本需要團隊花 6 個月的工作。",
+      },
+      {
+        title: "駐場工程師模式",
+        date: "2026 年 1 月",
+        tag: "公司理念",
+        summary: "為什麼我們選擇派工程師駐點而非賣通用 SaaS，以及這種模式如何帶來截然不同的成效。",
+      },
+    ],
+  },
+
+  caseStudies: {
+    label: "案例研究",
+    title: "實戰成果。",
+    subtitle: "看看製造業團隊如何運用 Operon 轉型他們的營運。",
+    studies: [
+      {
+        company: "大型石化煉油廠",
+        industry: "化學工程",
+        result: "一個週末內處理完 2,400 張老舊 P&ID——這項工作工程團隊手動處理需要 6 個月。",
+        quote: "準確度讓我們驚嘆不已。它捕捉到了資深工程師在人工審查中遺漏的元件。",
+        person: "David K.",
+        role: "工程副總裁",
+      },
+      {
+        company: "特種化學品製造商",
+        industry: "化學工程",
+        result: "HAZOP 準備時間減少 70%，下一次監管審查達成零缺失。",
+        quote: "我們從害怕稽核變成充滿信心地走進稽核現場。每份文件都經過交叉核對，完全是最新版本。",
+        person: "Sarah M.",
+        role: "工廠安全經理",
+      },
+      {
+        company: "半導體晶圓廠",
+        industry: "電子製造",
+        result: "數位化超過 15,000 份電路文件，設計審查週期從 2 週縮短至 3 天。",
+        quote: "知識圖譜串連起我們團隊甚至不知道有關聯的文件，徹底改變了我們的設計審查方式。",
+        person: "James L.",
+        role: "工程總監",
+      },
+    ],
+    cta: "想看到類似的成果嗎？",
+  },
+
+  documentation: {
+    label: "技術文件",
+    title: "技術文件",
+    subtitle: "Operon 平台的技術指南與參考資料。",
+    categories: [
+      { title: "P&ID 辨識", slug: "pid-recognition", description: "了解 Operon 如何以 97% 以上的準確率辨識並數位化工程圖面。" },
+      { title: "知識圖譜", slug: "knowledge-graphs", description: "將文件、資產和工程資料串連成可查詢的知識網絡。" },
+      { title: "自主工作流", slug: "agentic-workflows", description: "設定自主代理進行合規檢查、報告生成和文件處理。" },
+    ],
+  },
+
+  signin: {
+    title: "登入",
+    subtitle: "存取您的工作區與專案。",
+    continueGoogle: "使用 Google 繼續",
+    continueLinkedin: "使用 LinkedIn 繼續",
+    or: "或",
+    emailPlaceholder: "name@company.com",
+    continueEmail: "使用電子郵件繼續",
+    sending: "傳送中...",
+    codeSentTo: "我們已將驗證碼寄送至",
+    enterCode: "輸入驗證碼",
+    verify: "驗證",
+    differentEmail: "使用其他電子郵件",
+    failedSend: "傳送驗證碼失敗",
+    invalidCode: "驗證碼無效",
+    terms: "登入即表示您同意我們的",
+    termsLink: "服務條款",
+    and: "與",
+    privacyLink: "隱私政策",
   },
 };
 

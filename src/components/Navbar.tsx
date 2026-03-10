@@ -8,6 +8,7 @@ import { useTheme } from "./ThemeProvider";
 import Image from "next/image";
 import { useI18n } from "@/i18n/context";
 import type { Locale } from "@/i18n";
+import db from "@/lib/instantdb";
 
 /* ── Lang Switcher ── */
 
@@ -30,8 +31,11 @@ function LangSwitcher() {
   return (
     <button
       onClick={() => switchTo(other)}
-      className="text-[12px] text-fg/40 hover:text-fg/70 transition-colors px-2 py-1 rounded border border-fg/[0.08] hover:border-fg/[0.15]"
+      className="flex items-center gap-1.5 text-[12px] text-fg/40 hover:text-fg/70 transition-colors px-2 py-1 rounded cursor-pointer"
     >
+      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5a17.92 17.92 0 01-8.716-2.247m0 0A8.966 8.966 0 013 12c0-1.777.515-3.435 1.404-4.832" />
+      </svg>
       {dict.langSwitcher[other]}
     </button>
   );
@@ -207,6 +211,9 @@ function Chevron({ open }: { open: boolean }) {
 export default function Navbar() {
   const { theme } = useTheme();
   const { dict, locale } = useI18n();
+  const { user } = db.useAuth();
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const userMenuRef = useRef<HTMLDivElement>(null);
   const industries = dict.navbar.industriesList;
   const companyLinks = dict.navbar.companyLinks;
   const [scrolled, setScrolled] = useState(false);
@@ -219,6 +226,16 @@ export default function Navbar() {
     window.addEventListener("scroll", fn, { passive: true });
     return () => window.removeEventListener("scroll", fn);
   }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (userMenuRef.current && !userMenuRef.current.contains(e.target as Node)) {
+        setUserMenuOpen(false);
+      }
+    };
+    if (userMenuOpen) document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [userMenuOpen]);
 
   const handleMouseEnter = (key: string) => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
@@ -292,14 +309,44 @@ export default function Navbar() {
 
         {/* Right */}
         <div className="hidden md:flex items-center gap-4 flex-1 justify-end">
-          <a
-            href="#contact"
-            className="text-[13px] text-fg/50 hover:text-fg transition-colors"
-          >
-            {dict.navbar.signIn}
-          </a>
           <LangSwitcher />
           <ThemeToggle />
+          {user ? (
+            <div ref={userMenuRef} className="relative">
+              <button
+                onClick={() => setUserMenuOpen(!userMenuOpen)}
+                className="flex items-center gap-2 text-[13px] text-fg/50 hover:text-fg transition-colors cursor-pointer"
+              >
+                {user.imageURL ? (
+                  <Image src={user.imageURL} alt="" width={24} height={24} className="w-6 h-6 rounded-full" />
+                ) : (
+                  <div className="w-6 h-6 rounded-full bg-[var(--c-accent)] flex items-center justify-center text-[11px] font-semibold text-[var(--c-bg)]">
+                    {(user.email?.[0] ?? "U").toUpperCase()}
+                  </div>
+                )}
+              </button>
+              {userMenuOpen && (
+                <div className="absolute right-0 top-full mt-2 w-48 rounded-lg border border-[color-mix(in_srgb,var(--c-fg)_10%,transparent)] bg-[var(--c-bg)] shadow-lg py-1 z-50">
+                  <div className="px-3 py-2 border-b border-[color-mix(in_srgb,var(--c-fg)_8%,transparent)]">
+                    <p className="text-[12px] text-fg/40 truncate">{user.email}</p>
+                  </div>
+                  <button
+                    onClick={() => { db.auth.signOut(); setUserMenuOpen(false); }}
+                    className="w-full text-left px-3 py-2 text-[13px] text-fg/60 hover:text-fg hover:bg-[color-mix(in_srgb,var(--c-fg)_5%,transparent)] transition-colors"
+                  >
+                    Sign out
+                  </button>
+                </div>
+              )}
+            </div>
+          ) : (
+            <Link
+              href={`/${locale}/signin`}
+              className="text-[13px] text-fg/50 hover:text-fg transition-colors"
+            >
+              {dict.navbar.signIn}
+            </Link>
+          )}
         </div>
 
         {/* Mobile hamburger */}
@@ -465,13 +512,34 @@ export default function Navbar() {
           >
             {dict.navbar.partnerships}
           </a>
-          <a
-            href="#contact"
-            onClick={() => setOpen(false)}
-            className="text-[15px] text-fg/60 hover:text-fg py-3 transition-colors"
-          >
-            {dict.navbar.signIn}
-          </a>
+          {user ? (
+            <div className="py-3 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                {user.imageURL ? (
+                  <Image src={user.imageURL} alt="" width={24} height={24} className="w-6 h-6 rounded-full" />
+                ) : (
+                  <div className="w-6 h-6 rounded-full bg-[var(--c-accent)] flex items-center justify-center text-[11px] font-semibold text-[var(--c-bg)]">
+                    {(user.email?.[0] ?? "U").toUpperCase()}
+                  </div>
+                )}
+                <span className="text-[15px] text-fg/60 truncate max-w-[180px]">{user.email}</span>
+              </div>
+              <button
+                onClick={() => { db.auth.signOut(); setOpen(false); }}
+                className="text-[13px] text-fg/40 hover:text-fg transition-colors"
+              >
+                Sign out
+              </button>
+            </div>
+          ) : (
+            <Link
+              href={`/${locale}/signin`}
+              onClick={() => setOpen(false)}
+              className="text-[15px] text-fg/60 hover:text-fg py-3 transition-colors"
+            >
+              {dict.navbar.signIn}
+            </Link>
+          )}
           <div className="flex items-center gap-3 py-3">
             <LangSwitcher />
             <ThemeToggle />

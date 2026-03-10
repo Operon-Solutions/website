@@ -11,7 +11,7 @@ export default function ThemeToggle() {
     <button
       onClick={toggle}
       aria-label={theme === "dark" ? dict.theme.switchToLight : dict.theme.switchToDark}
-      className="p-2 rounded-lg border border-fg/[0.08] hover:border-fg/[0.15] bg-fg/[0.03] hover:bg-fg/[0.06] transition-all duration-300"
+      className="p-2 rounded-lg hover:bg-fg/[0.06] transition-all duration-300 cursor-pointer"
     >
       {theme === "dark" ? (
         <svg className="w-4 h-4 text-fg/50" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
