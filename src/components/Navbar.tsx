@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import ThemeToggle from "./ThemeToggle";
+import { useTheme } from "./ThemeProvider";
 import Image from "next/image";
 import { useI18n } from "@/i18n/context";
 import type { Locale } from "@/i18n";
@@ -204,6 +205,7 @@ function Chevron({ open }: { open: boolean }) {
 /* ── Navbar ── */
 
 export default function Navbar() {
+  const { theme } = useTheme();
   const { dict, locale } = useI18n();
   const industries = dict.navbar.industriesList;
   const companyLinks = dict.navbar.companyLinks;
@@ -279,12 +281,12 @@ export default function Navbar() {
         {/* Center logo */}
         <Link href={`/${locale}`} className="flex items-center gap-2">
           <Image
-            src="/logos/OperonSolutions2.svg"
+            src={theme === "light" ? "/logos/operonsolutionspurple2.svg" : "/logos/OperonSolutions3.svg"}
             alt="Operon Solutions"
             width={200}
             height={28}
             priority
-            className="h-10 w-auto"
+            className="h-7 w-auto"
           />
         </Link>
 

@@ -42,6 +42,15 @@ const themeScript = `
     } else {
       document.documentElement.classList.add('dark');
     }
+    function setFavicon(isDark) {
+      var link = document.querySelector('link[rel="icon"]');
+      if (!link) { link = document.createElement('link'); link.rel = 'icon'; document.head.appendChild(link); }
+      link.href = isDark ? '/favicon-dark.png' : '/favicon-light.png';
+    }
+    setFavicon(t !== 'light');
+    new MutationObserver(function() {
+      setFavicon(document.documentElement.classList.contains('dark'));
+    }).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
   })();
 `;
 
@@ -80,6 +89,7 @@ export default async function LocaleLayout({
       suppressHydrationWarning
     >
       <head>
+        <link rel="icon" href="/favicon-dark.png" />
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body className="antialiased">

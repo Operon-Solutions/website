@@ -61,54 +61,22 @@ function KnowledgeMockup() {
 }
 
 function AgenticMockup() {
-  const { dict } = useI18n();
   return (
-    <div className="relative rounded-2xl overflow-hidden mockup-surface">
-      <div className="absolute inset-0 opacity-30 mockup-glow-right" />
-      <div className="relative p-5 md:p-6 space-y-3">
-        <div className="glass rounded-xl p-4">
-          <div className="flex items-center gap-2.5 mb-2">
-            <div className="w-6 h-6 rounded-full bg-fg/[0.06] flex items-center justify-center">
-              <svg className="w-3 h-3 text-fg/50" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-              </svg>
-            </div>
-            <span className="text-[12px] font-medium">{dict.features.reportGenerated}</span>
-            <span className="text-[10px] text-fg/20 ml-auto">2:15 PM</span>
-          </div>
-          <p className="text-[11px] text-fg/35 pl-[34px]">{dict.features.safetyReport}</p>
-        </div>
-
-        <div className="glass rounded-xl p-4">
-          <div className="flex items-center gap-2.5 mb-2">
-            <div className="w-6 h-6 rounded-full bg-fg/[0.06] flex items-center justify-center">
-              <svg className="w-3 h-3 text-fg/50" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
-              </svg>
-            </div>
-            <span className="text-[12px] font-medium">{dict.features.alert}</span>
-            <span className="text-[10px] text-fg/20 ml-auto">2:18 PM</span>
-          </div>
-          <p className="text-[11px] text-fg/35 pl-[34px]">{dict.features.alertDesc}</p>
-        </div>
-
-        <div className="flex items-center justify-center gap-2 py-1.5">
-          <div className="w-1.5 h-1.5 rounded-full bg-accent/50 animate-pulse" />
-          <span className="text-[11px] text-fg/25">{dict.features.optimizingWorkflow}</span>
-        </div>
-
-        <div className="glass rounded-xl p-4">
-          <div className="flex items-center gap-2.5 mb-2">
-            <div className="w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center">
-              <svg className="w-3 h-3 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
-              </svg>
-            </div>
-            <span className="text-[12px] font-medium">{dict.features.aiWorkflow}</span>
-            <span className="text-[10px] text-fg/20 ml-auto">2:20 PM</span>
-          </div>
-          <p className="text-[11px] text-fg/35 pl-[34px]">{dict.features.aiWorkflowDesc}</p>
-        </div>
+    <div className="relative overflow-hidden aspect-square">
+      <Image
+        src="/bgs/bg4.png"
+        alt=""
+        fill
+        className="object-cover object-[50%_10%]"
+      />
+      <div className="absolute inset-0 flex items-center justify-center p-6">
+        <Image
+          src="/features/feature3.1-cropped.png"
+          alt=""
+          width={600}
+          height={600}
+          className="w-full h-auto shadow-2xl"
+        />
       </div>
     </div>
   );
