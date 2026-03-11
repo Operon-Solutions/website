@@ -20,16 +20,16 @@ export default function Hero() {
     }` as const;
 
   return (
-    <section className="relative min-h-screen overflow-hidden flex items-center">
+    <section className="relative min-h-[80svh] md:min-h-screen overflow-hidden flex items-center">
       {/* Background image */}
-      <div className="absolute bottom-30 left-0 right-0 pointer-events-none invert dark:invert-0" style={{ height: "60%" }}>
+      <div className="absolute bottom-0 md:bottom-30 left-0 right-0 pointer-events-none invert dark:invert-0 h-[30%] md:h-[60%]">
         <Image
           src="/hero-bg-chemicalplant1.webp"
           alt=""
           fill
           priority
           sizes="100vw"
-          className="object-contain object-bottom"
+          className="object-cover object-bottom md:object-contain"
           placeholder="blur"
           blurDataURL="data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoQAAQAAUAmJYgCdAEO/hmMAAADqr+/LLv//bTJT/+PkMu3/YxQ5X6uxekAAAA="
         />
@@ -40,7 +40,7 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-[1200px] mx-auto px-6 lg:px-10 pb-32 -mt-24 w-full">
+      <div className="relative z-10 max-w-[1200px] mx-auto px-6 lg:px-10 pb-16 md:pb-32 md:-mt-24 w-full">
         <div className="max-w-4xl mx-auto text-center">
           <h1
             className={`font-serif font-light text-[clamp(2.4rem,5.5vw,4.2rem)] leading-[1.12] tracking-tight mb-7 ${anim("0.1s")}`}
