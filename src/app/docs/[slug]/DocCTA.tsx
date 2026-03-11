@@ -20,7 +20,7 @@ export default function DocCTA() {
           <button onClick={open} className="btn-primary">
             <span>Book a demo</span>
           </button>
-          <Link href="/#platform" className="btn-secondary">
+          <Link href="/#features" className="btn-secondary">
             Explore capabilities
           </Link>
         </div>

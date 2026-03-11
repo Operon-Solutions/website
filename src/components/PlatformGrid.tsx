@@ -80,9 +80,6 @@ export default function PlatformGrid() {
   const [index, setIndex] = useState(0);
   const [displayIndex, setDisplayIndex] = useState(0);
   const [morphPhase, setMorphPhase] = useState<"in" | "out">("in");
-  const [hovered, setHovered] = useState(false);
-  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
-
   const scrambled = useScramble(industryData[index].label);
   const caps = industryData[displayIndex].capabilities;
 
@@ -95,19 +92,6 @@ export default function PlatformGrid() {
     }, 350);
     return () => clearTimeout(t);
   }, [index, displayIndex]);
-
-  useEffect(() => {
-    if (hovered) {
-      if (timerRef.current) clearInterval(timerRef.current);
-      return;
-    }
-    timerRef.current = setInterval(() => {
-      setIndex((prev) => (prev + 1) % industryData.length);
-    }, 3500);
-    return () => {
-      if (timerRef.current) clearInterval(timerRef.current);
-    };
-  }, [hovered, industryData.length]);
 
   const advance = useCallback(() => {
     setIndex((prev) => (prev + 1) % industryData.length);
@@ -126,8 +110,6 @@ export default function PlatformGrid() {
             <br />
             <span
               className="text-accent cursor-pointer select-none"
-              onMouseEnter={() => setHovered(true)}
-              onMouseLeave={() => setHovered(false)}
               onClick={advance}
             >
               {scrambled}
@@ -136,25 +118,65 @@ export default function PlatformGrid() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {caps.map((cap, i) => (
-            <Link
-              href={`/${locale}/docs/${cap.slug}`}
-              key={i}
-              className={`glass-card rounded-2xl p-6 md:p-7 group block ${morphPhase === "out" ? "morph-out" : "morph-in"}`}
-            >
-              <div className="w-10 h-10 rounded-full border border-fg/[0.08] flex items-center justify-center text-fg/60 mb-5 transition-all duration-500">
-                <Icon d={ICONS[cap.icon] || ""} />
-              </div>
-              <h3 className="text-[15px] font-semibold mb-2.5 morph-text group-hover:text-accent transition-colors">{cap.title}</h3>
-              <p className="text-[13px] text-fg/35 leading-[1.6] morph-text">{cap.description}</p>
-              <span className="inline-flex items-center gap-1 mt-4 text-[12px] text-fg/20 group-hover:text-accent/60 transition-colors morph-text">
-                {dict.platform.readMore}
-                <svg className="w-3 h-3 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                </svg>
-              </span>
-            </Link>
-          ))}
+          {caps.map((cap, i) => {
+            const hasContent = cap.slug in dict.docs.entries;
+            return (
+              <Link
+                href={`/${locale}/docs/${cap.slug}`}
+                key={i}
+                className={`relative rounded-2xl p-6 md:p-7 group block overflow-hidden ${morphPhase === "out" ? "morph-out" : "morph-in"} ${
+                  hasContent ? "glass-card" : "glass-card-muted"
+                }`}
+              >
+                {/* Diagonal stripe overlay for locked cards */}
+                {!hasContent && (
+                  <div className="absolute inset-0 pointer-events-none muted-stripes rounded-2xl" />
+                )}
+                <div className="relative flex items-center justify-between mb-5">
+                  <div className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all duration-500 ${
+                    hasContent
+                      ? "border-accent/20 text-accent/70 bg-accent/[0.04]"
+                      : "border-fg/[0.06] text-fg/20"
+                  }`}>
+                    {hasContent ? (
+                      <Icon d={ICONS[cap.icon] || ""} />
+                    ) : (
+                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+                      </svg>
+                    )}
+                  </div>
+                  {hasContent ? (
+                    <span className="text-[10px] font-medium text-accent/50 border border-accent/15 bg-accent/[0.04] rounded-full px-2.5 py-0.5 morph-text">
+                      {dict.platform.available}
+                    </span>
+                  ) : (
+                    <span className="text-[10px] font-medium tracking-wide text-fg/25 border border-dashed border-fg/12 rounded-full px-2.5 py-0.5 morph-text">
+                      {dict.platform.requestable}
+                    </span>
+                  )}
+                </div>
+                <div className="relative">
+                  <h3 className={`text-[15px] font-semibold mb-2.5 morph-text transition-colors ${
+                    hasContent ? "group-hover:text-accent" : "text-fg/40 group-hover:text-fg/60"
+                  }`}>{cap.title}</h3>
+                  <p className={`text-[13px] leading-[1.6] morph-text ${
+                    hasContent ? "text-fg/35" : "text-fg/20"
+                  }`}>{cap.description}</p>
+                  <span className={`inline-flex items-center gap-1 mt-4 text-[12px] transition-colors morph-text ${
+                    hasContent
+                      ? "text-accent/50 group-hover:text-accent"
+                      : "text-fg/15 group-hover:text-fg/30"
+                  }`}>
+                    {hasContent ? dict.platform.readMore : dict.platform.requestThis}
+                    <svg className="w-3 h-3 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                    </svg>
+                  </span>
+                </div>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </section>

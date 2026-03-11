@@ -206,6 +206,78 @@ body {
     0 0 0 0.5px rgba(255,255,255,0.06);
 }
 
+/* ── Muted glass card (undeveloped / requestable solutions) ── */
+.glass-card-muted {
+  background: linear-gradient(
+    170deg,
+    rgba(255,255,255,0.35) 0%,
+    rgba(255,255,255,0.15) 40%,
+    rgba(255,255,255,0.08) 100%
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px dashed color-mix(in srgb, var(--c-fg) 8%, transparent);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.3),
+    0 1px 4px rgba(0,0,0,0.02);
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.dark .glass-card-muted {
+  background: linear-gradient(
+    170deg,
+    color-mix(in srgb, var(--c-fg) 3%, transparent) 0%,
+    color-mix(in srgb, var(--c-fg) 1%, transparent) 40%,
+    color-mix(in srgb, var(--c-fg) 0.5%, transparent) 100%
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.04),
+    0 2px 8px rgba(0,0,0,0.2);
+}
+.glass-card-muted:hover {
+  background: linear-gradient(
+    170deg,
+    rgba(255,255,255,0.5) 0%,
+    rgba(255,255,255,0.25) 40%,
+    rgba(255,255,255,0.12) 100%
+  );
+  border-color: color-mix(in srgb, var(--c-fg) 12%, transparent);
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.4),
+    0 4px 12px rgba(0,0,0,0.04);
+}
+.dark .glass-card-muted:hover {
+  background: linear-gradient(
+    170deg,
+    color-mix(in srgb, var(--c-fg) 5%, transparent) 0%,
+    color-mix(in srgb, var(--c-fg) 2%, transparent) 40%,
+    color-mix(in srgb, var(--c-fg) 1%, transparent) 100%
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.06),
+    0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* ── Muted card diagonal stripes ── */
+.muted-stripes {
+  background-image: repeating-linear-gradient(
+    135deg,
+    transparent,
+    transparent 18px,
+    color-mix(in srgb, var(--c-fg) 2.5%, transparent) 18px,
+    color-mix(in srgb, var(--c-fg) 2.5%, transparent) 19px
+  );
+}
+.dark .muted-stripes {
+  background-image: repeating-linear-gradient(
+    135deg,
+    transparent,
+    transparent 18px,
+    color-mix(in srgb, var(--c-fg) 3.5%, transparent) 18px,
+    color-mix(in srgb, var(--c-fg) 3.5%, transparent) 19px
+  );
+}
+
 /* ── Scroll reveal ── */
 .reveal {
   opacity: 0;

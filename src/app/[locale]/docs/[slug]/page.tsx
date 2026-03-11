@@ -3,6 +3,7 @@ import Link from "next/link";
 import { isValidLocale, getDictionary, locales } from "@/i18n";
 import { getAllSlugs } from "@/content/docs";
 import { DocRenderer } from "./DocRenderer";
+import DocCTA from "./DocCTA";
 import Footer from "@/components/Footer";
 import type { Metadata } from "next";
 
@@ -125,24 +126,13 @@ export default async function DocPage({ params }: Props) {
       </article>
 
       {/* CTA */}
-      <section className="border-t border-fg/[0.06] py-20">
-        <div className="max-w-[720px] mx-auto px-6 text-center">
-          <h2 className="font-serif text-[clamp(1.5rem,3vw,2rem)] tracking-tight mb-4">
-            {dict.docs.readyToStart}
-          </h2>
-          <p className="text-[14px] text-fg/35 mb-8 max-w-md mx-auto leading-relaxed">
-            {dict.docs.readyDesc}
-          </p>
-          <div className="flex items-center justify-center gap-3">
-            <Link href={`/${locale}#cta`} className="btn-primary">
-              <span>{dict.docs.bookDemo}</span>
-            </Link>
-            <Link href={`/${locale}#platform`} className="btn-secondary">
-              {dict.docs.exploreCaps}
-            </Link>
-          </div>
-        </div>
-      </section>
+      <DocCTA
+        locale={locale}
+        readyToStart={dict.docs.readyToStart}
+        readyDesc={dict.docs.readyDesc}
+        bookDemo={dict.docs.bookDemo}
+        exploreCaps={dict.docs.exploreCaps}
+      />
 
       <Footer />
     </div>

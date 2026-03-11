@@ -20,10 +20,10 @@ const zhTW: Dictionary = {
         href: "/industries/chemical-engineering",
         solutions: [
           { label: "P&ID 識別", href: "/docs/pid-recognition" },
-          { label: "知識圖譜", href: "/docs/knowledge-graphs" },
-          { label: "UniSim 整合", href: "/docs/unisim-integration" },
+          { label: "P&ID 設計助手", href: "/docs/pid-agent" },
+          { label: "模擬軟體原生外掛", href: "/docs/native-plugin" },
           { label: "自主工作流", href: "/docs/agentic-workflows" },
-          { label: "製程優化", href: "/docs/process-optimization" },
+          { label: "預測性維護", href: "/docs/predictive-maintenance" },
           { label: "前線駐場工程師", href: "/docs/forward-deployed-engineers" },
         ],
       },
@@ -106,11 +106,11 @@ const zhTW: Dictionary = {
       { text: "複雜"},
       { text: "的工業流程。" },
     ],
-    sectionSubheading: "熱門服務：",
+    sectionSubheading: "三項熱門服務：",
     learnMore: "了解更多",
     items: [
       {
-        label: "PFD、P&ID 圖面解析",
+        label: "服務(1) - PFD、P&ID 圖面解析",
         tag: "化工與製程產業",
         slug: "pid-recognition",
         title: "一鍵解析 P&ID，數據即刻到手。",
@@ -118,7 +118,7 @@ const zhTW: Dictionary = {
           "上傳圖面或PDF檔即可自動辨識管線、設備與儀控元件，準確率達 97%。工程師不再需要手動抄取資料，快速檢查便可直接取得結構化數據進行後續分析。",
       },
       {
-        label: "PFD、P&ID 設計助手",
+        label: "服務(2) - PFD、P&ID 設計助手",
         tag: "化工與製程產業",
         slug: "knowledge-graphs",
         title: "讓 AI 幫你架構工程製圖。",
@@ -126,7 +126,7 @@ const zhTW: Dictionary = {
           "專為化工領域打造的智慧助手，能根據製程需求自動生成 PFD 與 P&ID，大幅縮短設計時程，讓團隊專注在決策而非繪圖。",
       },
       {
-        label: "AI 原生外掛",
+        label: "服務(3) - AI 原生外掛",
         tag: "化工與製程產業",
         slug: "agentic-workflows",
         title: "將 AI 無縫整合到你現有的模擬軟體中",
@@ -162,6 +162,9 @@ const zhTW: Dictionary = {
     popularServices: "熱門服務",
     heading: "產業專屬的 AI 解決方案",
     readMore: "了解更多",
+    requestThis: "諮詢此方案",
+    requestable: "可諮詢",
+    available: "已上線",
     industries: [
       {
         label: "化學工程",
@@ -174,11 +177,11 @@ const zhTW: Dictionary = {
               "在幾分鐘內以 97%+ 的準確度處理數千張工程圖紙",
           },
           {
-            icon: "globe",
-            title: "知識圖譜",
-            slug: "knowledge-graphs",
+            icon: "beaker",
+            title: "P&ID 設計助手",
+            slug: "pid-agent",
             description:
-              "將文件孤島轉化為連接智能，預測準確度達 67%",
+              "專為化工領域打造的 AI 助手，根據製程需求自動生成 PFD 與 P&ID，加速設計週期",
           },
           {
             icon: "person",
@@ -188,11 +191,11 @@ const zhTW: Dictionary = {
               "駐場專家學習您的工作流程，在 6 週內部署定制 AI",
           },
           {
-            icon: "language",
-            title: "UniSim 整合",
-            slug: "unisim-integration",
+            icon: "cpu",
+            title: "製程模擬軟體原生外掛",
+            slug: "native-plugin",
             description:
-              "原生支援 UniSim、Aspen 及 50+ 種工程工具的模擬功能",
+              "將 AI 能力直接嵌入 Aspen、UniSim、AVEVA 等主流製程模擬平台",
           },
           {
             icon: "arrows",
@@ -202,11 +205,11 @@ const zhTW: Dictionary = {
               "自主代理處理文件、合規檢查和報告生成",
           },
           {
-            icon: "bolt",
-            title: "製程優化",
-            slug: "process-optimization",
+            icon: "cog",
+            title: "預測性維護",
+            slug: "predictive-maintenance",
             description:
-              "以 ML 驅動的製程改進回應數十億個感測器事件",
+              "透過振動、溫度與製程數據，提前預測設備故障",
           },
         ],
       },
@@ -439,11 +442,11 @@ const zhTW: Dictionary = {
       {
         title: "解決方案",
         links: [
-          { label: "P&ID 識別", href: "#features" },
-          { label: "知識圖譜", href: "#features" },
-          { label: "自主工作流", href: "#features" },
-          { label: "UniSim 整合", href: "#platform" },
-          { label: "製程優化", href: "#platform" },
+          { label: "P&ID 識別", href: "/docs/pid-recognition" },
+          { label: "P&ID 設計助手", href: "/docs/pid-agent" },
+          { label: "模擬軟體原生外掛", href: "/docs/native-plugin" },
+          { label: "預測性維護", href: "/docs/predictive-maintenance" },
+          { label: "自主工作流", href: "/docs/agentic-workflows" },
         ],
       },
       {
@@ -597,6 +600,230 @@ P&ID 識別直接饋入：
 ## 開始使用
 
 準備好數位化您的 P&ID 了嗎？我們的前線駐場工程師可以在第一週內讓您開始處理圖紙。
+`,
+      },
+      "pid-agent": {
+        title: "P&ID 設計助手",
+        subtitle: "專為化工領域打造的 AI 助手，根據製程需求自動生成 PFD 與 P&ID，加速設計週期",
+        industry: "化學工程",
+        readTime: "6 分鐘閱讀",
+        content: `
+## 什麼是 P&ID 設計助手？
+
+設計製程流程圖 (PFD) 和管路與儀表圖 (P&ID) 是製程工程中最耗時的階段之一。每條管線、儀器和控制迴路都必須遵循嚴格的標準，同時反映實際的製程設計意圖。
+
+Operon 的 P&ID 設計助手是一款**專為化工領域打造的 AI**，可從自然語言描述、模擬數據或草圖自動生成工程圖面。
+
+> 「過去初級工程師需要 2 週的繪圖工作，現在只需與助手對話加幾輪審查即可完成。」
+
+---
+
+## 運作方式
+
+### 1. 製程意圖擷取
+
+用自然語言描述您的需求，或直接匯入模擬數據：
+
+- 「設計一座蒸餾塔，包含回流罐、再沸器和冷凝器，用於苯-甲苯分離」
+- 直接從 Aspen HYSYS 或 UniSim 匯入流股數據
+- 上傳手繪草圖，助手會將其正式化
+
+### 2. 智慧圖面生成
+
+助手生成符合標準的圖面：
+
+- **正確符號** \u2014 ISA 5.1、ISO 14617 或您公司的符號庫
+- **規範命名** \u2014 遵循您設施的標籤命名慣例
+- **控制迴路** \u2014 根據製程需求自動添加儀控設備
+- **管線規格** \u2014 指定管線編號、管徑和規格斷點
+
+### 3. 迭代精煉
+
+審查生成的圖面，透過對話進行修改：
+
+- 「在進料管線的控制閥加一條旁通」
+- 「將熱交換器改為板框式」
+- 「添加高壓跳脫的 SIS 儀控」
+
+### 4. 匯出與整合
+
+匯出為標準格式：AutoCAD DWG/DXF、SVG/PDF、結構化數據（設備清單、管線清單、儀器索引）。
+
+> 生成的圖面可直接與我們的 P&ID 識別引擎整合進行自動驗證。
+
+---
+
+## 為什麼重要
+
+手動建立 P&ID 需要深厚的符號標準知識、製程控制理念、精確的標籤命名慣例，以及與資深工程師的多輪審查。這使 P&ID 建立成為每個資本項目的**瓶頸**。
+
+### 使用 P&ID 設計助手
+
+- 圖面草案從數天縮短至**幾分鐘**
+- 所有圖面**一致符合標準**
+- 初級工程師透過 AI 輔助繪圖**更快上手**
+- 資深工程師專注於**審查而非從零繪製**
+
+---
+
+## 開始使用
+
+P&ID 設計助手搭配我們的 P&ID 識別引擎和前線駐場工程師效果最佳。我們的團隊會根據您的符號庫、標籤慣例和設計標準進行配置。
+`,
+      },
+      "native-plugin": {
+        title: "製程模擬軟體原生外掛",
+        subtitle: "將 AI 能力直接嵌入 Aspen、UniSim、AVEVA 等主流製程模擬平台",
+        industry: "化學工程",
+        readTime: "7 分鐘閱讀",
+        content: `
+## 什麼是原生外掛？
+
+製程工程師的工作都在模擬軟體內完成 \u2014 Aspen HYSYS、Honeywell UniSim Design、AVEVA PRO/II。在模擬器和獨立 AI 平台之間切換會中斷工作流程。
+
+Operon 的原生外掛**將 AI 能力直接嵌入您現有的模擬環境**。無需切換視窗，無需匯出匯入數據，AI 輔助就在您工作的地方。
+
+> 「就像有一位資深製程工程師在 HYSYS 裡看著你的肩膀，在問題變大之前就發現它們。」
+
+---
+
+## 運作方式
+
+### 1. 一鍵安裝
+
+直接在您的模擬軟體中安裝外掛：
+
+- **Aspen HYSYS / Aspen Plus** \u2014 透過 Aspen 生態系統的原生附加元件
+- **Honeywell UniSim Design** \u2014 具完整 API 存取的擴充模組
+- **AVEVA PRO/II** \u2014 具即時數據橋接的伴隨工具
+- **CHEMCAD** \u2014 整合式側邊欄外掛
+
+外掛在您的本機上運行 \u2014 模擬數據不會離開您的網路。
+
+### 2. 情境式 AI 輔助
+
+啟用外掛後，您在模擬器內即可獲得 AI 能力：
+
+- **模型驗證** \u2014 即時對照 P&ID 數據和設計標準進行檢查
+- **參數建議** \u2014 基於類似製程的 AI 推薦操作條件
+- **異常偵測** \u2014 當模擬結果偏離預期模式時提醒
+- **自動文件** \u2014 在建模的同時自動生成模擬基礎文件
+
+### 3. 本地優先架構
+
+所有 AI 推論透過我們的邊緣部署在本地運行：
+
+- **無需雲端** \u2014 離線和隔離網路環境皆可使用
+- **亞秒級回應** \u2014 無網路延遲
+- **數據主權** \u2014 專有製程數據留在您的基礎設施上
+
+---
+
+## 支援平台
+
+| 平台 | 外掛類型 | 主要功能 |
+|------|---------|---------|
+| Aspen HYSYS | 原生附加元件 | 模型驗證、參數優化、自動文件 |
+| Aspen Plus | 原生附加元件 | 穩態驗證、敏感度分析輔助 |
+| UniSim Design | 擴充模組 | 完整讀寫、即時 P&ID 同步、情境生成 |
+| AVEVA PRO/II | 伴隨工具 | 交叉引用、模型比較、數據橋接 |
+| CHEMCAD | 側邊欄外掛 | 設備尺寸驗證、流股分析 |
+
+---
+
+## 為什麼重要
+
+大多數工程 AI 工具需要您匯出數據、上傳到獨立平台、等待結果，再手動套用回模型。這種摩擦讓工程師即使在有幫助的情況下也**不會使用 AI 工具**。
+
+透過將 AI 直接嵌入模擬器，我們消除了每一步摩擦。
+
+> 「我們在用 Operon 之前試過三個不同的 AI 平台。其他的都要求我們改變工作方式，Operon 的外掛只是讓我們現有的工作流程變得更聰明。」
+
+---
+
+## 開始使用
+
+我們的前線駐場工程師負責完整的外掛安裝和配置 \u2014 通常在 2-3 週內完成。
+`,
+      },
+      "predictive-maintenance": {
+        title: "預測性維護",
+        subtitle: "透過振動、溫度與製程數據，提前預測設備故障",
+        industry: "化學工程",
+        readTime: "7 分鐘閱讀",
+        content: `
+## 什麼是預測性維護？
+
+非計劃性設備故障每年為製程產業造成**數十億美元**的生產損失、緊急維修和安全事故。傳統維護策略 \u2014 事後維修或按日曆排程 \u2014 要麼太遲，要麼浪費資源。
+
+Operon 的預測性維護使用**基於您實際設備數據訓練的機器學習模型**，在故障發生前數天或數週預測故障。
+
+> 「我們在主壓縮機軸承故障前 12 天就偵測到了。那次預測為我們節省了約 200 萬美元的生產損失。」
+
+---
+
+## 運作方式
+
+### 1. 數據整合
+
+Operon 連接您現有的數據源：
+
+- **歷史數據庫** \u2014 PI、IP.21、DeltaV、Honeywell PHD
+- **振動監測** \u2014 CSI、Bently Nevada、SKF
+- **DCS/SCADA** \u2014 即時製程數據
+- **CMMS** \u2014 維護記錄、工單、故障歷史
+
+無需新感測器 \u2014 我們使用您已經收集的數據。
+
+### 2. 設備專屬模型
+
+Operon 為每台設備建立**專屬模型**：
+
+- **旋轉設備** \u2014 泵、壓縮機、渦輪機、風機
+- **熱交換器** \u2014 結垢預測、管路洩漏偵測
+- **容器與塔** \u2014 腐蝕速率預測、塔盤損壞偵測
+- **閥門** \u2014 控制閥黏滯、安全閥測試預測
+
+每個模型學習該特定資產的正常操作範圍。
+
+### 3. 故障預測
+
+系統持續監測早期預警信號：
+
+- **異常偵測** \u2014 識別正常行為的細微偏差
+- **劣化追蹤** \u2014 監控設備的漸進式惡化
+- **剩餘使用壽命** \u2014 估算需要干預的時間
+- **根因分析** \u2014 建議可能的故障模式
+
+### 4. 行動整合
+
+預測結果連接到您現有的工作流程：自動在 CMMS 中生成工單、優先順序維護建議、備件庫存警報、整合停車檢修計劃。
+
+---
+
+## 效能
+
+| 指標 | 數值 |
+|------|------|
+| 故障預測準確度 | 92%+ |
+| 平均預警時間 | 故障前 14 天 |
+| 誤報率 | <5% |
+| 非計劃停機減少 | 40-60% |
+| 維護成本降低 | 25-35% |
+
+---
+
+## 為什麼重要
+
+透過學習您實際設備的行為 \u2014 而非通用故障曲線 \u2014 我們的模型能以您營運團隊所需的精確度預測故障。
+
+> 「第一年我們就減少了 45% 的非計劃停機。維護團隊從救火變成了提前規劃。」
+
+---
+
+## 開始使用
+
+預測性維護搭配我們的 P&ID 識別和知識圖譜效果最佳。前線駐場工程師負責完整部署 \u2014 通常在 4-6 週內完成。
 `,
       },
     },

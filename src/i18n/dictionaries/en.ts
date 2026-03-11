@@ -18,10 +18,10 @@ const en = {
         href: "/industries/chemical-engineering",
         solutions: [
           { label: "P&ID Recognition", href: "/docs/pid-recognition" },
-          { label: "Knowledge Graphs", href: "/docs/knowledge-graphs" },
-          { label: "UniSim Integration", href: "/docs/unisim-integration" },
+          { label: "P&ID Agent", href: "/docs/pid-agent" },
+          { label: "Native Plugin", href: "/docs/native-plugin" },
           { label: "Agentic Workflows", href: "/docs/agentic-workflows" },
-          { label: "Process Optimization", href: "/docs/process-optimization" },
+          { label: "Predictive Maintenance", href: "/docs/predictive-maintenance" },
           { label: "Forward-Deployed Engineers", href: "/docs/forward-deployed-engineers" },
         ],
       },
@@ -158,16 +158,19 @@ const en = {
     popularServices: "Popular Services",
     heading: "We provide domain specific AI solutions for",
     readMore: "Read more",
+    requestThis: "Request this",
+    requestable: "On request",
+    available: "Available",
     industries: [
       {
         label: "chemical engineering",
         capabilities: [
           { icon: "monitor", title: "P&ID Recognition", slug: "pid-recognition", description: "Processes thousands of engineering diagrams with 97%+ accuracy in minutes" },
-          { icon: "globe", title: "Knowledge Graphs", slug: "knowledge-graphs", description: "Transforms document silos into connected intelligence with 67% prediction accuracy" },
+          { icon: "beaker", title: "P&ID Agent", slug: "pid-agent", description: "A domain-specific AI agent that builds PFD and P&ID diagrams for chemical engineers, accelerating design cycles" },
           { icon: "person", title: "Forward-Deployed Engineers", slug: "forward-deployed-engineers", description: "On-site experts who learn your workflows and deploy customized AI in under 6 weeks" },
-          { icon: "language", title: "UniSim Integration", slug: "unisim-integration", description: "Native simulation fluency across UniSim, Aspen, and 50+ engineering tools" },
+          { icon: "cpu", title: "Native Plugin in Process Simulation Software", slug: "native-plugin", description: "AI native plugin embedded directly into Aspen, UniSim, AVEVA and other process simulation platforms" },
           { icon: "arrows", title: "Agentic Workflows", slug: "agentic-workflows", description: "Autonomous agents that handle document processing, compliance checks, and reporting" },
-          { icon: "bolt", title: "Process Optimization", slug: "process-optimization", description: "React to billions of sensor events with ML-driven process improvements" },
+          { icon: "cog", title: "Predictive Maintenance", slug: "predictive-maintenance", description: "Predict equipment failures before they happen using vibration, temperature, and process data" },
         ],
       },
       {
@@ -257,11 +260,11 @@ const en = {
     copyright: "Operon Solutions. All Rights Reserved.",
     cols: [
       { title: "Solutions", links: [
-        { label: "P&ID Recognition", href: "#features" },
-        { label: "Knowledge Graphs", href: "#features" },
-        { label: "Agentic Workflows", href: "#features" },
-        { label: "UniSim Integration", href: "#platform" },
-        { label: "Process Optimization", href: "#platform" },
+        { label: "P&ID Recognition", href: "/docs/pid-recognition" },
+        { label: "P&ID Agent", href: "/docs/pid-agent" },
+        { label: "Native Plugin", href: "/docs/native-plugin" },
+        { label: "Predictive Maintenance", href: "/docs/predictive-maintenance" },
+        { label: "Agentic Workflows", href: "/docs/agentic-workflows" },
       ]},
       { title: "Resources", links: [
         { label: "Documentation", href: "/documentation" },
@@ -317,7 +320,7 @@ Piping and Instrumentation Diagrams (P&IDs) are the backbone of process engineer
 
 Operon's P&ID Recognition engine uses computer vision and domain-specific AI to **automatically identify, classify, and digitize** every component on a P&ID sheet.
 
-> "We processed 2,400 legacy P&IDs in a single weekend \u2014 work that would have taken our team 6 months manually."
+> "We processed 20,000+ legacy P&IDs within a month \u2014 work that would have taken our team plenty of months manually." 
 
 ---
 
@@ -403,6 +406,243 @@ P&ID Recognition feeds directly into:
 ## Get Started
 
 Ready to digitize your P&IDs? Our forward-deployed engineers can have you processing drawings within your first week.
+`,
+      },
+      "pid-agent": {
+        title: "P&ID Agent",
+        subtitle: "A domain-specific AI agent that builds PFD and P&ID diagrams, accelerating design cycles for chemical engineers",
+        industry: "Chemical Engineering",
+        readTime: "6 min read",
+        content: `
+## What is the P&ID Agent?
+
+Designing Process Flow Diagrams (PFDs) and Piping & Instrumentation Diagrams (P&IDs) is one of the most time-consuming stages of process engineering. Every line, instrument, and control loop must follow strict standards \u2014 ISA, ISO, and company-specific conventions \u2014 while reflecting the actual process design intent.
+
+Operon's P&ID Agent is a **domain-specific AI that generates engineering diagrams** from natural-language process descriptions, existing simulation data, or partial sketches.
+
+> "What used to take our junior engineers 2 weeks of drafting now takes a conversation with the agent and a few rounds of review."
+
+---
+
+## How it works
+
+### 1. Process Intent Capture
+
+Describe what you need in plain language or feed in simulation data:
+
+- "Design a distillation column with reflux drum, reboiler, and condenser for a benzene-toluene separation"
+- Import stream data directly from Aspen HYSYS or UniSim
+- Upload a rough hand sketch and the agent will formalize it
+
+### 2. Intelligent Diagram Generation
+
+The agent generates standards-compliant diagrams with:
+
+- **Correct symbology** \u2014 ISA 5.1, ISO 14617, or your company symbol library
+- **Proper tag numbering** \u2014 follows your facility's naming conventions
+- **Control loops** \u2014 automatically adds instrumentation based on process requirements
+- **Line specifications** \u2014 assigns line numbers, sizes, and spec breaks
+
+### 3. Iterative Refinement
+
+Review the generated diagram and refine through conversation:
+
+- "Add a bypass around the control valve on the feed line"
+- "Change the heat exchanger to a plate-and-frame type"
+- "Add SIS instrumentation for the high-pressure trip"
+
+The agent maintains context across iterations, understanding the full process topology.
+
+### 4. Export & Integration
+
+Export to standard formats:
+
+- **AutoCAD DWG/DXF** \u2014 native CAD integration
+- **SVG/PDF** \u2014 for documentation and review
+- **Structured data** \u2014 equipment lists, line lists, instrument indexes
+
+> Generated diagrams integrate directly with our P&ID Recognition engine for automated verification.
+
+---
+
+## Why it matters
+
+Creating P&IDs manually requires deep knowledge of symbology standards, understanding of process control philosophy, careful attention to tag numbering conventions, and multiple review cycles with senior engineers. This makes P&ID creation a **bottleneck** in every capital project.
+
+### With the P&ID Agent
+
+- **Draft diagrams in minutes** instead of days
+- **Consistent standards compliance** across all drawings
+- **Junior engineers become productive faster** with AI-assisted drafting
+- **Senior engineers focus on review** instead of drafting from scratch
+
+> "The agent doesn't replace our engineers \u2014 it gives them a 10x head start on every diagram."
+
+---
+
+## Get Started
+
+The P&ID Agent works best alongside our P&ID Recognition engine and Forward-Deployed Engineers. Our team configures the agent to match your specific symbol library, tag conventions, and design standards.
+`,
+      },
+      "native-plugin": {
+        title: "Native Plugin in Process Simulation Software",
+        subtitle: "AI capabilities embedded directly into Aspen, UniSim, AVEVA and other process simulation platforms",
+        industry: "Chemical Engineering",
+        readTime: "7 min read",
+        content: `
+## What is the Native Plugin?
+
+Process engineers live inside simulation software \u2014 Aspen HYSYS, Honeywell UniSim Design, AVEVA PRO/II. Switching between your simulator and a separate AI platform breaks your workflow.
+
+Operon's Native Plugin **embeds AI capabilities directly into your existing simulation environment**. No context switching. No data export/import. AI assistance right where you work.
+
+> "It's like having a senior process engineer looking over your shoulder inside HYSYS, catching issues before they become problems."
+
+---
+
+## How it works
+
+### 1. One-Click Installation
+
+Install the plugin directly into your simulation software:
+
+- **Aspen HYSYS / Aspen Plus** \u2014 native add-in via the Aspen ecosystem
+- **Honeywell UniSim Design** \u2014 extension module with full API access
+- **AVEVA PRO/II** \u2014 companion tool with live data bridge
+- **CHEMCAD** \u2014 integrated sidebar plugin
+
+The plugin runs locally on your machine \u2014 your simulation data never leaves your network.
+
+### 2. In-Context AI Assistance
+
+With the plugin active, you get AI capabilities inside your simulator:
+
+- **Model validation** \u2014 real-time checks against your P&ID data and design standards
+- **Parameter suggestions** \u2014 AI-recommended operating conditions based on similar processes
+- **Anomaly detection** \u2014 highlights when simulation results deviate from expected patterns
+- **Auto-documentation** \u2014 generates simulation basis documents as you build models
+
+### 3. Local-First Architecture
+
+All AI inference runs locally via our edge deployment:
+
+- **No cloud dependency** \u2014 works offline and in air-gapped environments
+- **Sub-second response times** \u2014 no network latency
+- **Data sovereignty** \u2014 your proprietary process data stays on your infrastructure
+
+---
+
+## Supported Platforms
+
+| Platform | Plugin Type | Key Capabilities |
+|----------|------------|-----------------|
+| Aspen HYSYS | Native add-in | Model validation, parameter optimization, auto-documentation |
+| Aspen Plus | Native add-in | Steady-state validation, sensitivity analysis assistance |
+| UniSim Design | Extension module | Full read/write, live P&ID sync, scenario generation |
+| AVEVA PRO/II | Companion tool | Cross-reference, model comparison, data bridge |
+| CHEMCAD | Sidebar plugin | Equipment sizing validation, stream analysis |
+
+---
+
+## Why it matters
+
+Most AI tools for engineering require you to export data, upload it to a separate platform, wait for results, and manually apply insights back. This friction means engineers **don't use AI tools** even when they would help.
+
+By embedding AI directly into the simulator, we eliminate every step of friction.
+
+> "We tried three different AI platforms before Operon. The others required us to change how we work. Operon's plugin just makes our existing workflow smarter."
+
+---
+
+## Get Started
+
+Our forward-deployed engineers handle the full plugin installation and configuration \u2014 typically within 2-3 weeks.
+`,
+      },
+      "predictive-maintenance": {
+        title: "Predictive Maintenance",
+        subtitle: "Predict equipment failures before they happen using vibration, temperature, and process data",
+        industry: "Chemical Engineering",
+        readTime: "7 min read",
+        content: `
+## What is Predictive Maintenance?
+
+Unplanned equipment failures cost the process industry **billions of dollars annually** in lost production, emergency repairs, and safety incidents. Traditional maintenance strategies \u2014 run-to-failure or calendar-based schedules \u2014 either come too late or waste resources.
+
+Operon's Predictive Maintenance uses **machine learning models trained on your actual equipment data** to predict failures days or weeks before they occur.
+
+> "We caught a bearing failure on our main compressor 12 days before it would have caused a plant trip. That single prediction saved us an estimated M in lost production."
+
+---
+
+## How it works
+
+### 1. Data Integration
+
+Operon connects to your existing data sources:
+
+- **Historians** \u2014 PI, IP.21, DeltaV, Honeywell PHD
+- **Vibration monitoring** \u2014 CSI, Bently Nevada, SKF
+- **DCS/SCADA** \u2014 real-time process data
+- **CMMS** \u2014 maintenance records, work orders, failure history
+
+No new sensors required \u2014 we work with the data you already collect.
+
+### 2. Equipment-Specific Models
+
+Operon builds **models specific to each piece of equipment**:
+
+- **Rotating equipment** \u2014 pumps, compressors, turbines, fans
+- **Heat exchangers** \u2014 fouling prediction, tube leak detection
+- **Vessels & columns** \u2014 corrosion rate prediction, tray damage detection
+- **Valves** \u2014 control valve stiction, relief valve testing prediction
+
+Each model learns the normal operating envelope for that specific asset.
+
+### 3. Failure Prediction
+
+The system continuously monitors for early warning signs:
+
+- **Anomaly detection** \u2014 identifies subtle deviations from normal behavior
+- **Degradation tracking** \u2014 monitors gradual equipment deterioration
+- **Remaining useful life** \u2014 estimates time until intervention is needed
+- **Root cause analysis** \u2014 suggests probable failure modes
+
+### 4. Action Integration
+
+Predictions connect to your existing workflows:
+
+- Automatic work order generation in your CMMS
+- Priority-ranked maintenance recommendations
+- Spare parts inventory alerts
+- Integration with turnaround planning
+
+---
+
+## Performance
+
+| Metric | Value |
+|--------|-------|
+| Failure prediction accuracy | 92%+ |
+| Average lead time | 14 days before failure |
+| False positive rate | <5% |
+| Unplanned downtime reduction | 40-60% |
+| Maintenance cost reduction | 25-35% |
+
+---
+
+## Why it matters
+
+By learning from your actual equipment behavior \u2014 not generic failure curves \u2014 our models predict failures with the specificity your operations team needs.
+
+> "We reduced our unplanned downtime by 45% in the first year. The maintenance team went from fighting fires to planning ahead."
+
+---
+
+## Get Started
+
+Predictive Maintenance works best when combined with our P&ID Recognition and Knowledge Graphs. Our forward-deployed engineers handle the full deployment \u2014 typically within 4-6 weeks.
 `,
       },
     },

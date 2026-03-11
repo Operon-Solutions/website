@@ -219,6 +219,122 @@ The result: simulation models you can actually trust.
 UniSim Integration works best alongside our P&ID Recognition and Knowledge Graphs capabilities. Our forward-deployed engineers handle the full setup — from model inventory to live synchronization — typically within 4-6 weeks.
 `,
   },
+  "pid-agent": {
+    slug: "pid-agent",
+    title: "P&ID Agent",
+    subtitle: "A domain-specific AI agent that builds PFD and P&ID diagrams, accelerating design cycles for chemical engineers",
+    industry: "Chemical Engineering",
+    readTime: "6 min read",
+    content: `
+## What is the P&ID Agent?
+
+Operon's P&ID Agent is a **domain-specific AI that generates engineering diagrams** from natural-language process descriptions, existing simulation data, or partial sketches.
+
+> "What used to take our junior engineers 2 weeks of drafting now takes a conversation with the agent and a few rounds of review."
+
+---
+
+## How it works
+
+### 1. Process Intent Capture
+
+Describe what you need in plain language or feed in simulation data. Import stream data directly from Aspen HYSYS or UniSim, or upload a rough hand sketch and the agent will formalize it.
+
+### 2. Intelligent Diagram Generation
+
+The agent generates standards-compliant diagrams with correct symbology (ISA 5.1, ISO 14617), proper tag numbering, control loops, and line specifications.
+
+### 3. Iterative Refinement
+
+Review the generated diagram and refine through conversation. The agent maintains context across iterations, understanding the full process topology.
+
+### 4. Export & Integration
+
+Export to AutoCAD DWG/DXF, SVG/PDF, and structured data formats.
+
+---
+
+## Get Started
+
+The P&ID Agent works best alongside our P&ID Recognition engine and Forward-Deployed Engineers.
+`,
+  },
+  "native-plugin": {
+    slug: "native-plugin",
+    title: "Native Plugin in Process Simulation Software",
+    subtitle: "AI capabilities embedded directly into Aspen, UniSim, AVEVA and other process simulation platforms",
+    industry: "Chemical Engineering",
+    readTime: "7 min read",
+    content: `
+## What is the Native Plugin?
+
+Operon's Native Plugin **embeds AI capabilities directly into your existing simulation environment**. No context switching. No data export/import. AI assistance right where you work.
+
+> "It's like having a senior process engineer looking over your shoulder inside HYSYS, catching issues before they become problems."
+
+---
+
+## How it works
+
+### 1. One-Click Installation
+
+Install the plugin directly into Aspen HYSYS, UniSim Design, AVEVA PRO/II, or CHEMCAD. The plugin runs locally — your simulation data never leaves your network.
+
+### 2. In-Context AI Assistance
+
+Model validation, parameter suggestions, anomaly detection, and auto-documentation — all inside your simulator.
+
+### 3. Local-First Architecture
+
+All AI inference runs locally. No cloud dependency, sub-second response times, and full data sovereignty.
+
+---
+
+## Get Started
+
+Our forward-deployed engineers handle the full plugin installation and configuration — typically within 2-3 weeks.
+`,
+  },
+  "predictive-maintenance": {
+    slug: "predictive-maintenance",
+    title: "Predictive Maintenance",
+    subtitle: "Predict equipment failures before they happen using vibration, temperature, and process data",
+    industry: "Chemical Engineering",
+    readTime: "7 min read",
+    content: `
+## What is Predictive Maintenance?
+
+Operon's Predictive Maintenance uses **machine learning models trained on your actual equipment data** to predict failures days or weeks before they occur.
+
+> "We caught a bearing failure on our main compressor 12 days before it would have caused a plant trip."
+
+---
+
+## How it works
+
+### 1. Data Integration
+
+Connects to historians (PI, IP.21, DeltaV), vibration monitoring, DCS/SCADA, and CMMS. No new sensors required.
+
+### 2. Equipment-Specific Models
+
+Models specific to each piece of equipment — rotating equipment, heat exchangers, vessels, and valves.
+
+### 3. Failure Prediction
+
+Anomaly detection, degradation tracking, remaining useful life estimation, and root cause analysis.
+
+### 4. Action Integration
+
+Automatic work order generation, priority-ranked recommendations, spare parts alerts, and turnaround planning integration.
+
+---
+
+## Get Started
+
+Predictive Maintenance works best when combined with our P&ID Recognition and Knowledge Graphs. Deployment typically takes 4-6 weeks.
+`,
+  },
 };
 
 export function getDoc(slug: string): DocEntry | undefined {
