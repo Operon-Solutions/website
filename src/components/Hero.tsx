@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { useI18n } from "@/i18n/context";
 import { useContact } from "./ContactProvider";
 
@@ -21,16 +22,18 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen overflow-hidden flex items-center">
       {/* Background image */}
-      <div
-        className="absolute bottom-30 left-0 right-0 pointer-events-none invert dark:invert-0"
-        style={{
-          backgroundImage: "url('/hero-bg-chemicalplant1.png')",
-          backgroundSize: "contain",
-          backgroundPosition: "bottom center",
-          backgroundRepeat: "no-repeat",
-          height: "60%",
-        }}
-      />
+      <div className="absolute bottom-30 left-0 right-0 pointer-events-none invert dark:invert-0" style={{ height: "60%" }}>
+        <Image
+          src="/hero-bg-chemicalplant1.webp"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-contain object-bottom"
+          placeholder="blur"
+          blurDataURL="data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoQAAQAAUAmJYgCdAEO/hmMAAADqr+/LLv//bTJT/+PkMu3/YxQ5X6uxekAAAA="
+        />
+      </div>
       {/* Overlays */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-b from-bg/60 via-bg/40 to-bg/90" />
