@@ -80,7 +80,7 @@ export default function PlatformGrid() {
   const [index, setIndex] = useState(0);
   const [displayIndex, setDisplayIndex] = useState(0);
   const [morphPhase, setMorphPhase] = useState<"in" | "out">("in");
-  const scrambled = useScramble(industryData[index].label);
+  const scrambled = useScramble(industryData[index].label, 1200);
   const caps = industryData[displayIndex].capabilities;
 
   useEffect(() => {
@@ -89,13 +89,19 @@ export default function PlatformGrid() {
     const t = setTimeout(() => {
       setDisplayIndex(index);
       setMorphPhase("in");
-    }, 350);
+    }, 200);
     return () => clearTimeout(t);
   }, [index, displayIndex]);
 
   const advance = useCallback(() => {
     setIndex((prev) => (prev + 1) % industryData.length);
   }, [industryData.length]);
+
+  /* Auto-rotate industries every 4 seconds */
+  useEffect(() => {
+    const id = setInterval(advance, 4000);
+    return () => clearInterval(id);
+  }, [advance]);
 
   return (
     <section id="platform" ref={ref} className="py-24 md:py-32">
