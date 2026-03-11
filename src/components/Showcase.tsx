@@ -221,8 +221,52 @@ function DeployCard() {
   );
 }
 
+/* ═══════════════════════════════════════════
+   Stage — the dramatic background behind each window
+   ═══════════════════════════════════════════ */
+function Stage({ children, accent }: { children: React.ReactNode; accent: "blue" | "emerald" | "violet" }) {
+  /* Muted, desaturated blobs in olive/sage tones matching the site theme */
+  const blobs = {
+    blue: [
+      "radial-gradient(ellipse 70% 50% at 25% 75%, rgba(120,150,80,0.12), transparent 70%)",
+      "radial-gradient(ellipse 50% 40% at 70% 60%, rgba(80,110,70,0.08), transparent 60%)",
+      "radial-gradient(ellipse 40% 30% at 50% 90%, rgba(160,180,100,0.06), transparent 50%)",
+    ],
+    emerald: [
+      "radial-gradient(ellipse 60% 50% at 60% 80%, rgba(150,170,90,0.12), transparent 70%)",
+      "radial-gradient(ellipse 50% 35% at 30% 70%, rgba(100,130,70,0.08), transparent 60%)",
+      "radial-gradient(ellipse 45% 30% at 75% 65%, rgba(130,110,80,0.06), transparent 50%)",
+    ],
+    violet: [
+      "radial-gradient(ellipse 65% 45% at 40% 85%, rgba(110,140,80,0.12), transparent 70%)",
+      "radial-gradient(ellipse 45% 40% at 70% 70%, rgba(90,120,75,0.08), transparent 60%)",
+      "radial-gradient(ellipse 50% 25% at 25% 65%, rgba(140,160,90,0.06), transparent 50%)",
+    ],
+  }[accent];
+
+  return (
+    <div className="sc-stage" data-accent={accent}>
+      {/* Dot mosaic */}
+      <div className="sc-stage-grid" />
+      {/* Color blobs */}
+      {blobs.map((bg, i) => (
+        <div key={i} className="absolute inset-0 pointer-events-none" style={{ background: bg }} />
+      ))}
+      {/* Top fade */}
+      <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to bottom, rgba(10,11,10,0.85) 0%, transparent 35%)" }} />
+      {/* Window */}
+      <div className="relative z-10 px-5 pt-8 pb-0 flex items-end justify-center h-full">
+        <div className="w-full sc-window-float">
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /* ═══════════════════════════════════════════ */
 const CARDS = [PlantCard, PredictCard, DeployCard];
+const ACCENTS: ("blue" | "emerald" | "violet")[] = ["blue", "emerald", "violet"];
 
 export default function Showcase() {
   const { dict } = useI18n();
@@ -236,7 +280,9 @@ export default function Showcase() {
             const Card = CARDS[i];
             return (
               <div key={i} className={`reveal delay-${i + 1} flex flex-col gap-5`}>
-                <Card />
+                <Stage accent={ACCENTS[i]}>
+                  <Card />
+                </Stage>
                 <div>
                   <h3 className="text-[16px] font-semibold mb-2">{item.title}</h3>
                   <p className="text-[13px] text-fg/35 leading-[1.6]">{item.description}</p>
