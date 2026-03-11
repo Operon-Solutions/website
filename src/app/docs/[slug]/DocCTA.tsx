@@ -13,7 +13,7 @@ export default function DocCTA() {
           Ready to get started?
         </h2>
         <p className="text-[14px] text-[color-mix(in_srgb,var(--c-fg)_35%,transparent)] mb-8 max-w-md mx-auto leading-relaxed">
-          Our forward-deployed engineers can have you up and running within your
+          Our on-site engineers can have you up and running within your
           first week.
         </p>
         <div className="flex items-center justify-center gap-3">

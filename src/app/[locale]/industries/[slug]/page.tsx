@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { isValidLocale, getDictionary, locales } from "@/i18n";
 import Footer from "@/components/Footer";
+import LangSwitcher from "@/components/LangSwitcher";
 import type { Metadata } from "next";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
@@ -52,6 +53,7 @@ export default async function IndustryPage({ params }: Props) {
             operon
           </Link>
           <div className="flex items-center gap-6">
+            <LangSwitcher />
             <Link
               href={`/${locale}#platform`}
               className="text-[12px] text-fg/30 hover:text-fg/60 transition-colors hidden sm:block"
@@ -276,55 +278,6 @@ export default async function IndustryPage({ params }: Props) {
                   </span>
                 </div>
               </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Case Studies ── */}
-      <section className="py-20">
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
-          <div className="flex items-center gap-2.5 mb-4">
-            <span className="w-2.5 h-2.5 rounded-sm bg-fg/30" />
-            <span className="text-[13px] text-fg/40 font-medium">
-              {t.caseStudies}
-            </span>
-          </div>
-          <h2 className="font-serif text-[clamp(1.5rem,3.5vw,2.4rem)] leading-[1.15] tracking-tight mb-12">
-            {t.resultsInProd}
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {ind.caseStudies.map((cs) => (
-              <div
-                key={cs.company}
-                className="rounded-2xl border border-fg/[0.06] p-7 md:p-8"
-                style={{
-                  background:
-                    "linear-gradient(170deg, color-mix(in srgb, var(--c-fg) 3%, transparent) 0%, color-mix(in srgb, var(--c-fg) 0.8%, transparent) 100%)",
-                }}
-              >
-                <div className="text-[11px] text-accent/50 font-medium uppercase tracking-widest mb-4">
-                  {cs.company}
-                </div>
-                <p className="text-[15px] text-fg/60 leading-[1.7] mb-6">
-                  {cs.result}
-                </p>
-                <blockquote className="border-l-2 border-accent/20 pl-4 mb-6">
-                  <p className="text-[14px] text-fg/40 italic leading-[1.7]">
-                    &ldquo;{cs.quote}&rdquo;
-                  </p>
-                </blockquote>
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center text-[11px] font-bold text-accent/70">
-                    {cs.person[0]}
-                  </div>
-                  <div>
-                    <div className="text-[13px] font-medium">{cs.person}</div>
-                    <div className="text-[11px] text-fg/25">{cs.role}</div>
-                  </div>
-                </div>
-              </div>
             ))}
           </div>
         </div>

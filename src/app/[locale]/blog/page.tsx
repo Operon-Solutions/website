@@ -2,6 +2,7 @@ import Link from "next/link";
 import { isValidLocale, getDictionary, locales } from "@/i18n";
 import { notFound } from "next/navigation";
 import Footer from "@/components/Footer";
+import LangSwitcher from "@/components/LangSwitcher";
 import type { Metadata } from "next";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -33,12 +34,15 @@ export default async function BlogPage({ params }: Props) {
           <Link href={`/${locale}`} className="text-[14px] font-semibold tracking-tight text-fg/70 hover:text-accent transition-colors">
             operon
           </Link>
-          <Link href={`/${locale}`} className="text-[12px] text-fg/30 hover:text-fg/60 transition-colors flex items-center gap-1">
-            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
-            </svg>
-            {dict.docs.home}
-          </Link>
+          <div className="flex items-center gap-3">
+            <LangSwitcher />
+            <Link href={`/${locale}`} className="text-[12px] text-fg/30 hover:text-fg/60 transition-colors flex items-center gap-1">
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+              </svg>
+              {dict.docs.home}
+            </Link>
+          </div>
         </div>
       </nav>
 
@@ -60,16 +64,35 @@ export default async function BlogPage({ params }: Props) {
       <section className="pb-24">
         <div className="max-w-[720px] mx-auto px-6">
           <div className="space-y-6">
-            {d.posts.map((post: { title: string; date: string; summary: string; tag: string }) => (
-              <article key={post.title} className="group border border-fg/[0.06] rounded-xl p-6 hover:border-accent/20 transition-colors">
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="text-[11px] text-accent/60 bg-accent/5 px-2 py-0.5 rounded">{post.tag}</span>
-                  <span className="text-[11px] text-fg/20">{post.date}</span>
-                </div>
-                <h3 className="text-[16px] font-medium mb-2 group-hover:text-accent transition-colors">{post.title}</h3>
-                <p className="text-[13px] text-fg/30 leading-[1.7]">{post.summary}</p>
-              </article>
-            ))}
+            {d.posts.map((post: { title: string; date: string; summary: string; tag: string; slug?: string }) => {
+              const inner = (
+                <>
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="text-[11px] text-accent/60 bg-accent/5 px-2 py-0.5 rounded">{post.tag}</span>
+                    <span className="text-[11px] text-fg/20">{post.date}</span>
+                  </div>
+                  <h3 className="text-[16px] font-medium mb-2 group-hover:text-accent transition-colors">{post.title}</h3>
+                  <p className="text-[13px] text-fg/30 leading-[1.7]">{post.summary}</p>
+                  {post.slug && (
+                    <span className="inline-flex items-center gap-1 mt-3 text-[12px] text-fg/15 group-hover:text-accent/50 transition-colors">
+                      Read more
+                      <svg className="w-3 h-3 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                      </svg>
+                    </span>
+                  )}
+                </>
+              );
+              return post.slug ? (
+                <Link key={post.title} href={`/${locale}/blog/${post.slug}`} className="group block border border-fg/[0.06] rounded-xl p-6 hover:border-accent/20 transition-colors">
+                  {inner}
+                </Link>
+              ) : (
+                <article key={post.title} className="group border border-fg/[0.06] rounded-xl p-6 hover:border-accent/20 transition-colors">
+                  {inner}
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>

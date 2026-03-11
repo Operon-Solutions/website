@@ -13,14 +13,6 @@ type Solution = {
   statLabel?: string;
 };
 
-type CaseStudy = {
-  company: string;
-  result: string;
-  quote: string;
-  person: string;
-  role: string;
-};
-
 type IndustryEntry = {
   slug: string;
   name: string;
@@ -29,7 +21,6 @@ type IndustryEntry = {
   stats: { value: string; label: string }[];
   introParagraphs: string[];
   solutions: Solution[];
-  caseStudies: CaseStudy[];
   challenges: { title: string; description: string }[];
 };
 
@@ -48,7 +39,7 @@ const industries: Record<string, IndustryEntry> = {
     ],
     introParagraphs: [
       "Chemical plants run on decades of institutional knowledge trapped in P&IDs, safety reports, and process simulations. When a senior engineer retires, that knowledge walks out the door. When a plant expansion requires reviewing thousands of legacy drawings, teams spend months on manual work that should take days.",
-      "Operon changes this. We deploy forward-deployed engineers who learn your specific processes, equipment naming conventions, and safety standards. They configure AI systems that understand your plant — not a generic chemical engineering textbook, but your actual operations.",
+      "Operon changes this. We deploy on-site engineers who learn your specific processes, equipment naming conventions, and safety standards. They configure AI systems that understand your plant — not a generic chemical engineering textbook, but your actual operations.",
     ],
     solutions: [
       {
@@ -92,32 +83,12 @@ const industries: Record<string, IndustryEntry> = {
         statLabel: "time saved on reviews",
       },
       {
-        title: "Forward-Deployed Engineers",
-        slug: "forward-deployed-engineers",
+        title: "On-Site Engineers",
+        slug: "on-site-engineers",
         description:
           "On-site experts who learn your workflows and deploy customized AI in under 6 weeks. They speak your language — process engineering, not just machine learning.",
         stat: "<6",
         statLabel: "weeks to production",
-      },
-    ],
-    caseStudies: [
-      {
-        company: "Major Petrochemical Refinery",
-        result:
-          "Processed 2,400 legacy P&IDs in a single weekend — work that would have taken the engineering team 6 months manually.",
-        quote:
-          "The accuracy blew us away. It caught components our senior engineers had missed in manual reviews.",
-        person: "David K.",
-        role: "VP of Engineering",
-      },
-      {
-        company: "Specialty Chemicals Manufacturer",
-        result:
-          "Reduced HAZOP preparation time by 70% and achieved zero audit findings in their next regulatory review.",
-        quote:
-          "We went from dreading audits to walking in with complete confidence. Every document is cross-referenced and up to date.",
-        person: "Sarah M.",
-        role: "Plant Safety Manager",
       },
     ],
     challenges: [
@@ -418,55 +389,6 @@ export default async function IndustryPage({ params }: Props) {
         </div>
       </section>
 
-      {/* ── Case Studies ── */}
-      <section className="py-20">
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
-          <div className="flex items-center gap-2.5 mb-4">
-            <span className="w-2.5 h-2.5 rounded-sm bg-fg/30" />
-            <span className="text-[13px] text-fg/40 font-medium">
-              Case Studies
-            </span>
-          </div>
-          <h2 className="font-serif text-[clamp(1.5rem,3.5vw,2.4rem)] leading-[1.15] tracking-tight mb-12">
-            Results in production
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {ind.caseStudies.map((cs) => (
-              <div
-                key={cs.company}
-                className="rounded-2xl border border-fg/[0.06] p-7 md:p-8"
-                style={{
-                  background:
-                    "linear-gradient(170deg, color-mix(in srgb, var(--c-fg) 3%, transparent) 0%, color-mix(in srgb, var(--c-fg) 0.8%, transparent) 100%)",
-                }}
-              >
-                <div className="text-[11px] text-accent/50 font-medium uppercase tracking-widest mb-4">
-                  {cs.company}
-                </div>
-                <p className="text-[15px] text-fg/60 leading-[1.7] mb-6">
-                  {cs.result}
-                </p>
-                <blockquote className="border-l-2 border-accent/20 pl-4 mb-6">
-                  <p className="text-[14px] text-fg/40 italic leading-[1.7]">
-                    &ldquo;{cs.quote}&rdquo;
-                  </p>
-                </blockquote>
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center text-[11px] font-bold text-accent/70">
-                    {cs.person[0]}
-                  </div>
-                  <div>
-                    <div className="text-[13px] font-medium">{cs.person}</div>
-                    <div className="text-[11px] text-fg/25">{cs.role}</div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── CTA ── */}
       <section className="border-t border-fg/[0.06] py-24">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
@@ -481,7 +403,7 @@ export default async function IndustryPage({ params }: Props) {
               Transform your {ind.name.toLowerCase()} operations
             </h2>
             <p className="text-[15px] text-fg/35 leading-[1.7] mb-8">
-              Our forward-deployed engineers can have you up and running within
+              Our on-site engineers can have you up and running within
               your first week. See results, not slide decks.
             </p>
             <div className="flex items-center gap-3">

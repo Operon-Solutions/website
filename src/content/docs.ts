@@ -12,102 +12,133 @@ const docs: Record<string, DocEntry> = {
     slug: "pid-recognition",
     title: "P&ID Recognition",
     subtitle:
-      "How Operon identifies 97% of equipment from engineering diagrams automatically",
+      "Extracting structured engineering data from flowsheet images using object detection and topology exploration",
     industry: "Chemical Engineering",
-    readTime: "8 min read",
+    readTime: "10 min read",
     content: `
-## What is P&ID Recognition?
+## The Problem
 
-Piping and Instrumentation Diagrams (P&IDs) are the backbone of process engineering. They define every valve, pump, heat exchanger, and instrument in a plant — yet most facilities still manage them as static PDFs or paper drawings.
+P&IDs and process flowsheets contain critical information about how a plant is designed — every unit operation, instrument, valve, and the connections between them. But in practice, most of this information is locked inside static images: scanned paper drawings, PDFs, or old CAD exports.
 
-Operon's P&ID Recognition engine uses computer vision and domain-specific AI to **automatically identify, classify, and digitize** every component on a P&ID sheet.
+When engineers need to work with this data — for safety reviews, plant modifications, or simulation setup — they end up manually reading diagrams and re-entering information into spreadsheets or databases. This is slow, error-prone, and does not scale.
 
-> "We processed 2,400 legacy P&IDs in a single weekend — work that would have taken our team 6 months manually."
+![Example of a chemical process P&ID diagram](/blog/plant-pid.webp)
 
 ---
 
-## How it works
+## What We Do
 
-### 1. Scan & Ingest
+Our goal is **flowsheet digitization**: extracting the topology of a P&ID or PFD from its image and saving it as structured, machine-readable data in a graph format.
 
-Upload your P&ID drawings in any format — PDF, TIFF, DWG, or even scanned paper documents. Our preprocessing pipeline handles:
+This means identifying:
 
-- Automatic deskewing and noise removal
-- Multi-page document splitting
-- Resolution normalization for consistent detection
+- **What** is on the diagram (equipment, instruments, valves, piping)
+- **Where** each component is located
+- **How** they connect to each other (the process topology)
+- **What the text says** (tag numbers, line numbers, annotations, tables)
 
-> **Supported formats:** PDF, TIFF, DWG, DXF, PNG, JPEG, and scanned paper documents up to A0 size.
+The output is not just a list of detected symbols — it is a **graph that captures the connectivity and relationships** between components, which is what makes the data actually useful for downstream engineering work.
 
-### 2. Component Detection
+---
 
-Our models are trained on **hundreds of thousands of real engineering drawings** across ISA, ISO, and proprietary symbol sets. We detect:
+## How It Works
 
-- **Equipment** — vessels, tanks, columns, heat exchangers, reactors
-- **Instruments** — pressure gauges, flow meters, temperature transmitters
+### 1. Upload & Preprocessing
+
+Upload P&ID drawings in PDF, TIFF, DWG, PNG, or scanned paper formats. The preprocessing pipeline handles deskewing, noise removal, multi-page splitting, and resolution normalization.
+
+### 2. Object Detection
+
+Machine learning models identify the position and type of each unit operation, instrument, and valve on the flowsheet. We train on a large, labeled dataset of chemical process flowsheets and P&IDs from diverse sources, covering ISA 5.1, ISO 14617, and various proprietary symbol sets.
+
+The models detect:
+
+- **Equipment** — vessels, tanks, columns, heat exchangers, reactors, pumps
+- **Instruments** — pressure transmitters, flow meters, temperature indicators, control loops
 - **Valves** — control valves, check valves, relief valves, manual valves
-- **Piping** — process lines, utility lines, instrument connections
-- **Annotations** — tag numbers, line numbers, spec breaks
+- **Piping** — process lines, utility lines, instrument signal lines
 
-### 3. Relationship Mapping
+### 3. Text & Table Recognition
 
-Beyond detection, we understand **how components connect**. The system maps:
+OCR extracts tag numbers, line numbers, equipment labels, spec breaks, and tabular data (title blocks, equipment schedules). These are linked back to their corresponding symbols.
 
-- Process flow direction
-- Instrument-to-equipment associations
-- Control loop relationships (PV → controller → CV)
-- Line spec transitions
+### 4. Topology Extraction
 
-### 4. Digital Twin Output
+This is the core step. A pathway exploration algorithm traces the connections between detected components — following pipe lines, signal lines, and process flows to reconstruct the **full topology** of the flowsheet as a graph.
 
-The result is a structured, queryable digital representation of your P&ID — not just an image with bounding boxes, but a **graph of engineering knowledge**.
+The result: each component is a node, each connection is an edge, and the graph captures the actual process structure.
 
-> The digital twin output integrates directly with your existing CMMS, ERP, and simulation tools — no manual data entry required.
+![Operon P&ID recognition demo — detected components with tag numbers and confidence scores](/blog/plant-pid-ai.webp)
 
----
+### 5. Export
 
-## Accuracy & Performance
+The digitized data can be exported in multiple formats:
 
-| Metric | Value |
-|--------|-------|
-| Component detection accuracy | 97.3% |
-| Symbol classification accuracy | 95.8% |
-| Tag number OCR accuracy | 99.1% |
-| Processing speed | ~30 seconds per sheet |
-| Supported symbol standards | ISA 5.1, ISO 14617, PIP, custom |
+- **Graph formats** for engineering databases and knowledge systems
+- **CSV / JSON / XML** for integration with existing tools
+- **DEXPI-compatible formats** for interoperability with standards-based systems
 
 ---
 
-## Why it matters
 
-### Before Operon
 
-- Engineers spend **40+ hours per project** manually reviewing P&IDs
-- Errors propagate across revisions because changes aren't tracked systematically
-- Knowledge lives in individual engineers' heads, not in systems
+## Our Deep Learning Approach
 
-### After Operon
+### Why Deep Learning
 
-- P&ID review drops to **minutes, not days**
-- Every component is tracked across every revision automatically
-- Searchable, queryable equipment database built from your actual drawings
+Traditional approaches to P&ID digitization relied on rule-based template matching — manually defining what each symbol looks like and writing heuristics to find them. This breaks down quickly in practice because there is enormous variability in how P&IDs are drawn. Different companies, different eras, different CAD tools, and even different drafters within the same company all produce visually distinct diagrams. A heat exchanger in one drawing may look nothing like a heat exchanger in another.
 
-> "The accuracy blew us away. It caught components our senior engineers had missed in manual reviews."
+Deep learning solves this by learning to recognize symbols from examples rather than rules. Given enough labeled training data, a convolutional neural network can generalize across drawing styles, handle noise and degradation in scanned documents, and detect symbols at varying scales and orientations.
+
+### Object Detection Architecture
+
+At the core of our system is a deep convolutional neural network trained for object detection — the task of simultaneously locating and classifying multiple objects within an image. This is fundamentally different from image classification (which asks "what is this image of?"). Object detection answers "where is everything, and what is each thing?" in a single pass.
+
+Modern object detection architectures work by dividing the image into a grid of regions and predicting, for each region, whether it contains an object, what class that object belongs to, and the precise bounding box coordinates. The network learns hierarchical features: early layers detect low-level patterns like edges and corners, while deeper layers combine these into higher-level representations that correspond to engineering symbols like valves, instruments, and equipment.
+
+We use an anchor-based detection framework that generates candidate regions at multiple scales, which is critical for P&IDs where a small instrument tag and a large vessel can appear on the same sheet. The model outputs a confidence score for each detection, allowing us to filter results and flag uncertain cases for human review.
+
+### Building the Training Dataset
+
+The biggest bottleneck in applying deep learning to P&ID recognition is not the model architecture — it is the data. Unlike natural image datasets (where millions of labeled photos exist), there is no large public dataset of labeled engineering drawings.
+
+We built our own dataset by collecting and annotating P&IDs from diverse sources — different industries, different standards (ISA 5.1, ISO 14617, company-specific symbol libraries), different time periods, and different output formats (CAD exports, scanned paper, PDF prints). Each symbol on each sheet is manually labeled with a bounding box and a class label.
+
+This diversity is intentional. P&IDs exhibit high intra-class variability — the same type of equipment can be drawn in many different ways depending on the standard, the company, or the individual drafter. Training on a narrow dataset produces a model that only works on diagrams similar to its training data. Training on a broad, diverse dataset produces a model that generalizes.
+
+We also apply data augmentation techniques — rotation, scaling, noise injection, contrast variation — to further improve robustness, particularly for degraded scanned documents where image quality is poor.
+
+### Handling the Unique Challenges of P&IDs
+
+P&IDs present several challenges that standard object detection models are not designed for:
+
+- **Dense, overlapping symbols** — Unlike natural images where objects are typically separated by background, P&IDs pack symbols tightly with intersecting lines. The model must distinguish overlapping elements without confusing one symbol for another.
+- **Small text and tags** — Tag numbers like "FIC-13310" are critical information but occupy very few pixels. We use a separate text detection and OCR pipeline tuned for engineering annotation styles.
+- **Class imbalance** — Some symbol types (like pipe lines) appear thousands of times per sheet, while others (like relief valves) may appear only once or twice. We use weighted loss functions and sampling strategies during training to prevent the model from ignoring rare classes.
+- **Line connectivity** — Detecting symbols is only half the problem. Understanding which symbols connect to which requires tracing pipe lines and signal lines through the image. We handle this with a separate pathway exploration algorithm that operates on the detected symbol locations and the underlying line geometry.
+
+### Continuous Improvement
+
+The model improves over time. As we process more P&IDs for more clients across more industries, we expand and refine the training dataset. Detections that are corrected during human review are fed back into the training pipeline — a standard active learning loop that systematically addresses the model's weaknesses.
 
 ---
 
-## Integration
+## Why This Matters
 
-P&ID Recognition feeds directly into:
+Manual P&ID review is one of the most time-consuming tasks in process engineering. A single project can involve hundreds or thousands of sheets, each requiring careful reading by experienced engineers.
 
-- **Knowledge Graphs** — detected components become nodes in your engineering knowledge network
-- **Agentic Workflows** — trigger automated compliance checks when new P&IDs are processed
-- **UniSim Integration** — map detected equipment to simulation models
+Digitization changes this:
+
+- **Speed** — Process hundreds of sheets in the time it takes to manually review a few
+- **Consistency** — The same detection criteria applied to every sheet, every time
+- **Searchability** — Once digitized, you can query your equipment, instruments, and connections across your entire drawing library
+- **Foundation for automation** — Structured P&ID data enables automated compliance checks, change tracking across revisions, and integration with simulation models
 
 ---
 
 ## Get Started
 
-Ready to digitize your P&IDs? Our forward-deployed engineers can have you processing drawings within your first week.
+If you are interested in digitizing your P&ID library, reach out to our team. We work with your existing drawings and engineering standards to configure the system for your specific needs.
 `,
   },
   "unisim-integration": {
@@ -216,7 +247,7 @@ The result: simulation models you can actually trust.
 
 ## Get Started
 
-UniSim Integration works best alongside our P&ID Recognition and Knowledge Graphs capabilities. Our forward-deployed engineers handle the full setup — from model inventory to live synchronization — typically within 4-6 weeks.
+UniSim Integration works best alongside our P&ID Recognition and Knowledge Graphs capabilities. Our on-site engineers handle the full setup — from model inventory to live synchronization — typically within 4-6 weeks.
 `,
   },
   "pid-agent": {
@@ -226,37 +257,85 @@ UniSim Integration works best alongside our P&ID Recognition and Knowledge Graph
     industry: "Chemical Engineering",
     readTime: "6 min read",
     content: `
-## What is the P&ID Agent?
+## The Problem
 
-Operon's P&ID Agent is a **domain-specific AI that generates engineering diagrams** from natural-language process descriptions, existing simulation data, or partial sketches.
+Developing Piping and Instrumentation Diagrams (P&IDs) is one of the most critical and labor-intensive steps in process development. A single capital project can require hundreds of P&ID sheets, each demanding deep expertise in symbology standards (ISA 5.1, ISO 14617), process control philosophy, and company-specific conventions.
 
-> "What used to take our junior engineers 2 weeks of drafting now takes a conversation with the agent and a few rounds of review."
+Junior engineers spend weeks drafting diagrams. Senior engineers spend weeks reviewing them. The cycle repeats for every revision, every project, every plant.
+
+Recent academic work has shown that this problem is tractable with AI. Researchers have demonstrated that the relationship between Process Flow Diagrams (PFDs) and P&IDs can be modeled as a translation task — given a process description, predict the control structures, instrumentation, and piping details that complete the diagram. These results point to a future where AI assists engineers throughout the design process, not just at the documentation stage.
 
 ---
 
-## How it works
+## What the P&ID Agent Does
+
+Operon's P&ID Agent is a **domain-specific AI that generates engineering diagrams** from natural-language process descriptions, existing simulation data, or partial sketches.
+
+Rather than starting from a blank sheet, engineers describe what they need — a distillation column separation, a reactor feed system, a utility header — and the agent produces a standards-compliant draft that serves as a starting point for detailed design.
+
+---
+
+## How It Works
 
 ### 1. Process Intent Capture
 
-Describe what you need in plain language or feed in simulation data. Import stream data directly from Aspen HYSYS or UniSim, or upload a rough hand sketch and the agent will formalize it.
+The agent accepts input in multiple forms:
 
-### 2. Intelligent Diagram Generation
+- **Natural language** — "Design a distillation column with reflux drum, reboiler, and condenser for a benzene-toluene separation"
+- **Simulation data** — import stream data directly from Aspen HYSYS or UniSim
+- **Partial sketches** — upload a rough hand-drawn diagram and the agent formalizes it
 
-The agent generates standards-compliant diagrams with correct symbology (ISA 5.1, ISO 14617), proper tag numbering, control loops, and line specifications.
+### 2. Diagram Generation
+
+The agent produces P&IDs with:
+
+- **Correct symbology** — ISA 5.1, ISO 14617, or your company's custom symbol library
+- **Tag numbering** — follows your facility's naming conventions
+- **Control loops** — adds instrumentation based on process requirements and control philosophy
+- **Line specifications** — assigns line numbers, sizes, and spec breaks
+
+Under the hood, the agent uses models trained on real engineering diagrams to understand the structural patterns of P&IDs — which instruments typically accompany which equipment, how control loops are configured for common unit operations, and what piping arrangements are standard practice.
 
 ### 3. Iterative Refinement
 
-Review the generated diagram and refine through conversation. The agent maintains context across iterations, understanding the full process topology.
+Engineers review the draft and refine through conversation:
+
+- "Add a bypass around the control valve on the feed line"
+- "Change the heat exchanger to a plate-and-frame type"
+- "Add SIS instrumentation for the high-pressure trip"
+
+The agent maintains full context of the process topology across iterations.
 
 ### 4. Export & Integration
 
-Export to AutoCAD DWG/DXF, SVG/PDF, and structured data formats.
+Export to standard formats:
+
+- **AutoCAD DWG/DXF** — native CAD integration
+- **SVG/PDF** — for documentation and review
+- **Structured data** — equipment lists, line lists, instrument indexes
+
+Generated diagrams integrate directly with our P&ID Recognition engine, creating a closed loop: the agent generates, the recognition engine verifies, and discrepancies are flagged automatically.
+
+---
+
+## Why It Matters
+
+The traditional P&ID design workflow is sequential and slow. An engineer drafts, a reviewer marks up, the engineer revises, and the cycle continues. Each iteration can take days.
+
+The P&ID Agent compresses this cycle:
+
+- **Draft diagrams in minutes** instead of days
+- **Consistent standards compliance** across all drawings
+- **Junior engineers become productive faster** — AI handles the mechanical drafting so they can focus on learning process design
+- **Senior engineers focus on review and optimization** instead of checking tag numbers
+
+This is not about replacing engineers. It is about removing the repetitive drafting work that consumes engineering hours without adding engineering value.
 
 ---
 
 ## Get Started
 
-The P&ID Agent works best alongside our P&ID Recognition engine and Forward-Deployed Engineers.
+The P&ID Agent works best alongside our P&ID Recognition engine and On-Site Engineers. Our team configures the agent to match your specific symbol library, tag conventions, and design standards.
 `,
   },
   "native-plugin": {
@@ -292,7 +371,7 @@ All AI inference runs locally. No cloud dependency, sub-second response times, a
 
 ## Get Started
 
-Our forward-deployed engineers handle the full plugin installation and configuration — typically within 2-3 weeks.
+Our on-site engineers handle the full plugin installation and configuration — typically within 2-3 weeks.
 `,
   },
   "predictive-maintenance": {

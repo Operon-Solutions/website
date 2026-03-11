@@ -2,6 +2,7 @@ import Link from "next/link";
 import { isValidLocale, getDictionary, locales } from "@/i18n";
 import { notFound } from "next/navigation";
 import Footer from "@/components/Footer";
+import LangSwitcher from "@/components/LangSwitcher";
 import type { Metadata } from "next";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -33,12 +34,15 @@ export default async function CareersPage({ params }: Props) {
           <Link href={`/${locale}`} className="text-[14px] font-semibold tracking-tight text-fg/70 hover:text-accent transition-colors">
             operon
           </Link>
-          <Link href={`/${locale}`} className="text-[12px] text-fg/30 hover:text-fg/60 transition-colors flex items-center gap-1">
-            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
-            </svg>
-            {dict.docs.home}
-          </Link>
+          <div className="flex items-center gap-3">
+            <LangSwitcher />
+            <Link href={`/${locale}`} className="text-[12px] text-fg/30 hover:text-fg/60 transition-colors flex items-center gap-1">
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+              </svg>
+              {dict.docs.home}
+            </Link>
+          </div>
         </div>
       </nav>
 

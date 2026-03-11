@@ -2,7 +2,7 @@ const en = {
   meta: {
     title: "Operon | AI-Powered Manufacturing Intelligence",
     description:
-      "Customized AI systems for manufacturing and chemical engineering. Forward-deployed engineers, P&ID recognition, knowledge graphs, and agentic workflows.",
+      "Customized AI systems for manufacturing and chemical engineering. On-site engineers, P&ID recognition, knowledge graphs, and agentic workflows.",
   },
 
   navbar: {
@@ -22,7 +22,7 @@ const en = {
           { label: "Native Plugin", href: "/docs/native-plugin" },
           { label: "Agentic Workflows", href: "/docs/agentic-workflows" },
           { label: "Predictive Maintenance", href: "/docs/predictive-maintenance" },
-          { label: "Forward-Deployed Engineers", href: "/docs/forward-deployed-engineers" },
+          { label: "On-Site Engineers", href: "/docs/on-site-engineers" },
         ],
       },
       {
@@ -30,11 +30,11 @@ const en = {
         href: "/industries/oil-gas",
         solutions: [
           { label: "P&ID Recognition", href: "/docs/pid-recognition" },
+          { label: "P&ID Agent", href: "/docs/pid-agent" },
           { label: "Safety & Compliance", href: "/docs/safety-compliance" },
-          { label: "Production Forecasting", href: "/docs/production-forecasting" },
+          { label: "Predictive Maintenance", href: "/docs/predictive-maintenance" },
           { label: "Agentic Workflows", href: "/docs/agentic-workflows" },
-          { label: "Asset Integrity", href: "/docs/asset-integrity" },
-          { label: "Forward-Deployed Engineers", href: "/docs/forward-deployed-engineers" },
+          { label: "On-Site Engineers", href: "/docs/on-site-engineers" },
         ],
       },
       {
@@ -46,7 +46,7 @@ const en = {
           { label: "Yield Optimization", href: "/docs/yield-optimization" },
           { label: "Agentic Workflows", href: "/docs/agentic-workflows" },
           { label: "Supply Chain Intelligence", href: "/docs/supply-chain-intelligence" },
-          { label: "Forward-Deployed Engineers", href: "/docs/forward-deployed-engineers" },
+          { label: "On-Site Engineers", href: "/docs/on-site-engineers" },
         ],
       },
       {
@@ -58,7 +58,7 @@ const en = {
           { label: "Energy Management", href: "/docs/energy-management" },
           { label: "Agentic Workflows", href: "/docs/agentic-workflows" },
           { label: "Predictive Maintenance", href: "/docs/predictive-maintenance" },
-          { label: "Forward-Deployed Engineers", href: "/docs/forward-deployed-engineers" },
+          { label: "On-Site Engineers", href: "/docs/on-site-engineers" },
         ],
       },
     ],
@@ -75,7 +75,6 @@ const en = {
         title: "Resources",
         items: [
           { label: "Documentation", href: "/documentation" },
-          { label: "Case Studies", href: "/case-studies" },
           { label: "Blog", href: "/blog" },
         ],
       },
@@ -116,7 +115,7 @@ const en = {
       {
         label: "PFD, P&ID Agent",
         tag: "Chemical & Process Industry",
-        slug: "knowledge-graphs",
+        slug: "pid-agent",
         title: "An agent that builds for you.",
         description:
           "Our domain-specific agent will build engineering diagrams such as PFD, P&ID for chemical engineers, accelerating the design cycles in your team.",
@@ -124,7 +123,7 @@ const en = {
       {
         label: "AI Native Plugin",
         tag: "Chemical & Process Industry",
-        slug: "agentic-workflows",
+        slug: "native-plugin",
         title: "Native plugin directly embedded to your process simulation software",
         description:
           "We deploy local services such as AI native plugin to your process simulation software such as Aspen, UNISM, AVEVA systems...etc"}
@@ -167,7 +166,7 @@ const en = {
         capabilities: [
           { icon: "monitor", title: "P&ID Recognition", slug: "pid-recognition", description: "Processes thousands of engineering diagrams with 97%+ accuracy in minutes" },
           { icon: "beaker", title: "P&ID Agent", slug: "pid-agent", description: "A domain-specific AI agent that builds PFD and P&ID diagrams for chemical engineers, accelerating design cycles" },
-          { icon: "person", title: "Forward-Deployed Engineers", slug: "forward-deployed-engineers", description: "On-site experts who learn your workflows and deploy customized AI in under 6 weeks" },
+          { icon: "person", title: "On-Site Engineers", slug: "on-site-engineers", description: "On-site experts who learn your workflows and deploy customized AI in under 6 weeks" },
           { icon: "cpu", title: "Native Plugin in Process Simulation Software", slug: "native-plugin", description: "AI native plugin embedded directly into Aspen, UniSim, AVEVA and other process simulation platforms" },
           { icon: "arrows", title: "Agentic Workflows", slug: "agentic-workflows", description: "Autonomous agents that handle document processing, compliance checks, and reporting" },
           { icon: "cog", title: "Predictive Maintenance", slug: "predictive-maintenance", description: "Predict equipment failures before they happen using vibration, temperature, and process data" },
@@ -176,12 +175,12 @@ const en = {
       {
         label: "oil & gas industries",
         capabilities: [
-          { icon: "monitor", title: "P&ID Recognition", slug: "pid-recognition-oil-gas", description: "Digitize legacy piping and instrumentation diagrams across upstream and downstream assets" },
+          { icon: "monitor", title: "P&ID Recognition", slug: "pid-recognition", description: "Digitize legacy piping and instrumentation diagrams across upstream and downstream assets" },
+          { icon: "beaker", title: "P&ID Agent", slug: "pid-agent", description: "AI agent that builds P&ID diagrams from process descriptions, simulation data, or partial sketches" },
           { icon: "shield", title: "Safety & Compliance", slug: "safety-compliance", description: "Automated HAZOP analysis and regulatory compliance checks against API and ASME standards" },
-          { icon: "person", title: "Forward-Deployed Engineers", slug: "forward-deployed-engineers-oil-gas", description: "On-site experts embedded with your operations team for rapid AI deployment" },
-          { icon: "chart", title: "Production Forecasting", slug: "production-forecasting", description: "ML-driven well performance prediction and reservoir optimization models" },
+          { icon: "person", title: "On-Site Engineers", slug: "on-site-engineers-oil-gas", description: "On-site experts embedded with your operations team for rapid AI deployment" },
+          { icon: "cog", title: "Predictive Maintenance", slug: "predictive-maintenance", description: "Predict equipment failures before they happen using vibration, temperature, and process data" },
           { icon: "arrows", title: "Agentic Workflows", slug: "agentic-workflows-oil-gas", description: "Autonomous agents for permit processing, inspection scheduling, and field reporting" },
-          { icon: "cog", title: "Asset Integrity", slug: "asset-integrity", description: "Predictive maintenance and corrosion monitoring across pipelines and facilities" },
         ],
       },
       {
@@ -189,7 +188,7 @@ const en = {
         capabilities: [
           { icon: "cpu", title: "Schematic Recognition", slug: "schematic-recognition", description: "Digitize circuit schematics and PCB layouts with component-level accuracy" },
           { icon: "globe", title: "Knowledge Graphs", slug: "knowledge-graphs-electronics", description: "Link BOMs, datasheets, and test reports into a connected intelligence layer" },
-          { icon: "person", title: "Forward-Deployed Engineers", slug: "forward-deployed-engineers-electronics", description: "On-site experts who integrate with your fab and assembly workflows" },
+          { icon: "person", title: "On-Site Engineers", slug: "on-site-engineers-electronics", description: "On-site experts who integrate with your fab and assembly workflows" },
           { icon: "chart", title: "Yield Optimization", slug: "yield-optimization", description: "Identify defect root causes and optimize process parameters to maximize yield" },
           { icon: "arrows", title: "Agentic Workflows", slug: "agentic-workflows-electronics", description: "Automated quality inspection, lot tracking, and compliance documentation" },
           { icon: "clipboard", title: "Supply Chain Intelligence", slug: "supply-chain-intelligence", description: "Real-time component availability tracking and alternative part recommendations" },
@@ -200,7 +199,7 @@ const en = {
         capabilities: [
           { icon: "monitor", title: "Kiln Optimization", slug: "kiln-optimization", description: "AI-driven rotary kiln temperature and feed rate optimization for consistent clinker quality" },
           { icon: "chart", title: "Quality Prediction", slug: "quality-prediction", description: "Predict cement strength and composition in real-time using raw mix and process data" },
-          { icon: "person", title: "Forward-Deployed Engineers", slug: "forward-deployed-engineers-cement", description: "On-site experts who understand your plant layout, raw materials, and grinding circuits" },
+          { icon: "person", title: "On-Site Engineers", slug: "on-site-engineers-cement", description: "On-site experts who understand your plant layout, raw materials, and grinding circuits" },
           { icon: "bolt", title: "Energy Management", slug: "energy-management", description: "Optimize thermal and electrical energy consumption across pyroprocessing and grinding" },
           { icon: "arrows", title: "Agentic Workflows", slug: "agentic-workflows-cement", description: "Autonomous agents for environmental compliance reporting, maintenance scheduling, and shift handovers" },
           { icon: "cog", title: "Predictive Maintenance", slug: "predictive-maintenance", description: "Predict equipment failures in crushers, mills, and kilns before they happen using vibration, temperature, and process data" },
@@ -241,7 +240,7 @@ const en = {
     items: [
       { q: "What's the actual ROI I can expect?", a: "Most clients see 60-80% reduction in document processing time within the first month. Our P&ID recognition alone saves hundreds of engineering hours per project. We provide detailed ROI projections during our initial consultation." },
       { q: "How is this different from generic AI tools?", a: "Unlike general-purpose AI, Operon is purpose-built for chemical engineering. Our models are trained on millions of P&IDs, process flow diagrams, and engineering documents. We deploy engineers who understand your industry on-site." },
-      { q: "Do I need technical expertise to use Operon?", a: "No. Our forward-deployed engineers handle the technical implementation. Install our connector with a single configuration change. The AI learns your operations automatically. Most teams manage everything themselves without any technical overhead." },
+      { q: "Do I need technical expertise to use Operon?", a: "No. Our on-site engineers handle the technical implementation. Install our connector with a single configuration change. The AI learns your operations automatically. Most teams manage everything themselves without any technical overhead." },
       { q: "Will this work for my specific type of facility?", a: "We've deployed across refineries, chemical plants, pharmaceutical manufacturing, and specialty chemical facilities. Our AI adapts to your specific equipment, processes, and documentation standards." },
       { q: "How much time will I need to manage this?", a: "Minimal. After initial deployment (typically under 6 weeks), the system runs autonomously. Our agents handle document processing, compliance checks, and reporting. You focus on high-level decisions." },
       { q: "What if I'm already using another platform?", a: "Operon integrates with your existing tools\u2014UniSim, Aspen, SAP, and more. We augment your current workflow rather than replacing it. Our knowledge graphs connect to your existing document management systems." },
@@ -268,7 +267,6 @@ const en = {
       ]},
       { title: "Resources", links: [
         { label: "Documentation", href: "/documentation" },
-        { label: "Case Studies", href: "/case-studies" },
         { label: "Blog", href: "/blog" },
       ]},
       { title: "Persona", links: [
@@ -290,7 +288,7 @@ const en = {
     features: "Features",
     home: "Home",
     readyToStart: "Ready to get started?",
-    readyDesc: "Our forward-deployed engineers can have you up and running within your first week.",
+    readyDesc: "Our on-site engineers can have you up and running within your first week.",
     bookDemo: "Book a demo",
     exploreCaps: "Explore capabilities",
     comingSoon: "In Development",
@@ -310,102 +308,133 @@ const en = {
     entries: {
       "pid-recognition": {
         title: "P&ID Recognition",
-        subtitle: "How Operon identifies 97% of equipment from engineering diagrams automatically",
+        subtitle: "Extracting structured engineering data from flowsheet images using object detection and topology exploration",
         industry: "Chemical Engineering",
-        readTime: "8 min read",
+        readTime: "6 min read",
         content: `
-## What is P&ID Recognition?
+## The Problem
 
-Piping and Instrumentation Diagrams (P&IDs) are the backbone of process engineering. They define every valve, pump, heat exchanger, and instrument in a plant \u2014 yet most facilities still manage them as static PDFs or paper drawings.
+P&IDs and process flowsheets contain critical information about how a plant is designed — every unit operation, instrument, valve, and the connections between them. But in practice, most of this information is locked inside static images: scanned paper drawings, PDFs, or old CAD exports.
 
-Operon's P&ID Recognition engine uses computer vision and domain-specific AI to **automatically identify, classify, and digitize** every component on a P&ID sheet.
+When engineers need to work with this data — for safety reviews, plant modifications, or simulation setup — they end up manually reading diagrams and re-entering information into spreadsheets or databases. This is slow, error-prone, and does not scale.
 
-> "We processed 20,000+ legacy P&IDs within a month \u2014 work that would have taken our team plenty of months manually." 
-
----
-
-## How it works
-
-### 1. Scan & Ingest
-
-Upload your P&ID drawings in any format \u2014 PDF, TIFF, DWG, or even scanned paper documents. Our preprocessing pipeline handles:
-
-- Automatic deskewing and noise removal
-- Multi-page document splitting
-- Resolution normalization for consistent detection
-
-> **Supported formats:** PDF, TIFF, DWG, DXF, PNG, JPEG, and scanned paper documents up to A0 size.
-
-### 2. Component Detection
-
-Our models are trained on **hundreds of thousands of real engineering drawings** across ISA, ISO, and proprietary symbol sets. We detect:
-
-- **Equipment** \u2014 vessels, tanks, columns, heat exchangers, reactors
-- **Instruments** \u2014 pressure gauges, flow meters, temperature transmitters
-- **Valves** \u2014 control valves, check valves, relief valves, manual valves
-- **Piping** \u2014 process lines, utility lines, instrument connections
-- **Annotations** \u2014 tag numbers, line numbers, spec breaks
-
-### 3. Relationship Mapping
-
-Beyond detection, we understand **how components connect**. The system maps:
-
-- Process flow direction
-- Instrument-to-equipment associations
-- Control loop relationships (PV \u2192 controller \u2192 CV)
-- Line spec transitions
-
-### 4. Digital Twin Output
-
-The result is a structured, queryable digital representation of your P&ID \u2014 not just an image with bounding boxes, but a **graph of engineering knowledge**.
-
-> The digital twin output integrates directly with your existing CMMS, ERP, and simulation tools \u2014 no manual data entry required.
+![Example of a chemical process P&ID diagram](/blog/plant-pid.webp)
 
 ---
 
-## Accuracy & Performance
+## What We Do
 
-| Metric | Value |
-|--------|-------|
-| Component detection accuracy | 97.3% |
-| Symbol classification accuracy | 95.8% |
-| Tag number OCR accuracy | 99.1% |
-| Processing speed | ~30 seconds per sheet |
-| Supported symbol standards | ISA 5.1, ISO 14617, PIP, custom |
+Our goal is **flowsheet digitization**: extracting the topology of a P&ID or PFD from its image and saving it as structured, machine-readable data in a graph format.
 
----
+This means identifying:
 
-## Why it matters
+- **What** is on the diagram (equipment, instruments, valves, piping)
+- **Where** each component is located
+- **How** they connect to each other (the process topology)
+- **What the text says** (tag numbers, line numbers, annotations, tables)
 
-### Before Operon
-
-- Engineers spend **40+ hours per project** manually reviewing P&IDs
-- Errors propagate across revisions because changes aren't tracked systematically
-- Knowledge lives in individual engineers' heads, not in systems
-
-### After Operon
-
-- P&ID review drops to **minutes, not days**
-- Every component is tracked across every revision automatically
-- Searchable, queryable equipment database built from your actual drawings
-
-> "The accuracy blew us away. It caught components our senior engineers had missed in manual reviews."
+The output is not just a list of detected symbols — it is a **graph that captures the connectivity and relationships** between components, which is what makes the data actually useful for downstream engineering work.
 
 ---
 
-## Integration
+## How It Works
 
-P&ID Recognition feeds directly into:
+### 1. Upload & Preprocessing
 
-- **Knowledge Graphs** \u2014 detected components become nodes in your engineering knowledge network
-- **Agentic Workflows** \u2014 trigger automated compliance checks when new P&IDs are processed
-- **UniSim Integration** \u2014 map detected equipment to simulation models
+Upload P&ID drawings in PDF, TIFF, DWG, PNG, or scanned paper formats. The preprocessing pipeline handles deskewing, noise removal, multi-page splitting, and resolution normalization.
+
+### 2. Object Detection
+
+Machine learning models identify the position and type of each unit operation, instrument, and valve on the flowsheet. We train on a large, labeled dataset of chemical process flowsheets and P&IDs from diverse sources, covering ISA 5.1, ISO 14617, and various proprietary symbol sets.
+
+The models detect:
+
+- **Equipment** — vessels, tanks, columns, heat exchangers, reactors, pumps
+- **Instruments** — pressure transmitters, flow meters, temperature indicators, control loops
+- **Valves** — control valves, check valves, relief valves, manual valves
+- **Piping** — process lines, utility lines, instrument signal lines
+
+### 3. Text & Table Recognition
+
+OCR extracts tag numbers, line numbers, equipment labels, spec breaks, and tabular data (title blocks, equipment schedules). These are linked back to their corresponding symbols.
+
+### 4. Topology Extraction
+
+This is the core step. A pathway exploration algorithm traces the connections between detected components — following pipe lines, signal lines, and process flows to reconstruct the **full topology** of the flowsheet as a graph.
+
+The result: each component is a node, each connection is an edge, and the graph captures the actual process structure.
+
+![Operon P&ID recognition demo — detected components with tag numbers and confidence scores](/blog/plant-pid-ai.webp)
+
+### 5. Export
+
+The digitized data can be exported in multiple formats:
+
+- **Graph formats** for engineering databases and knowledge systems
+- **CSV / JSON / XML** for integration with existing tools
+- **DEXPI-compatible formats** for interoperability with standards-based systems
+
+---
+
+
+
+## Our Deep Learning Approach
+
+### Why Deep Learning
+
+Traditional approaches to P&ID digitization relied on rule-based template matching — manually defining what each symbol looks like and writing heuristics to find them. This breaks down quickly in practice because there is enormous variability in how P&IDs are drawn. Different companies, different eras, different CAD tools, and even different drafters within the same company all produce visually distinct diagrams. A heat exchanger in one drawing may look nothing like a heat exchanger in another.
+
+Deep learning solves this by learning to recognize symbols from examples rather than rules. Given enough labeled training data, a convolutional neural network can generalize across drawing styles, handle noise and degradation in scanned documents, and detect symbols at varying scales and orientations.
+
+### Object Detection Architecture
+
+At the core of our system is a deep convolutional neural network trained for object detection — the task of simultaneously locating and classifying multiple objects within an image. This is fundamentally different from image classification (which asks "what is this image of?"). Object detection answers "where is everything, and what is each thing?" in a single pass.
+
+Modern object detection architectures work by dividing the image into a grid of regions and predicting, for each region, whether it contains an object, what class that object belongs to, and the precise bounding box coordinates. The network learns hierarchical features: early layers detect low-level patterns like edges and corners, while deeper layers combine these into higher-level representations that correspond to engineering symbols like valves, instruments, and equipment.
+
+We use an anchor-based detection framework that generates candidate regions at multiple scales, which is critical for P&IDs where a small instrument tag and a large vessel can appear on the same sheet. The model outputs a confidence score for each detection, allowing us to filter results and flag uncertain cases for human review.
+
+### Building the Training Dataset
+
+The biggest bottleneck in applying deep learning to P&ID recognition is not the model architecture — it is the data. Unlike natural image datasets (where millions of labeled photos exist), there is no large public dataset of labeled engineering drawings.
+
+We built our own dataset by collecting and annotating P&IDs from diverse sources — different industries, different standards (ISA 5.1, ISO 14617, company-specific symbol libraries), different time periods, and different output formats (CAD exports, scanned paper, PDF prints). Each symbol on each sheet is manually labeled with a bounding box and a class label.
+
+This diversity is intentional. P&IDs exhibit high intra-class variability — the same type of equipment can be drawn in many different ways depending on the standard, the company, or the individual drafter. Training on a narrow dataset produces a model that only works on diagrams similar to its training data. Training on a broad, diverse dataset produces a model that generalizes.
+
+We also apply data augmentation techniques — rotation, scaling, noise injection, contrast variation — to further improve robustness, particularly for degraded scanned documents where image quality is poor.
+
+### Handling the Unique Challenges of P&IDs
+
+P&IDs present several challenges that standard object detection models are not designed for:
+
+- **Dense, overlapping symbols** — Unlike natural images where objects are typically separated by background, P&IDs pack symbols tightly with intersecting lines. The model must distinguish overlapping elements without confusing one symbol for another.
+- **Small text and tags** — Tag numbers like "FIC-13310" are critical information but occupy very few pixels. We use a separate text detection and OCR pipeline tuned for engineering annotation styles.
+- **Class imbalance** — Some symbol types (like pipe lines) appear thousands of times per sheet, while others (like relief valves) may appear only once or twice. We use weighted loss functions and sampling strategies during training to prevent the model from ignoring rare classes.
+- **Line connectivity** — Detecting symbols is only half the problem. Understanding which symbols connect to which requires tracing pipe lines and signal lines through the image. We handle this with a separate pathway exploration algorithm that operates on the detected symbol locations and the underlying line geometry.
+
+### Continuous Improvement
+
+The model improves over time. As we process more P&IDs for more clients across more industries, we expand and refine the training dataset. Detections that are corrected during human review are fed back into the training pipeline — a standard active learning loop that systematically addresses the model's weaknesses.
+
+---
+
+## Why This Matters
+
+Manual P&ID review is one of the most time-consuming tasks in process engineering. A single project can involve hundreds or thousands of sheets, each requiring careful reading by experienced engineers.
+
+Digitization changes this:
+
+- **Speed** — Process hundreds of sheets in the time it takes to manually review a few
+- **Consistency** — The same detection criteria applied to every sheet, every time
+- **Searchability** — Once digitized, you can query your equipment, instruments, and connections across your entire drawing library
+- **Foundation for automation** — Structured P&ID data enables automated compliance checks, change tracking across revisions, and integration with simulation models
 
 ---
 
 ## Get Started
 
-Ready to digitize your P&IDs? Our forward-deployed engineers can have you processing drawings within your first week.
+If you are interested in digitizing your P&ID library, reach out to our team. We work with your existing drawings and engineering standards to configure the system for your specific needs.
 `,
       },
       "pid-agent": {
@@ -414,44 +443,54 @@ Ready to digitize your P&IDs? Our forward-deployed engineers can have you proces
         industry: "Chemical Engineering",
         readTime: "6 min read",
         content: `
-## What is the P&ID Agent?
+## The Problem
 
-Designing Process Flow Diagrams (PFDs) and Piping & Instrumentation Diagrams (P&IDs) is one of the most time-consuming stages of process engineering. Every line, instrument, and control loop must follow strict standards \u2014 ISA, ISO, and company-specific conventions \u2014 while reflecting the actual process design intent.
+Developing Piping and Instrumentation Diagrams (P&IDs) is one of the most critical and labor-intensive steps in process development. A single capital project can require hundreds of P&ID sheets, each demanding deep expertise in symbology standards (ISA 5.1, ISO 14617), process control philosophy, and company-specific conventions.
 
-Operon's P&ID Agent is a **domain-specific AI that generates engineering diagrams** from natural-language process descriptions, existing simulation data, or partial sketches.
+Junior engineers spend weeks drafting diagrams. Senior engineers spend weeks reviewing them. The cycle repeats for every revision, every project, every plant.
 
-> "What used to take our junior engineers 2 weeks of drafting now takes a conversation with the agent and a few rounds of review."
+Recent academic work has shown that this problem is tractable with AI. Researchers have demonstrated that the relationship between Process Flow Diagrams (PFDs) and P&IDs can be modeled as a translation task \u2014 given a process description, predict the control structures, instrumentation, and piping details that complete the diagram. These results point to a future where AI assists engineers throughout the design process, not just at the documentation stage.
 
 ---
 
-## How it works
+## What the P&ID Agent Does
+
+Operon's P&ID Agent is a **domain-specific AI that generates engineering diagrams** from natural-language process descriptions, existing simulation data, or partial sketches.
+
+Rather than starting from a blank sheet, engineers describe what they need \u2014 a distillation column separation, a reactor feed system, a utility header \u2014 and the agent produces a standards-compliant draft that serves as a starting point for detailed design.
+
+---
+
+## How It Works
 
 ### 1. Process Intent Capture
 
-Describe what you need in plain language or feed in simulation data:
+The agent accepts input in multiple forms:
 
-- "Design a distillation column with reflux drum, reboiler, and condenser for a benzene-toluene separation"
-- Import stream data directly from Aspen HYSYS or UniSim
-- Upload a rough hand sketch and the agent will formalize it
+- **Natural language** \u2014 "Design a distillation column with reflux drum, reboiler, and condenser for a benzene-toluene separation"
+- **Simulation data** \u2014 import stream data directly from Aspen HYSYS or UniSim
+- **Partial sketches** \u2014 upload a rough hand-drawn diagram and the agent formalizes it
 
-### 2. Intelligent Diagram Generation
+### 2. Diagram Generation
 
-The agent generates standards-compliant diagrams with:
+The agent produces P&IDs with:
 
-- **Correct symbology** \u2014 ISA 5.1, ISO 14617, or your company symbol library
-- **Proper tag numbering** \u2014 follows your facility's naming conventions
-- **Control loops** \u2014 automatically adds instrumentation based on process requirements
+- **Correct symbology** \u2014 ISA 5.1, ISO 14617, or your company's custom symbol library
+- **Tag numbering** \u2014 follows your facility's naming conventions
+- **Control loops** \u2014 adds instrumentation based on process requirements and control philosophy
 - **Line specifications** \u2014 assigns line numbers, sizes, and spec breaks
+
+Under the hood, the agent uses models trained on real engineering diagrams to understand the structural patterns of P&IDs \u2014 which instruments typically accompany which equipment, how control loops are configured for common unit operations, and what piping arrangements are standard practice.
 
 ### 3. Iterative Refinement
 
-Review the generated diagram and refine through conversation:
+Engineers review the draft and refine through conversation:
 
 - "Add a bypass around the control valve on the feed line"
 - "Change the heat exchanger to a plate-and-frame type"
 - "Add SIS instrumentation for the high-pressure trip"
 
-The agent maintains context across iterations, understanding the full process topology.
+The agent maintains full context of the process topology across iterations.
 
 ### 4. Export & Integration
 
@@ -461,28 +500,28 @@ Export to standard formats:
 - **SVG/PDF** \u2014 for documentation and review
 - **Structured data** \u2014 equipment lists, line lists, instrument indexes
 
-> Generated diagrams integrate directly with our P&ID Recognition engine for automated verification.
+Generated diagrams integrate directly with our P&ID Recognition engine, creating a closed loop: the agent generates, the recognition engine verifies, and discrepancies are flagged automatically.
 
 ---
 
-## Why it matters
+## Why It Matters
 
-Creating P&IDs manually requires deep knowledge of symbology standards, understanding of process control philosophy, careful attention to tag numbering conventions, and multiple review cycles with senior engineers. This makes P&ID creation a **bottleneck** in every capital project.
+The traditional P&ID design workflow is sequential and slow. An engineer drafts, a reviewer marks up, the engineer revises, and the cycle continues. Each iteration can take days.
 
-### With the P&ID Agent
+The P&ID Agent compresses this cycle:
 
 - **Draft diagrams in minutes** instead of days
 - **Consistent standards compliance** across all drawings
-- **Junior engineers become productive faster** with AI-assisted drafting
-- **Senior engineers focus on review** instead of drafting from scratch
+- **Junior engineers become productive faster** \u2014 AI handles the mechanical drafting so they can focus on learning process design
+- **Senior engineers focus on review and optimization** instead of checking tag numbers
 
-> "The agent doesn't replace our engineers \u2014 it gives them a 10x head start on every diagram."
+This is not about replacing engineers. It is about removing the repetitive drafting work that consumes engineering hours without adding engineering value.
 
 ---
 
 ## Get Started
 
-The P&ID Agent works best alongside our P&ID Recognition engine and Forward-Deployed Engineers. Our team configures the agent to match your specific symbol library, tag conventions, and design standards.
+The P&ID Agent works best alongside our P&ID Recognition engine and On-Site Engineers. Our team configures the agent to match your specific symbol library, tag conventions, and design standards.
 `,
       },
       "native-plugin": {
@@ -557,7 +596,7 @@ By embedding AI directly into the simulator, we eliminate every step of friction
 
 ## Get Started
 
-Our forward-deployed engineers handle the full plugin installation and configuration \u2014 typically within 2-3 weeks.
+Our on-site engineers handle the full plugin installation and configuration \u2014 typically within 2-3 weeks.
 `,
       },
       "predictive-maintenance": {
@@ -642,7 +681,7 @@ By learning from your actual equipment behavior \u2014 not generic failure curve
 
 ## Get Started
 
-Predictive Maintenance works best when combined with our P&ID Recognition and Knowledge Graphs. Our forward-deployed engineers handle the full deployment \u2014 typically within 4-6 weeks.
+Predictive Maintenance works best when combined with our P&ID Recognition and Knowledge Graphs. Our on-site engineers handle the full deployment \u2014 typically within 4-6 weeks.
 `,
       },
     },
@@ -658,11 +697,9 @@ Predictive Maintenance works best when combined with our P&ID Recognition and Kn
     ourSolutions: "Our Solutions",
     solutionsHeading: "Purpose-built AI for {name}",
     learnMore: "Learn more",
-    caseStudies: "Case Studies",
-    resultsInProd: "Results in production",
     getStarted: "Get Started",
     transformHeading: "Transform your {name} operations",
-    transformDesc: "Our forward-deployed engineers can have you up and running within your first week. See results, not slide decks.",
+    transformDesc: "Our on-site engineers can have you up and running within your first week. See results, not slide decks.",
     bookDemo: "Book a demo",
     backToHome: "Back to home",
     entries: {
@@ -678,7 +715,7 @@ Predictive Maintenance works best when combined with our P&ID Recognition and Kn
         ],
         introParagraphs: [
           "Chemical plants run on decades of institutional knowledge trapped in P&IDs, safety reports, and process simulations. When a senior engineer retires, that knowledge walks out the door. When a plant expansion requires reviewing thousands of legacy drawings, teams spend months on manual work that should take days.",
-          "Operon changes this. We deploy forward-deployed engineers who learn your specific processes, equipment naming conventions, and safety standards. They configure AI systems that understand your plant \u2014 not a generic chemical engineering textbook, but your actual operations.",
+          "Operon changes this. We deploy on-site engineers who learn your specific processes, equipment naming conventions, and safety standards. They configure AI systems that understand your plant \u2014 not a generic chemical engineering textbook, but your actual operations.",
         ],
         solutions: [
           { title: "P&ID Recognition", slug: "pid-recognition", description: "Automatically identify, classify, and digitize every component on your P&ID sheets. Our models are trained on hundreds of thousands of real engineering drawings across ISA, ISO, and proprietary symbol sets.", stat: "97.3%", statLabel: "component detection accuracy" },
@@ -686,11 +723,7 @@ Predictive Maintenance works best when combined with our P&ID Recognition and Kn
           { title: "UniSim Integration", slug: "unisim-integration", description: "Native fluency across UniSim, Aspen HYSYS, and 50+ engineering tools. Map detected P&ID equipment directly to simulation models for automated validation.", stat: "50+", statLabel: "tools supported" },
           { title: "Agentic Workflows", slug: "agentic-workflows", description: "Autonomous AI agents that handle document processing, HAZOP compliance checks, safety report generation, and cross-reference validation without human intervention.", stat: "24/7", statLabel: "autonomous operation" },
           { title: "Process Optimization", slug: "process-optimization", description: "React to billions of sensor events with ML-driven process improvements. Predict equipment stress, optimize throughput, and reduce energy consumption.", stat: "85%", statLabel: "time saved on reviews" },
-          { title: "Forward-Deployed Engineers", slug: "forward-deployed-engineers", description: "On-site experts who learn your workflows and deploy customized AI in under 6 weeks. They speak your language \u2014 process engineering, not just machine learning.", stat: "<6", statLabel: "weeks to production" },
-        ],
-        caseStudies: [
-          { company: "Major Petrochemical Refinery", result: "Processed 2,400 legacy P&IDs in a single weekend \u2014 work that would have taken the engineering team 6 months manually.", quote: "The accuracy blew us away. It caught components our senior engineers had missed in manual reviews.", person: "David K.", role: "VP of Engineering" },
-          { company: "Specialty Chemicals Manufacturer", result: "Reduced HAZOP preparation time by 70% and achieved zero audit findings in their next regulatory review.", quote: "We went from dreading audits to walking in with complete confidence. Every document is cross-referenced and up to date.", person: "Sarah M.", role: "Plant Safety Manager" },
+          { title: "On-Site Engineers", slug: "on-site-engineers", description: "On-site experts who learn your workflows and deploy customized AI in under 6 weeks. They speak your language \u2014 process engineering, not just machine learning.", stat: "<6", statLabel: "weeks to production" },
         ],
         challenges: [
           { title: "Legacy documentation", description: "Thousands of P&IDs across decades of plant modifications, many still on paper or in obsolete CAD formats." },
@@ -741,7 +774,7 @@ Predictive Maintenance works best when combined with our P&ID Recognition and Kn
       },
       {
         heading: "How We Work",
-        body: "We deploy forward-deployed engineers who learn your specific processes, equipment naming conventions, and safety standards. They configure AI systems that understand your plant — not a generic chemical engineering textbook, but your actual operations. Most teams are up and running within 6 weeks.",
+        body: "We deploy on-site engineers who learn your specific processes, equipment naming conventions, and safety standards. They configure AI systems that understand your plant — not a generic chemical engineering textbook, but your actual operations. Most teams are up and running within 6 weeks.",
       },
       {
         heading: "Our Team",
@@ -758,7 +791,7 @@ Predictive Maintenance works best when combined with our P&ID Recognition and Kn
     intro: "We're looking for people who are excited about applying AI to hard, real-world problems. Our team works directly with engineers at chemical plants, refineries, and manufacturing facilities — shipping software that makes a tangible difference in how they work every day.",
     openRolesHeading: "Open Roles",
     roles: [
-      { title: "Forward-Deployed Engineer", location: "Taipei / On-site", type: "Full-time" },
+      { title: "On-Site Engineer", location: "Taipei / On-site", type: "Full-time" },
       { title: "ML Engineer — Computer Vision", location: "Remote", type: "Full-time" },
       { title: "Full-Stack Engineer", location: "Taipei", type: "Full-time" },
       { title: "Chemical Engineering Intern", location: "Taipei", type: "Internship" },
@@ -775,6 +808,7 @@ Predictive Maintenance works best when combined with our P&ID Recognition and Kn
     posts: [
       {
         title: "Why Generic AI Fails in Manufacturing",
+        slug: "why-generic-ai-fails",
         date: "Mar 2026",
         tag: "Industry",
         summary: "General-purpose LLMs can write code and summarize documents — but they fall flat when you need to interpret a P&ID or validate a HAZOP report. Here's why domain specificity matters.",
@@ -786,46 +820,239 @@ Predictive Maintenance works best when combined with our P&ID Recognition and Kn
         summary: "How a major petrochemical refinery digitized their entire P&ID library using Operon's recognition engine — work that would have taken their team 6 months.",
       },
       {
-        title: "The Forward-Deployed Engineering Model",
+        title: "The On-Site Engineering Model",
         date: "Jan 2026",
         tag: "Company",
         summary: "Why we embed engineers at customer sites instead of shipping generic SaaS, and how this approach leads to dramatically better outcomes.",
       },
     ],
+    entries: {
+      "why-generic-ai-fails": {
+        title: "Why Generic AI Fails in Manufacturing",
+        date: "Mar 2026",
+        tag: "Industry",
+        readTime: "18 min read",
+        summary: "General-purpose LLMs can write code and summarize documents — but they fall flat when you need to interpret a P&ID or validate a HAZOP report. Here's why domain specificity matters.",
+        content: `
+Every week, another headline announces that AI will transform manufacturing. Foundation models will optimize your supply chain. Large language models will write your safety reports. Generative AI will design your next product.
+
+The reality on the factory floor is different. Over 90% of industrial AI projects stall at the proof-of-concept stage. The models that write poetry and generate photorealistic images struggle to read a P&ID, predict when a compressor bearing will fail, or optimize a distillation column without violating safety constraints.
+
+This is not a temporary gap that the next GPT release will close. It is a structural mismatch between how generic AI systems are built and how manufacturing actually works.
+
+This article draws on recent academic research and industry analysis to explain why generic AI fails in manufacturing \u2014 and what a purpose-built alternative looks like.
+
+---
+
+## The Foundation Model Illusion
+
+Foundation models \u2014 large neural networks pre-trained on massive datasets and fine-tuned for downstream tasks \u2014 have produced remarkable results in language, vision, and code generation. The natural assumption is that these models can be extended to any domain, including industrial manufacturing.
+
+Recent research challenges this assumption directly.
+
+A 2025 study published in *Engineering* examined whether current foundation models are ready for the process industry \u2014 petrochemicals, chemicals, metallurgy, and other continuous manufacturing operations. The authors found that general-purpose foundation models **cannot handle the diversity of multi-industry process data**, lack what they call "mechanism cognition" (understanding of the underlying physics and chemistry), and fail to meet the reliability and safety requirements of industrial environments.
+
+The core problem: foundation models are trained on internet-scale text and images. They have never seen the inside of a distillation column. They do not understand reaction kinetics. They cannot reason about pressure relief valve sizing or interpret the difference between a control valve and a block valve on a process flowsheet.
+
+A parallel survey on Industrial Foundation Models (IFMs) from the *Journal of Intelligent Manufacturing* reinforces this finding. The authors argue that horizontal, general-purpose models are fundamentally limited for manufacturing because they cannot account for the **heterogeneity of industrial data** \u2014 the mix of time-series sensor data, engineering drawings, maintenance logs, simulation files, and operational procedures that characterize real manufacturing environments.
+
+> Generic foundation models have seen billions of web pages but zero process flow diagrams, zero DCS historian exports, and zero HAZOP worksheets.
+
+---
+
+## Manufacturing Data Is Not Internet Data
+
+The success of foundation models in consumer applications rests on a critical assumption: data is abundant, clean, and standardized. The internet provides trillions of text tokens in consistent formats. ImageNet contains millions of labeled photographs with clear objects against distinct backgrounds.
+
+Manufacturing data violates every one of these assumptions.
+
+### Sparse, multirate, and unlabeled
+
+Chemical plants generate data from thousands of sensors, but this data is:
+
+- **Multirate** \u2014 temperature sensors sample every second, lab analyses come every 8 hours, maintenance inspections happen monthly
+- **Sparse** \u2014 fault events are rare; a compressor might fail once in five years, giving you exactly one training example
+- **Unlabeled** \u2014 operators know something went wrong but rarely tag the root cause in structured form
+- **Noisy** \u2014 sensor drift, calibration errors, and manual overrides contaminate the signal
+
+A review in *Chemie Ingenieur Technik* on the machine learning lifecycle in chemical operations found that **70% of project effort goes to data preparation** \u2014 not model building. Engineers spend months cleaning historian exports, aligning timestamps, filling missing values, and reconciling inconsistent tag naming conventions across different plant areas.
+
+Generic AI platforms skip this step entirely. They assume your data is ready. It never is.
+
+### Legacy systems and integration nightmares
+
+Most chemical plants run on control systems (DCS, SCADA) that were installed 10\u201330 years ago. Data formats are proprietary. Historian systems (PI, IP.21, DeltaV) each have their own APIs, data models, and quirks. Engineering documents live in a mix of AutoCAD, PDF, scanned paper, and SharePoint folders with inconsistent naming.
+
+A plug-and-play AI that expects a clean API endpoint or a CSV upload cannot operate in this environment. It needs custom data pipelines built by engineers who understand both the data infrastructure and the process being measured.
+
+### Concept drift
+
+Unlike static datasets, manufacturing processes change continuously:
+
+- Catalysts degrade over their cycle life
+- Feedstock compositions vary by supplier and season
+- Equipment ages and operating envelopes shift
+- Process modifications alter flow paths and control strategies
+
+A model trained on last year's data may produce dangerously wrong predictions this year. The ML lifecycle paper documents how **concept drift** causes model performance to degrade rapidly post-deployment in chemical operations \u2014 yet generic AI platforms provide no built-in mechanism for detecting or adapting to this drift.
+
+---
+
+## The Domain Gap: When Internet Models Meet Industrial Reality
+
+Perhaps the most striking evidence of generic AI's failure comes from computer vision.
+
+Foundation vision models like SAM (Segment Anything Model) and CLIP achieve impressive results on standard benchmarks \u2014 natural photographs of objects, animals, and scenes. Researchers recently tested these same models on real industrial data: Scanning Acoustic Tomography (SAT) images used for semiconductor defect inspection.
+
+The results were stark. Models that achieved high accuracy on pet photos and street scenes scored **near-zero Intersection over Union (IoU)** on industrial SAT images. The domain gap between internet images and industrial imaging modalities was so large that the models produced essentially random output.
+
+This is not a fine-tuning problem. The visual features that these models learned \u2014 edges of cats, textures of buildings, shapes of cars \u2014 have no correspondence to the grayscale patterns in acoustic tomography, X-ray inspection, or the dense line-and-symbol layouts of engineering drawings.
+
+For chemical engineering specifically: a generic vision model looking at a P&ID sees a confusing jumble of lines and circles. A domain-trained model sees a heat exchanger connected to a control valve with a bypass line, tagged E-201 and CV-104, in a feed preheat service. The difference is not incremental \u2014 it is categorical.
+
+![Theoretical AI capability vs. observed usage across occupational categories](/blog/ai-coverage-gap.webp)
+
+*Research shows a massive gap between theoretical AI capability and actual observed usage. In architecture, engineering, and production \u2014 the categories most relevant to manufacturing \u2014 observed AI adoption lags far behind theoretical potential. This gap exists precisely because generic AI tools were not built for these domains.*
+
+---
+
+## Chemical Plants Are Not Click-Through Optimization
+
+Most commercial AI has been optimized for a single objective: maximize revenue, click-through rate, or engagement. Manufacturing optimization is fundamentally different.
+
+### Multi-objective, physics-constrained
+
+A chemical process engineer optimizing a reactor must simultaneously consider:
+
+- **Yield** \u2014 maximize product output
+- **Energy consumption** \u2014 minimize steam, electricity, and cooling water usage
+- **Safety** \u2014 stay within temperature, pressure, and concentration limits at all times
+- **Emissions** \u2014 meet environmental regulatory targets
+- **Throughput** \u2014 match production to demand schedules
+- **Equipment life** \u2014 avoid operating conditions that accelerate degradation
+
+These objectives often conflict. Increasing throughput raises energy consumption and may push operating conditions closer to safety limits. Minimizing energy use may reduce yield. A model that optimizes one variable without respecting the constraints on others is not useful \u2014 it is dangerous.
+
+Generic AI has no concept of these physical constraints. An LLM asked to "optimize this reactor" has no way to verify that its recommendations respect thermodynamic feasibility, reaction kinetics, or equipment design limits. It can only pattern-match against text it has seen before, with no guarantee that the output is physically realizable.
+
+### Nonlinear dynamics and real-time adaptation
+
+Process manufacturing involves nonlinear thermodynamics, complex reaction kinetics, and fluid mechanics that create highly coupled systems. A change in feed temperature affects reaction rate, which affects heat generation, which affects cooling requirements, which affects downstream separation performance.
+
+The *Engineering* study on process industry foundation models notes that these systems require **real-time adaptation** to dynamic changes in raw materials, equipment performance, and environmental conditions. Generic AI models that produce static recommendations based on training data cannot handle this level of dynamism.
+
+Furthermore, industrial process control already has decades of sophisticated domain-specific tools: Advanced Process Control (APC) systems, Model Predictive Controllers (MPC), and real-time optimization (RTO) systems. Any AI solution must integrate with \u2014 not replace \u2014 this existing infrastructure. An LLM that cannot communicate with a DeltaV DCS or read a Honeywell UniSim model is operationally irrelevant.
+
+---
+
+## The Lifecycle Problem: Why 90% of PoCs Never Scale
+
+Building a model is the easy part. Deploying it in a live plant, keeping it accurate, and gaining operator trust is where most AI projects die.
+
+The machine learning lifecycle in chemical operations exposes several critical gaps:
+
+### Deployment infrastructure
+
+Moving from a Jupyter notebook to a production system that runs 24/7 in a plant network \u2014 behind firewalls, on older operating systems, without reliable internet \u2014 requires engineering that generic AI platforms do not provide. Models need to handle network interruptions, data pipeline failures, and historian outages gracefully.
+
+### Monitoring and retraining
+
+Once deployed, who watches the model? Most generic platforms provide no built-in monitoring for concept drift, data quality degradation, or prediction accuracy decline. In a chemical plant, an undetected model failure does not just produce a wrong recommendation \u2014 it can trigger a safety incident.
+
+The CRISP-ML(Q) framework emphasizes the need for quality assurance across every stage of the ML lifecycle: problem understanding, data engineering, model building, evaluation, deployment, **and monitoring**. Most generic AI tools focus exclusively on model building.
+
+### Regulatory validation
+
+Chemical plants operate under strict regulatory frameworks: OSHA Process Safety Management (PSM), EPA Risk Management Programs (RMP), IEC 61511 for Safety Instrumented Systems. Any AI system that influences operations must be validated against these standards. Generic AI platforms are not designed for this level of regulatory scrutiny.
+
+---
+
+## Organizational Barriers: It's Not Just the Model
+
+A 2025 empirical study published in the *Journal of Manufacturing Technology Management* surveyed manufacturing firms to identify why they struggle with AI adoption. The barriers extend far beyond model accuracy:
+
+- **Data quality and legacy systems** \u2014 organizations lack the data infrastructure to feed AI models, and integrating with decades-old systems requires specialized expertise
+- **Skills gap** \u2014 there are very few people who understand both data science and process engineering; most AI vendors send data scientists who don't know what a HAZOP is, and most plant engineers don't know what a transformer architecture is
+- **Unclear ROI** \u2014 generic AI vendors promise vague "efficiency gains" without concrete, measurable outcomes tied to specific process improvements
+- **Resistance to change** \u2014 operators with 20 years of experience are skeptical of recommendations from a system that was trained on internet text
+- **Trust deficit** \u2014 black-box models that cannot explain their reasoning are rejected by engineers who need to understand *why* before they change an operating setpoint
+
+The study reinforces what practitioners already know: successful AI adoption in manufacturing requires **domain expertise delivered alongside the technology**. You cannot ship a SaaS login and expect a plant to transform itself.
+
+---
+
+## What Domain-Specific AI Should Look Like
+
+The failure modes of generic AI point directly to the requirements for industrial AI that actually works:
+
+### Built on industrial data, not internet data
+
+Models must be trained on actual process industry data: engineering drawings, process historian exports, maintenance records, safety reports, and simulation files. This data is not available on the internet. It must be collected, labeled, and curated in partnership with operating plants.
+
+For P&ID recognition, this means training on hundreds of thousands of real engineering drawings across ISA 5.1, ISO 14617, and proprietary symbol sets from different companies, eras, and CAD tools. A model trained on a narrow dataset fails on the next plant. A model trained on diverse, real-world data generalizes.
+
+### Physics-informed, not pattern-matching
+
+Industrial AI must respect the underlying physics. This means integrating domain knowledge into model architectures: thermodynamic constraints, mass and energy balances, equipment design limits, and safety boundaries. The *Engineering* process industry study calls this "mechanism cognition" \u2014 the ability to reason about *why* a process behaves the way it does, not just *what* patterns exist in the data.
+
+Hybrid approaches that combine physics-based models with data-driven methods outperform pure machine learning in manufacturing. They require less data, generalize better, and produce predictions that are physically consistent.
+
+### Full lifecycle support, not just models
+
+Deployment is not a one-time event. Industrial AI requires:
+
+- **Data pipelines** that handle the messiness of plant data infrastructure
+- **Continuous monitoring** for drift, data quality, and prediction accuracy
+- **Retraining workflows** that incorporate new data and operator feedback
+- **Validation processes** that satisfy regulatory requirements
+- **Integration** with existing DCS, historian, and engineering tools
+
+### Domain expertise embedded in delivery
+
+The skills gap cannot be solved with documentation. It requires engineers who understand both the AI technology and the industrial domain \u2014 who can walk a plant floor, read a P&ID, and configure an AI system to match the specific equipment naming conventions, safety standards, and operating procedures of that facility.
+
+This is why we embed on-site engineers at every deployment. They learn your workflows, your equipment, your standards. They configure AI systems that understand your plant \u2014 not a generic chemical engineering textbook, but your actual operations. Most teams are up and running within six weeks.
+
+### Edge deployment and data sovereignty
+
+Plant data is sensitive. Process conditions, equipment performance, and safety records are proprietary. Manufacturing AI must run locally \u2014 on-premises or at the edge \u2014 with full data sovereignty. Cloud-only architectures are rejected by most plant operators for good reason.
+
+---
+
+## The Path Forward
+
+The gap between AI hype and manufacturing reality is not closing on its own. Larger models trained on more internet data will not learn to read P&IDs. More powerful GPUs will not solve the concept drift problem. Better prompt engineering will not make an LLM understand reaction kinetics.
+
+What closes the gap is **vertical AI** \u2014 purpose-built systems designed for specific industrial domains, trained on domain-specific data, delivered by domain experts, and maintained through the full operational lifecycle.
+
+The research is clear: generic AI achieves generic results. In an industry where a wrong prediction can mean an environmental release, a safety incident, or millions of dollars in lost production, generic is not good enough.
+
+Manufacturing deserves AI built for manufacturing.
+
+---
+
+## References
+
+1. "Foundation Models for the Process Industry." *Engineering*, 2025. Analysis of why current general-purpose foundation models fail in process manufacturing and a framework for industrial alternatives.
+
+2. "Industrial Foundation Models (IFMs) for Intelligent Manufacturing." *Journal of Intelligent Manufacturing*, 2025. Survey of industrial foundation models highlighting limitations of horizontal AI and data heterogeneity challenges.
+
+3. "Generative AI in Manufacturing: A Literature Review." *ScienceDirect*, 2025. Review of generative AI applications in manufacturing, including data challenges, robustness, and explainability limitations.
+
+4. "A Review of Artificial Intelligence and Industrial Chemical Processes." *FOSM Journal*. Benefits and limitations of AI in chemical manufacturing, with emphasis on data needs and human oversight requirements.
+
+5. "The Machine Learning Life Cycle in Chemical Operations \u2014 Status and Open Challenges." *Chemie Ingenieur Technik*, Wiley. Analysis of deployment, monitoring, and data preparation challenges for ML in chemical plants.
+
+6. "Why Do Manufacturing Firms Struggle with Artificial Intelligence?" *Journal of Manufacturing Technology Management*, 2025. Empirical study on organizational barriers to AI adoption: data quality, legacy systems, skills gap, and unclear ROI.
+
+7. "Are Foundation Models Ready for Industrial Defect Recognition? A Reality Check on Real-World Data." Literature review showing near-zero performance of SAM/CLIP models on real industrial imaging data.
+
+8. "How AI Enables New Pathways in Chemicals." McKinsey & Company. Industry analysis of real-time optimizers, control-room copilots, and integration requirements for chemical operations.
+`,
+      },
+    },
   },
 
-  caseStudies: {
-    label: "Case Studies",
-    title: "Real results in production.",
-    subtitle: "See how manufacturing teams use Operon to transform their operations.",
-    studies: [
-      {
-        company: "Major Petrochemical Refinery",
-        industry: "Chemical Engineering",
-        result: "Processed 2,400 legacy P&IDs in a single weekend — work that would have taken the engineering team 6 months manually.",
-        quote: "The accuracy blew us away. It caught components our senior engineers missed in manual reviews.",
-        person: "David K.",
-        role: "VP of Engineering",
-      },
-      {
-        company: "Specialty Chemicals Manufacturer",
-        industry: "Chemical Engineering",
-        result: "Reduced HAZOP preparation time by 70% and achieved zero audit findings in their next regulatory review.",
-        quote: "We went from dreading audits to walking in with full confidence. Every document was cross-referenced and current.",
-        person: "Sarah M.",
-        role: "Plant Safety Manager",
-      },
-      {
-        company: "Semiconductor Fab",
-        industry: "Electronics Manufacturing",
-        result: "Digitized 15,000+ schematic documents and reduced design review cycles from 2 weeks to 3 days.",
-        quote: "The knowledge graph connected documents our teams didn't even know were related. It changed how we do design reviews entirely.",
-        person: "James L.",
-        role: "Director of Engineering",
-      },
-    ],
-    cta: "Ready to see similar results?",
-  },
 
   documentation: {
     label: "Documentation",
