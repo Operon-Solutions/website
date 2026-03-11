@@ -18,7 +18,7 @@ const en = {
         href: "/industries/chemical-engineering",
         solutions: [
           { label: "P&ID Recognition", href: "/docs/pid-recognition" },
-          { label: "P&ID Agent", href: "/docs/pid-agent" },
+          { label: "CAD / P&ID AI Agent", href: "/docs/pid-agent" },
           { label: "Native Plugin", href: "/docs/native-plugin" },
           { label: "Agentic Workflows", href: "/docs/agentic-workflows" },
           { label: "Predictive Maintenance", href: "/docs/predictive-maintenance" },
@@ -30,7 +30,7 @@ const en = {
         href: "/industries/oil-gas",
         solutions: [
           { label: "P&ID Recognition", href: "/docs/pid-recognition" },
-          { label: "P&ID Agent", href: "/docs/pid-agent" },
+          { label: "CAD / P&ID AI Agent", href: "/docs/pid-agent" },
           { label: "Safety & Compliance", href: "/docs/safety-compliance" },
           { label: "Predictive Maintenance", href: "/docs/predictive-maintenance" },
           { label: "Agentic Workflows", href: "/docs/agentic-workflows" },
@@ -165,7 +165,7 @@ const en = {
         label: "chemical engineering",
         capabilities: [
           { icon: "monitor", title: "P&ID Recognition", slug: "pid-recognition", description: "Processes thousands of engineering diagrams with 97%+ accuracy in minutes" },
-          { icon: "beaker", title: "P&ID Agent", slug: "pid-agent", description: "A domain-specific AI agent that builds PFD and P&ID diagrams for chemical engineers, accelerating design cycles" },
+          { icon: "beaker", title: "CAD / P&ID AI Agent", slug: "pid-agent", description: "A domain-specific AI agent that builds PFD and P&ID diagrams for chemical engineers, accelerating design cycles" },
           { icon: "person", title: "On-Site Engineers", slug: "on-site-engineers", description: "On-site experts who learn your workflows and deploy customized AI in under 6 weeks" },
           { icon: "cpu", title: "Native Plugin in Process Simulation Software", slug: "native-plugin", description: "AI native plugin embedded directly into Aspen, UniSim, AVEVA and other process simulation platforms" },
           { icon: "arrows", title: "Agentic Workflows", slug: "agentic-workflows", description: "Autonomous agents that handle document processing, compliance checks, and reporting" },
@@ -176,7 +176,7 @@ const en = {
         label: "oil & gas industries",
         capabilities: [
           { icon: "monitor", title: "P&ID Recognition", slug: "pid-recognition", description: "Digitize legacy piping and instrumentation diagrams across upstream and downstream assets" },
-          { icon: "beaker", title: "P&ID Agent", slug: "pid-agent", description: "AI agent that builds P&ID diagrams from process descriptions, simulation data, or partial sketches" },
+          { icon: "beaker", title: "CAD / P&ID AI Agent", slug: "pid-agent", description: "AI agent that builds P&ID diagrams from process descriptions, simulation data, or partial sketches" },
           { icon: "shield", title: "Safety & Compliance", slug: "safety-compliance", description: "Automated HAZOP analysis and regulatory compliance checks against API and ASME standards" },
           { icon: "person", title: "On-Site Engineers", slug: "on-site-engineers-oil-gas", description: "On-site experts embedded with your operations team for rapid AI deployment" },
           { icon: "cog", title: "Predictive Maintenance", slug: "predictive-maintenance", description: "Predict equipment failures before they happen using vibration, temperature, and process data" },
@@ -210,27 +210,27 @@ const en = {
 
   showcase: {
     items: [
-      { title: "P&ID Analysis", description: "Track component behavior to predict maintenance with 97% accuracy. Automatically trigger interventions in under 50ms." },
-      { title: "Process Simulation", description: "Detect when processes are about to fail. Send targeted reports via email, SMS, or dashboards to recover efficiency." },
-      { title: "Intelligent Operations", description: "Each process gets personalized monitoring based on browsing behavior. 384 data points create individual operational profiles." },
+      { title: "Understand Your Plant", description: "Digitize P&IDs, connect documents, and build knowledge graphs. Turn decades of engineering data into structured, queryable intelligence." },
+      { title: "Predict & Prevent", description: "Equipment failures, compliance gaps, and simulation drift — caught before they matter. AI trained on your actual process data, not generic benchmarks." },
+      { title: "Deploy in Weeks", description: "On-site engineers who learn your workflows and configure AI to your plant. Production results in under 6 weeks, not year-long integrations." },
     ],
     pidScanner: "pid-scanner",
     components: "12,847 components",
     accuracyLabel: "97.3% accuracy",
-    processSim: "Process Simulation",
-    feedStream: "Feed Stream",
-    springConfig: "Spring Config",
-    cartAid: "Cart AID",
-    returnCost: "Return cost",
-    silMessage: "\u201CHi David, I noticed you had questions about the SIL report...\u201D",
-    purchaseSuccessful: "Purchase successful",
-    agentLabel: "agent.01",
-    agentLabel2: "agent.02",
-    activeCount: "3 active",
+    processSim: "equipment-health",
+    feedStream: "Live",
+    springConfig: "Warning",
+    cartAid: "C-201 \u00B7 Main Compressor",
+    returnCost: "Bearing degradation detected",
+    silMessage: "Est. 3\u20136 weeks to intervention \u2014 schedule during next planned slowdown",
+    purchaseSuccessful: "Healthy",
+    agentLabel: "Production deployment",
+    agentLabel2: "deployment.log",
+    activeCount: "week 4 of 6",
     agents: [
-      { name: "Emily", status: "analyzing cart hesitation" },
-      { name: "Marcus", status: "detecting matching patterns" },
-      { name: "Amy", status: "optimizing response timing" },
+      { name: "Week 1", status: "Data integration & historian setup" },
+      { name: "Week 2", status: "Model training on plant data" },
+      { name: "Week 3", status: "Validation & operator review" },
     ],
   },
 
@@ -238,8 +238,7 @@ const en = {
     label: "FAQ",
     heading: "Commonly Asked Questions",
     items: [
-      { q: "What's the actual ROI I can expect?", a: "Most clients see 60-80% reduction in document processing time within the first month. Our P&ID recognition alone saves hundreds of engineering hours per project. We provide detailed ROI projections during our initial consultation." },
-      { q: "How is this different from generic AI tools?", a: "Unlike general-purpose AI, Operon is purpose-built for chemical engineering. Our models are trained on millions of P&IDs, process flow diagrams, and engineering documents. We deploy engineers who understand your industry on-site." },
+      { q: "How is this different from generic AI tools?", a: "Unlike general-purpose AI, Operon is purpose-built for chemical engineering. Our models are purpose-built for process industry documents \u2014 P&IDs, process flow diagrams, and engineering standards. We deploy engineers who understand your industry on-site." },
       { q: "Do I need technical expertise to use Operon?", a: "No. Our on-site engineers handle the technical implementation. Install our connector with a single configuration change. The AI learns your operations automatically. Most teams manage everything themselves without any technical overhead." },
       { q: "Will this work for my specific type of facility?", a: "We've deployed across refineries, chemical plants, pharmaceutical manufacturing, and specialty chemical facilities. Our AI adapts to your specific equipment, processes, and documentation standards." },
       { q: "How much time will I need to manage this?", a: "Minimal. After initial deployment (typically under 6 weeks), the system runs autonomously. Our agents handle document processing, compliance checks, and reporting. You focus on high-level decisions." },
@@ -260,7 +259,7 @@ const en = {
     cols: [
       { title: "Solutions", links: [
         { label: "P&ID Recognition", href: "/docs/pid-recognition" },
-        { label: "P&ID Agent", href: "/docs/pid-agent" },
+        { label: "CAD / P&ID AI Agent", href: "/docs/pid-agent" },
         { label: "Native Plugin", href: "/docs/native-plugin" },
         { label: "Predictive Maintenance", href: "/docs/predictive-maintenance" },
         { label: "Agentic Workflows", href: "/docs/agentic-workflows" },
@@ -268,11 +267,6 @@ const en = {
       { title: "Resources", links: [
         { label: "Documentation", href: "/documentation" },
         { label: "Blog", href: "/blog" },
-      ]},
-      { title: "Persona", links: [
-        { label: "Process Engineers", href: "#" },
-        { label: "Plant Managers", href: "#" },
-        { label: "Operations Teams", href: "#" },
       ]},
       { title: "Company", links: [
         { label: "About us", href: "/about" },
@@ -438,7 +432,7 @@ If you are interested in digitizing your P&ID library, reach out to our team. We
 `,
       },
       "pid-agent": {
-        title: "P&ID Agent",
+        title: "CAD / P&ID AI Agent",
         subtitle: "A domain-specific AI agent that builds PFD and P&ID diagrams, accelerating design cycles for chemical engineers",
         industry: "Chemical Engineering",
         readTime: "6 min read",
@@ -825,6 +819,13 @@ Predictive Maintenance works best when combined with our P&ID Recognition and Kn
         tag: "Company",
         summary: "Why we embed engineers at customer sites instead of shipping generic SaaS, and how this approach leads to dramatically better outcomes.",
       },
+      {
+        title: "The Real Cost of Reactive Maintenance — and How to Stop Paying It",
+        slug: "predictive-maintenance-cost",
+        date: "Mar 2026",
+        tag: "Engineering",
+        summary: "A single compressor trip can cost hundreds of thousands in lost production. Across a plant with hundreds of critical assets, the cumulative cost is enormous — and largely preventable.",
+      },
     ],
     entries: {
       "why-generic-ai-fails": {
@@ -989,7 +990,7 @@ The failure modes of generic AI point directly to the requirements for industria
 
 Models must be trained on actual process industry data: engineering drawings, process historian exports, maintenance records, safety reports, and simulation files. This data is not available on the internet. It must be collected, labeled, and curated in partnership with operating plants.
 
-For P&ID recognition, this means training on hundreds of thousands of real engineering drawings across ISA 5.1, ISO 14617, and proprietary symbol sets from different companies, eras, and CAD tools. A model trained on a narrow dataset fails on the next plant. A model trained on diverse, real-world data generalizes.
+For P&ID recognition, this means training on real engineering drawings across ISA 5.1, ISO 14617, and proprietary symbol sets from different companies, eras, and CAD tools. A model trained on a narrow dataset fails on the next plant. A model trained on diverse, real-world data generalizes.
 
 ### Physics-informed, not pattern-matching
 
@@ -1048,6 +1049,86 @@ Manufacturing deserves AI built for manufacturing.
 7. "Are Foundation Models Ready for Industrial Defect Recognition? A Reality Check on Real-World Data." Literature review showing near-zero performance of SAM/CLIP models on real industrial imaging data.
 
 8. "How AI Enables New Pathways in Chemicals." McKinsey & Company. Industry analysis of real-time optimizers, control-room copilots, and integration requirements for chemical operations.
+`,
+      },
+      "predictive-maintenance-cost": {
+        title: "The Real Cost of Reactive Maintenance \u2014 and How to Stop Paying It",
+        date: "Mar 2026",
+        tag: "Engineering",
+        readTime: "8 min read",
+        summary: "A single compressor trip can cost hundreds of thousands in lost production. Across a plant with hundreds of critical assets, the cumulative cost is enormous \u2014 and largely preventable.",
+        content: `
+## The Problem Nobody Budgets For
+
+When a critical compressor trips unexpectedly, the immediate cost is obvious: lost throughput, flaring, maybe a downstream unit goes down too. Emergency maintenance crews get called in. Spare parts get air-freighted. Production schedules get rewritten.
+
+What is less obvious is the cumulative burden. A typical chemical plant operates hundreds of critical rotating and static assets. Each one carries the potential for an unplanned event. Across a fleet of equipment, reactive maintenance becomes the single largest controllable operating expense that most plants never actually control.
+
+The industry average for unplanned downtime in process manufacturing sits between **5\u201312%** of total available production hours. For a plant generating $50M per year in revenue, that is $2.5\u2013$6M in lost output annually \u2014 before counting repair costs, overtime, expedited parts, and the cascade effects on downstream operations.
+
+Most plants know this. Few have a systematic way to change it.
+
+---
+
+## Why Calendar-Based Maintenance Falls Short
+
+The traditional answer to equipment failure is preventive maintenance: replace bearings every 18 months, overhaul compressors at every turnaround, swap valve internals on a fixed schedule.
+
+This approach has a fundamental problem: **it ignores the actual condition of the equipment.**
+
+Some bearings last 3 years without issue. Others degrade in 8 months due to process upsets, off-spec feed, or installation errors. A fixed schedule either replaces healthy components too early \u2014 wasting parts, labor, and production time during unnecessary shutdowns \u2014 or misses degradation that happens faster than expected.
+
+The result is a maintenance program that is simultaneously too expensive and not reliable enough.
+
+---
+
+## What Changes with Condition-Based Prediction
+
+Predictive maintenance shifts the decision from "when is this scheduled?" to "what is actually happening inside this machine right now?"
+
+The approach works by building a model of normal behavior for each individual asset \u2014 using techniques like <a href="https://en.wikipedia.org/wiki/Autoencoder" target="_blank" rel="noopener noreferrer" class="jargon-link">autoencoder networks</a> and <a href="https://en.wikipedia.org/wiki/Isolation_forest" target="_blank" rel="noopener noreferrer" class="jargon-link">isolation forests</a> trained on historical operating data. The model learns each asset's specific vibration signature, temperature profile, pressure relationships, and performance curves under different operating conditions. When behavior starts deviating from that learned baseline, the system flags it.
+
+This is not threshold alerting. A high-vibration alarm triggers when something is already wrong. Predictive models detect the **trajectory** \u2014 the gradual shift in bearing frequency spectrum, the slow decline in heat exchanger efficiency, the subtle change in valve response time \u2014 weeks or months before it crosses any alarm limit.
+
+### Early warning
+
+The most valuable thing a predictive system provides is time. Not a red alarm that sends someone running to the control room, but a notice that says: this compressor's bearing is showing early-stage degradation, you have an estimated 3\u20136 weeks before intervention is needed, here is the supporting data.
+
+That window transforms maintenance from a firefight into a planned activity. You can order parts without paying air-freight premiums. You can schedule the repair during a planned slowdown instead of forcing a trip. You can coordinate with operations to minimize production impact.
+
+### Maintenance that matches reality
+
+Fixed schedules replace healthy equipment and miss sick equipment. Condition-based maintenance does neither. If a pump bearing is running perfectly at 18 months, you do not pull it. If a compressor seal is degrading at 9 months, you do not wait for the next turnaround.
+
+The result is fewer maintenance interventions overall, with each one targeted at equipment that actually needs it. Plants that adopt this approach typically see **25\u201335% reductions in total maintenance spend** \u2014 not because they maintain less, but because they maintain smarter.
+
+### Safety as a byproduct of visibility
+
+Equipment degradation does not just cause downtime. A corroded vessel wall, a sticking relief valve, or a failing seal can become a process safety event. Predictive monitoring catches these degradation patterns in their early stages \u2014 well before they become a safety or environmental concern.
+
+This is not a replacement for process safety systems or relief devices. It is an additional layer of visibility that gives reliability and safety teams more lead time to act.
+
+---
+
+## What This Looks Like for Reliability Engineers
+
+A common concern is that predictive maintenance replaces the judgment of experienced reliability engineers. The opposite is true.
+
+A typical reliability engineer in a large plant is responsible for hundreds of assets. Manually reviewing vibration trends, historian data, and maintenance records for each one is physically impossible at the frequency needed to catch early degradation. Important signals get buried in noise.
+
+Predictive systems act as a filter. Instead of reviewing everything, the engineer gets a prioritized list: these 5 assets are showing abnormal behavior, ranked by severity and estimated time to intervention. Each alert comes with the underlying data \u2014 which sensor channels are deviating, what the historical pattern looks like, what the probable failure mode is.
+
+The engineer still makes the call. The system just makes sure the right information reaches them in time.
+
+---
+
+## Getting Started
+
+Moving from calendar-based to condition-based maintenance does not require ripping out your existing infrastructure. The data you need is almost certainly already being collected \u2014 vibration monitoring systems, DCS historians, SCADA exports, and CMMS records contain the raw signal.
+
+What is typically missing is the layer that connects these data sources, learns equipment-specific behavior, and surfaces actionable predictions to the people who need them.
+
+If you are exploring this shift, we work with your existing sensor infrastructure and historian systems to deploy models tailored to your specific equipment and operating context. No new sensors, no cloud dependencies, no generic dashboards \u2014 just predictions your maintenance team can actually use.
 `,
       },
     },

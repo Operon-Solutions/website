@@ -294,6 +294,29 @@ body {
 .delay-5 { transition-delay: 0.5s; }
 .delay-6 { transition-delay: 0.6s; }
 
+/* ── Jargon / external reference links ── */
+.jargon-link {
+  text-decoration: underline;
+  text-decoration-color: rgba(202, 170, 50, 0.45);
+  text-underline-offset: 2px;
+  text-decoration-thickness: 2px;
+  color: inherit;
+  background: linear-gradient(to top, rgba(202, 170, 50, 0.1) 0%, transparent 40%);
+  transition: text-decoration-color 0.2s, background 0.2s;
+}
+.jargon-link:hover {
+  text-decoration-color: rgba(202, 170, 50, 0.8);
+  background: linear-gradient(to top, rgba(202, 170, 50, 0.18) 0%, transparent 40%);
+}
+.dark .jargon-link {
+  text-decoration-color: rgba(216, 200, 80, 0.4);
+  background: linear-gradient(to top, rgba(216, 200, 80, 0.08) 0%, transparent 40%);
+}
+.dark .jargon-link:hover {
+  text-decoration-color: rgba(216, 200, 80, 0.7);
+  background: linear-gradient(to top, rgba(216, 200, 80, 0.15) 0%, transparent 40%);
+}
+
 /* ── Timeline dot activation ── */
 .dot-active {
   background-color: var(--c-accent);
@@ -339,11 +362,186 @@ details summary::-webkit-details-marker { display: none; }
   background: linear-gradient(145deg, #0a2014 0%, #163a22 40%, #0e2816 100%);
 }
 
-.showcase-surface {
-  background: linear-gradient(160deg, #eef2ff 0%, #e0e7ff 50%, #eef2ff 100%);
+/* ── OS-window showcase cards ── */
+.os-window {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 360px;
+  display: flex;
+  flex-direction: column;
+  background: #f6f6f6;
+  border: 1px solid rgba(0,0,0,0.12);
+  box-shadow:
+    0 1px 1px rgba(0,0,0,0.04),
+    0 4px 12px rgba(0,0,0,0.06),
+    0 8px 28px rgba(0,0,0,0.04);
 }
-.dark .showcase-surface {
-  background: linear-gradient(160deg, #0c2416 0%, #1a4025 50%, #0e2818 100%);
+.dark .os-window {
+  background: #161616;
+  border-color: rgba(255,255,255,0.08);
+  box-shadow:
+    0 1px 1px rgba(0,0,0,0.3),
+    0 4px 16px rgba(0,0,0,0.4),
+    0 12px 40px rgba(0,0,0,0.3);
+}
+
+/* Title-bar */
+.os-titlebar {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  padding: 0 12px;
+  background: #ebebeb;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  flex-shrink: 0;
+}
+.dark .os-titlebar {
+  background: #1e1e1e;
+  border-bottom-color: rgba(255,255,255,0.06);
+}
+
+.os-dots { display: flex; gap: 6px; margin-right: 10px; }
+.os-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  display: inline-block;
+}
+.os-dot-r { background: #ff5f57; }
+.os-dot-y { background: #febc2e; }
+.os-dot-g { background: #28c840; }
+.dark .os-dot-r { background: #ff5f57; opacity: 0.7; }
+.dark .os-dot-y { background: #febc2e; opacity: 0.7; }
+.dark .os-dot-g { background: #28c840; opacity: 0.7; }
+
+.os-title {
+  font-size: 11px;
+  font-weight: 500;
+  color: color-mix(in srgb, var(--c-fg) 50%, transparent);
+  flex: 1;
+}
+.os-title-right {
+  font-size: 10px;
+  color: color-mix(in srgb, var(--c-fg) 30%, transparent);
+  font-family: var(--font-mono, ui-monospace, monospace);
+}
+
+/* Toolbar */
+.os-toolbar {
+  display: flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+  background: rgba(0,0,0,0.015);
+  flex-shrink: 0;
+}
+.dark .os-toolbar {
+  border-bottom-color: rgba(255,255,255,0.04);
+  background: rgba(255,255,255,0.015);
+}
+
+/* Table header */
+.os-table-head {
+  display: flex;
+  align-items: center;
+  padding: 5px 12px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  flex-shrink: 0;
+}
+.dark .os-table-head {
+  border-bottom-color: rgba(255,255,255,0.06);
+}
+.os-table-head > span {
+  font-size: 9px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: color-mix(in srgb, var(--c-fg) 30%, transparent);
+}
+
+/* Table rows */
+.os-table-row {
+  display: flex;
+  align-items: center;
+  padding: 7px 12px;
+  border-bottom: 1px solid rgba(0,0,0,0.03);
+  transition: background 0.15s;
+}
+.dark .os-table-row {
+  border-bottom-color: rgba(255,255,255,0.03);
+}
+.os-table-row-hl {
+  background: color-mix(in srgb, var(--c-accent) 4%, transparent);
+}
+.dark .os-table-row-hl {
+  background: color-mix(in srgb, var(--c-accent) 6%, transparent);
+}
+.os-table-row-warn {
+  background: rgba(245,158,11,0.04);
+}
+.dark .os-table-row-warn {
+  background: rgba(245,158,11,0.06);
+}
+
+/* Status pills */
+.os-status-pill {
+  font-size: 9px;
+  font-weight: 500;
+  padding: 1px 6px;
+  border-radius: 3px;
+}
+.os-status-ok {
+  color: #16a34a;
+  background: rgba(22,163,74,0.08);
+}
+.dark .os-status-ok {
+  color: #4ade80;
+  background: rgba(74,222,128,0.1);
+}
+.os-status-warn {
+  color: #d97706;
+  background: rgba(217,119,6,0.08);
+}
+.dark .os-status-warn {
+  color: #fbbf24;
+  background: rgba(251,191,36,0.1);
+}
+
+/* Alert banner */
+.os-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 0 8px 6px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  background: rgba(245,158,11,0.04);
+  border: 1px solid rgba(245,158,11,0.1);
+  flex-shrink: 0;
+}
+.dark .os-alert {
+  background: rgba(245,158,11,0.06);
+  border-color: rgba(245,158,11,0.12);
+}
+
+/* Status-bar */
+.os-statusbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 12px;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  background: rgba(0,0,0,0.015);
+  flex-shrink: 0;
+}
+.dark .os-statusbar {
+  border-top-color: rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.015);
+}
+.os-statusbar > span,
+.os-statusbar > div {
+  font-size: 9px;
+  color: color-mix(in srgb, var(--c-fg) 25%, transparent);
+  font-family: var(--font-mono, ui-monospace, monospace);
 }
 
 .mockup-glow {
@@ -367,13 +565,6 @@ details summary::-webkit-details-marker { display: none; }
 }
 .dark .mockup-glow-right {
   background: radial-gradient(ellipse at 60% 80%, #2a5a30, transparent 70%);
-}
-
-.showcase-glow {
-  background: radial-gradient(ellipse at 50% 100%, rgba(129,140,248,0.08), transparent 60%);
-}
-.dark .showcase-glow {
-  background: radial-gradient(ellipse at 50% 100%, #2a6a30, transparent 60%);
 }
 
 /* ── Docs prose — clean markdown ── */

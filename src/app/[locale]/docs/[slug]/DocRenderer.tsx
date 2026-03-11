@@ -2,6 +2,7 @@
 
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
 
 export function DocRenderer({ content }: { content: string }) {
   const cleaned = content
@@ -11,7 +12,7 @@ export function DocRenderer({ content }: { content: string }) {
 
   return (
     <div className="prose-docs">
-      <ReactMarkdown remarkPlugins={[remarkGfm]}>{cleaned}</ReactMarkdown>
+      <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>{cleaned}</ReactMarkdown>
     </div>
   );
 }
