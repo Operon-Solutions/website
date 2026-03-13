@@ -212,72 +212,90 @@ export default async function IndustryPage({ params }: Props) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {ind.solutions.map((sol, i) => (
-              <Link
+              <div
                 key={sol.slug}
-                href={`/${locale}/docs/${sol.slug}`}
-                className={`
-                  group relative rounded-2xl border border-fg/[0.06] overflow-hidden
-                  transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
-                  hover:border-fg/[0.12] hover:-translate-y-1
-                  ${i === 0 ? "md:col-span-2" : ""}
-                `}
-                style={{
-                  background:
-                    "linear-gradient(170deg, color-mix(in srgb, var(--c-fg) 4%, transparent) 0%, color-mix(in srgb, var(--c-fg) 1%, transparent) 100%)",
-                }}
+                className={`${i === 0 ? "md:col-span-2" : ""}`}
               >
-                <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-fg/[0.06] to-transparent" />
-
-                <div
-                  className={`p-7 ${i === 0 ? "md:p-9" : ""}`}
+                <Link
+                  href={`/${locale}/docs/${sol.slug}`}
+                  className={`
+                    group relative block rounded-2xl border border-fg/[0.06] overflow-hidden
+                    transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
+                    hover:border-fg/[0.12] hover:-translate-y-1
+                  `}
+                  style={{
+                    background:
+                      "linear-gradient(170deg, color-mix(in srgb, var(--c-fg) 4%, transparent) 0%, color-mix(in srgb, var(--c-fg) 1%, transparent) 100%)",
+                  }}
                 >
-                  <div className="flex items-start justify-between mb-5">
-                    <span className="text-[11px] font-mono text-fg/[0.12]">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    {sol.stat && (
-                      <div className="flex items-baseline gap-1">
-                        <span
-                          className={`font-bold tracking-tighter font-mono leading-none text-fg/80 ${i === 0 ? "text-[22px]" : "text-[18px]"}`}
-                        >
-                          {sol.stat}
-                        </span>
-                        <span className="text-[8px] text-fg/20 uppercase tracking-wider">
-                          {sol.statLabel}
-                        </span>
-                      </div>
-                    )}
-                  </div>
+                  <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-fg/[0.06] to-transparent" />
 
-                  <h3
-                    className={`font-medium mb-3 group-hover:text-accent transition-colors duration-300 ${i === 0 ? "text-[20px]" : "text-[16px]"}`}
+                  <div
+                    className={`p-7 ${i === 0 ? "md:p-9" : ""}`}
                   >
-                    {sol.title}
-                  </h3>
-                  <p
-                    className={`text-fg/35 leading-[1.7] ${i === 0 ? "text-[15px] max-w-xl" : "text-[13px]"}`}
-                  >
-                    {sol.description}
-                  </p>
+                    <div className="flex items-start justify-between mb-5">
+                      <span className="text-[11px] font-mono text-fg/[0.12]">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      {sol.stat && (
+                        <div className="flex items-baseline gap-1">
+                          <span
+                            className={`font-bold tracking-tighter font-mono leading-none text-fg/80 ${i === 0 ? "text-[22px]" : "text-[18px]"}`}
+                          >
+                            {sol.stat}
+                          </span>
+                          <span className="text-[8px] text-fg/20 uppercase tracking-wider">
+                            {sol.statLabel}
+                          </span>
+                        </div>
+                      )}
+                    </div>
 
-                  <span className="inline-flex items-center gap-1 mt-5 text-[12px] text-fg/15 group-hover:text-accent/50 transition-colors duration-300">
-                    {t.learnMore}
-                    <svg
-                      className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
+                    <h3
+                      className={`font-medium mb-3 group-hover:text-accent transition-colors duration-300 ${i === 0 ? "text-[20px]" : "text-[16px]"}`}
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </Link>
+                      {sol.title}
+                    </h3>
+                    <p
+                      className={`text-fg/35 leading-[1.7] ${i === 0 ? "text-[15px] max-w-xl" : "text-[13px]"}`}
+                    >
+                      {sol.description}
+                    </p>
+
+                    <span className="inline-flex items-center gap-1 mt-5 text-[12px] text-fg/15 group-hover:text-accent/50 transition-colors duration-300">
+                      {t.learnMore}
+                      <svg
+                        className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                </Link>
+                {sol.slug === "pid-recognition" && (
+                  <div className="mt-3 pl-7">
+                    <a
+                      href="https://operon-solutions-pid.vercel.app/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-primary !px-4 !py-1.5 !text-[12px] !rounded-full inline-flex items-center gap-1.5"
+                    >
+                      <span>Try Beta</span>
+                      <svg className="w-3 h-3 relative z-[1]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                      </svg>
+                    </a>
+                  </div>
+                )}
+              </div>
             ))}
           </div>
         </div>

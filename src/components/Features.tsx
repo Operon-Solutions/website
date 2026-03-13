@@ -242,15 +242,30 @@ export default function Features() {
                   </div>
                   <h4 className="text-[clamp(1.2rem,2.2vw,1.6rem)] font-medium leading-snug mb-4">{feature.title}</h4>
                   <p className="text-[14px] text-fg/35 leading-[1.7] max-w-md">{feature.description}</p>
-                  <Link
-                    href={`/${locale}/docs/${feature.slug}`}
-                    className="inline-flex items-center gap-1.5 mt-5 text-[13px] text-accent/60 hover:text-accent transition-colors"
-                  >
-                    {dict.features.learnMore}
-                    <svg className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                    </svg>
-                  </Link>
+                  <div className="flex items-center gap-4 mt-5">
+                    <Link
+                      href={`/${locale}/docs/${feature.slug}`}
+                      className="inline-flex items-center gap-1.5 text-[13px] text-accent/60 hover:text-accent transition-colors"
+                    >
+                      {dict.features.learnMore}
+                      <svg className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                      </svg>
+                    </Link>
+                    {feature.slug === "pid-recognition" && (
+                      <a
+                        href="https://operon-solutions-pid.vercel.app/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-primary !px-4 !py-1.5 !text-[12px] !rounded-full inline-flex items-center gap-1.5"
+                      >
+                        <span>Try Beta</span>
+                        <svg className="w-3 h-3 relative z-[1]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                        </svg>
+                      </a>
+                    )}
+                  </div>
                 </div>
                 <div><Mockup /></div>
               </div>
